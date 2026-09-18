@@ -251,20 +251,20 @@
         </div>
         <div class="field-grid" style="margin-top:8px">
           <div class="field">
-            <label for="returnConfirmed">Rückgabe vom Anbieter bestätigt?</label>
+            <label for="returnConfirmed">Rückmeldung des Anbieters</label>
             <select id="returnConfirmed" data-field="return.confirmed">
               <option value="">Noch offen / unbekannt</option>
-              <option value="Ja">Ja</option>
-              <option value="Nein">Nein</option>
+              <option value="Bestätigt">Rückgabe bestätigt</option>
+              <option value="Nicht anerkannt">Rückgabe nicht anerkannt</option>
             </select>
           </div>
           <div class="field">
-            <label for="confirmationDate">Bestätigungsdatum</label>
+            <label for="confirmationDate">Datum der Rückmeldung</label>
             <input id="confirmationDate" type="date" data-field="return.confirmationDate">
           </div>
           <div class="field full">
-            <label for="confirmationRef">Bestätigung / Referenz</label>
-            <input id="confirmationRef" data-field="return.confirmationRef" placeholder="z. B. E-Mail-Betreff, Ticketnummer oder kurzer Hinweis">
+            <label for="confirmationRef">Referenz / Ticket</label>
+            <input id="confirmationRef" data-field="return.confirmationRef" placeholder="z. B. E-Mail-Betreff, Ticketnummer oder Vorgangsnummer">
           </div>
         </div>
         <div class="photo-task" data-task="receipt">

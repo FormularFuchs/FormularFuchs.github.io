@@ -324,6 +324,10 @@
 
   async function renderSummary() {
     const summary = document.getElementById("summary");
+    const created = document.getElementById("docCreatedDate");
+    const updated = document.getElementById("docUpdatedDate");
+    if (created) created.textContent = new Date(state.createdAt).toLocaleString("de-DE");
+    if (updated) updated.textContent = new Date(state.updatedAt).toLocaleString("de-DE");
     const accessories = accessoryList();
     let html = '<div class="summary-card"><h3>Gegenstand</h3>' +
       row("Bezeichnung", state.item.name) +

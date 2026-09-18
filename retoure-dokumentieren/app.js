@@ -39,6 +39,7 @@
   const backBtn = document.getElementById("backBtn");
   const nextBtn = document.getElementById("nextBtn");
   const finalPrintBtn = document.getElementById("finalPrintBtn");
+  const finalBackBtn = document.getElementById("finalBackBtn");
   const startBtn = document.getElementById("startBtn");
   const wizardNav = document.getElementById("wizardNav");
 
@@ -114,10 +115,7 @@
     progressText.textContent = "Schritt " + state.currentStep + " von " + TOTAL_STEPS;
     backBtn.style.visibility = state.currentStep === 1 ? "hidden" : "visible";
     const isFinal = state.currentStep === TOTAL_STEPS;
-    nextBtn.hidden = isFinal;
-    finalPrintBtn.hidden = !isFinal;
-    startBtn.hidden = !isFinal;
-    wizardNav.classList.toggle("final-nav", isFinal);
+    wizardNav.style.display = isFinal ? "none" : "";
     saveState();
     if (state.currentStep === TOTAL_STEPS) renderSummary();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -138,6 +136,7 @@
     if (!validateCurrentStep()) return;
     showStep(state.currentStep + 1);
   });
+  finalBackBtn.addEventListener("click", () => showStep(TOTAL_STEPS - 1));
   startBtn.addEventListener("click", () => showStep(1));
 
   function openDb() {
@@ -393,9 +392,8 @@
     if (!photos.children.length) photos.innerHTML = '<p class="small">Noch keine Fotos oder Belege hinzugefügt.</p>';
   }
 
-  finalPrintBtn.addEventListener("click", async () => {
-    await renderSummary();
-    setTimeout(() => window.print(), 150);
+  finalPrintBtn.addEventListener("click", () => {
+    window.print();
   });
 
   document.getElementById("deleteBtn").addEventListener("click", async () => {

@@ -66,27 +66,58 @@
     .summary-photo img{width:100%;max-height:360px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#fafafa}
     .summary-photo strong{display:block;margin-top:6px}
     .warning{background:var(--note);border:1px solid var(--note-line);border-radius:12px;padding:14px;margin-bottom:16px}
+    .btn-tertiary{background:transparent;color:var(--muted);border:1px solid transparent}
+    .final-actions{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:10px;margin:0 0 18px}
+    .final-actions .btn{width:100%}
+    .document-head{
+      position:relative;overflow:hidden;margin:0 0 18px;color:#172033;border:1px solid #d7e3ef;
+      border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(13,55,94,.08)
+    }
+    .document-banner{
+      position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+      padding:16px 18px;background:linear-gradient(105deg,#0a2c57 0%,#0d4f86 58%,#1386c9 100%);color:#fff
+    }
+    .document-banner::after{
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:4px;
+      background:linear-gradient(90deg,#ff7a00 0 86px,#1597e5 86px 100%)
+    }
+    .document-logo{
+      width:70px;height:70px;display:grid;place-items:center;border:2px solid rgba(255,255,255,.92);
+      border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 5px 16px rgba(0,0,0,.18)
+    }
+    .document-logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .document-brand{font-size:20pt;font-weight:850;line-height:1.05;letter-spacing:-.025em;color:#fff}
+    .brand-formular{color:#fff}.brand-fuchs{color:#4bc3ff}
+    .document-tagline{font-size:8.2pt;color:rgba(255,255,255,.78);margin-top:5px;letter-spacing:.12em;text-transform:uppercase}
+    .document-meta{text-align:right;font-size:8.4pt;line-height:1.5;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);border-radius:11px;padding:9px 11px}
+    .document-title-area{position:relative;padding:19px 20px 18px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+    .document-title{margin:0;font-size:22pt;line-height:1.08;letter-spacing:-.025em;color:#172033}
+    .document-subtitle{margin:6px 0 0;font-size:9.5pt;color:#5b6577}
+    .document-watermark{position:absolute;right:18px;bottom:-13px;font-size:58px;line-height:1;font-weight:900;color:#1597e5;opacity:.035;pointer-events:none;letter-spacing:-.08em}
     .print-only{display:none}
     @media(max-width:720px){
       .field-grid,.choice-grid,.summary-photos{grid-template-columns:1fr}
       .summary-row{grid-template-columns:1fr;gap:2px}
       .wizard-nav{position:sticky;bottom:0;background:rgba(245,247,250,.96);padding:10px 0}
       .wizard-nav .btn{flex:1}
+      .final-actions{grid-template-columns:1fr}
+      .final-actions .btn{width:100%}
     }
     @media print{
       header,.wizard-head,.wizard-nav,.privacy-note,.screen-only{display:none!important}
-      body{background:#fff;font-size:11pt}
+      body{background:#fff;font-size:11pt;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
       .wrap{width:100%;max-width:none}
       .wizard{padding:0}
       .step{display:none!important;box-shadow:none;border:0;padding:0}
       #step-6{display:block!important}
       #step-6>h2,#step-6>.intro{display:none!important}
-      .summary-card{border:0;border-bottom:1px solid #ddd;border-radius:0;padding:12px 0}
-      .summary-card h3{break-after:avoid;page-break-after:avoid}
+      .summary-card{border:0;border-bottom:1px solid #dfe6ee;border-radius:0;padding:12px 0;break-inside:avoid;page-break-inside:avoid}
+      .summary-card h3{break-after:avoid;page-break-after:avoid;color:#1769aa;border-left:3px solid #d9822b;padding-left:8px}
       .summary-row{break-inside:avoid;page-break-inside:avoid}
-      .warning{break-inside:avoid;page-break-inside:avoid;margin:10px 0 14px}
+      .warning{break-inside:avoid;page-break-inside:avoid;margin:10px 0 14px;background:#fff8e8;border-color:#f0d899;color:#3b3528}
       .summary-photos{grid-template-columns:1fr 1fr}
       .print-only{display:block!important}
+      .document-head{break-inside:avoid;page-break-inside:avoid}
       a{color:inherit;text-decoration:none}
     }
   </style>
@@ -275,21 +306,47 @@
       </section>
 
       <section class="step" id="step-6" data-step="6">
-        <div class="print-only">
-          <h1 style="font-size:24pt;margin-bottom:6px">Rückgabe- und Versanddokumentation</h1>
-          <p>Erstellt mit FormularFuchs</p>
+        <div class="final-actions screen-only">
+          <button class="btn btn-secondary" type="button" id="finalBackBtn">Zurück</button>
+          <button class="btn btn-primary" type="button" id="finalPrintBtn">PDF speichern</button>
+          <button class="btn btn-tertiary" type="button" id="finishBtn">Vorgang abschließen</button>
+        </div>
+        <div class="print-only document-head">
+          <div class="document-banner">
+            <div class="document-logo" aria-hidden="true"><img src="/assets/formularfuchs-logo-mark.jpg" alt=""></div>
+            <div>
+              <div class="document-brand"><span class="brand-formular">Formular</span><span class="brand-fuchs">Fuchs</span></div>
+              <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
+            </div>
+            <div class="document-meta">
+              <div>Erstellt: <span id="docCreatedDate">–</span></div>
+              <div>Aktualisiert: <span id="docUpdatedDate">–</span></div>
+            </div>
+          </div>
+          <div class="document-title-area">
+            <div class="document-watermark" aria-hidden="true">FormularFuchs</div>
+            <h1 class="document-title">Rückgabe- und Versanddokumentation</h1>
+            <p class="document-subtitle">Router / Mietgerät · Gerät, Zubehör, Verpackung und Versand</p>
+          </div>
         </div>
         <h2>6. Zusammenfassung</h2>
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
         <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. FormularFuchs prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
         <div id="summary" class="summary"></div>
+        <div id="completionPanel" class="screen-only" hidden style="margin-top:18px;border:1px solid #cfe3f5;background:#f4f9fd;border-radius:14px;padding:18px">
+          <h3 style="margin:0 0 8px;color:#1769aa">✓ Dokumentation abgeschlossen</h3>
+          <p style="margin:0 0 14px">Der Vorgang bleibt lokal auf diesem Gerät gespeichert. Du kannst die PDF erneut speichern oder einen neuen Vorgang beginnen.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" type="button" id="completionPrintBtn">PDF erneut speichern</button>
+            <button class="btn btn-secondary" type="button" id="newCaseBtn">Neuen Vorgang starten</button>
+          </div>
+        </div>
         <div class="screen-only" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-          <button class="btn btn-primary" type="button" id="printBtn">Als PDF speichern / drucken</button>
           <button class="btn btn-danger" type="button" id="deleteBtn">Vorgang löschen</button>
         </div>
       </section>
 
-      <div class="wizard-nav screen-only">
+      <div class="wizard-nav screen-only" id="wizardNav">
         <button class="btn btn-secondary" type="button" id="backBtn">Zurück</button>
         <button class="btn btn-primary" type="button" id="nextBtn">Weiter</button>
       </div>

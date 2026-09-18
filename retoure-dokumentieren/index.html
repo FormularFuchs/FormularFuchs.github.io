@@ -87,8 +87,8 @@
       gap:14px;
       align-items:center;
       padding:16px 18px;
-      background:linear-gradient(105deg,#ffffff 0%,#f4faff 62%,#eaf5fd 100%);
-      color:#0a2c57
+      background:linear-gradient(105deg,#0a2c57 0%,#0d4f86 58%,#1386c9 100%);
+      color:#fff
     }
     .document-banner::after{
       content:"";
@@ -100,37 +100,37 @@
       background:linear-gradient(90deg,#ff7a00 0 86px,#1597e5 86px 100%)
     }
     .document-logo{
-      width:58px;
-      height:58px;
+      width:70px;
+      height:70px;
       display:grid;
       place-items:center;
-      border:1px solid #c9dbea;
-      border-radius:14px;
+      border:2px solid rgba(255,255,255,.92);
+      border-radius:16px;
       background:#fff;
       overflow:hidden;
-      box-shadow:0 3px 10px rgba(9,45,82,.10)
+      box-shadow:0 5px 16px rgba(0,0,0,.18)
     }
-    .document-brand{font-size:19pt;font-weight:850;line-height:1.05;letter-spacing:-.025em;color:#0b2f61}
-    .document-tagline{font-size:8.2pt;color:#44617c;margin-top:5px;letter-spacing:.12em;text-transform:uppercase}
-    .document-meta{text-align:right;font-size:8.4pt;line-height:1.5;color:#284661;background:rgba(255,255,255,.72);border:1px solid #d7e5f0;border-radius:10px;padding:8px 10px}
-    .document-title-area{position:relative;padding:18px 20px 17px;background:#fff}
+    .document-brand{font-size:20pt;font-weight:850;line-height:1.05;letter-spacing:-.025em;color:#fff}
+    .document-tagline{font-size:8.2pt;color:rgba(255,255,255,.78);margin-top:5px;letter-spacing:.12em;text-transform:uppercase}
+    .document-meta{text-align:right;font-size:8.4pt;line-height:1.5;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);border-radius:11px;padding:9px 11px;backdrop-filter:blur(2px)}
+    .document-title-area{position:relative;padding:19px 20px 18px;background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%)}
     .document-title{margin:0;font-size:22pt;line-height:1.08;letter-spacing:-.025em;color:#172033}
     .document-subtitle{margin:6px 0 0;font-size:9.5pt;color:#5b6577}
     .document-watermark{
       position:absolute;
       right:18px;
       bottom:-13px;
-      font-size:68px;
+      font-size:58px;
       line-height:1;
       font-weight:900;
       color:#1597e5;
-      opacity:.055;
+      opacity:.035;
       pointer-events:none;
       letter-spacing:-.08em
     }
     .document-logo img{width:100%;height:100%;object-fit:cover;display:block}
-    .brand-formular{color:#0b2f61}
-    .brand-fuchs{color:#1597e5}
+    .brand-formular{color:#fff}
+    .brand-fuchs{color:#4bc3ff}
     @media(max-width:720px){
       .field-grid,.choice-grid,.summary-photos{grid-template-columns:1fr}
       .summary-row{grid-template-columns:1fr;gap:2px}
@@ -325,7 +325,6 @@
               <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
             </div>
             <div class="document-meta">
-              <div><strong>Dokumentation</strong></div>
               <div>Erstellt: <span id="docCreatedDate">–</span></div>
               <div>Aktualisiert: <span id="docUpdatedDate">–</span></div>
             </div>

@@ -42,6 +42,13 @@
   const saveStatus = document.getElementById("saveStatus");
   const backBtn = document.getElementById("backBtn");
   const nextBtn = document.getElementById("nextBtn");
+  const finalPrintBtn = document.getElementById("finalPrintBtn");
+  const finalBackBtn = document.getElementById("finalBackBtn");
+  const finishBtn = document.getElementById("finishBtn");
+  const completionPanel = document.getElementById("completionPanel");
+  const completionPrintBtn = document.getElementById("completionPrintBtn");
+  const newCaseBtn = document.getElementById("newCaseBtn");
+  const wizardNav = document.getElementById("wizardNav");
 
   function loadState() {
     try {
@@ -114,9 +121,17 @@
     progressBar.style.width = ((state.currentStep / TOTAL_STEPS) * 100) + "%";
     progressText.textContent = "Schritt " + state.currentStep + " von " + TOTAL_STEPS;
     backBtn.style.visibility = state.currentStep === 1 ? "hidden" : "visible";
-    nextBtn.textContent = state.currentStep === TOTAL_STEPS ? "Zurück zum Anfang" : "Weiter";
+    const isFinal = state.currentStep === TOTAL_STEPS;
+    wizardNav.style.display = isFinal ? "none" : "";
     saveState();
-    if (state.currentStep === TOTAL_STEPS) renderSummary();
+    if (isFinal) {
+      renderSummary();
+      if (completionPanel) completionPanel.hidden = true;
+      if (finishBtn) {
+        finishBtn.disabled = false;
+        finishBtn.textContent = "Vorgang abschließen";
+      }
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -132,9 +147,32 @@
 
   backBtn.addEventListener("click", () => showStep(state.currentStep - 1));
   nextBtn.addEventListener("click", () => {
-    if (state.currentStep === TOTAL_STEPS) return showStep(1);
     if (!validateCurrentStep()) return;
     showStep(state.currentStep + 1);
+  });
+  finalBackBtn.addEventListener("click", () => showStep(TOTAL_STEPS - 1));
+  finishBtn.addEventListener("click", () => {
+    completionPanel.hidden = false;
+    finishBtn.disabled = true;
+    finishBtn.textContent = "Abgeschlossen ✓";
+    completionPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+  completionPrintBtn.addEventListener("click", () => window.print());
+  newCaseBtn.addEventListener("click", async () => {
+    if (!confirm("Neuen Vorgang starten? Der aktuelle lokale Vorgang und seine Fotos werden gelöscht.")) return;
+    const oldCase = state.caseId;
+    localStorage.removeItem(STORAGE_KEY);
+    try { await deleteCaseFiles(oldCase); } catch (e) {}
+    objectUrls.forEach(url => URL.revokeObjectURL(url));
+    objectUrls.clear();
+    state = defaultState();
+    form.reset();
+    hydrateForm();
+    saveState();
+    completionPanel.hidden = true;
+    finishBtn.disabled = false;
+    finishBtn.textContent = "Vorgang abschließen";
+    showStep(1);
   });
 
   function openDb() {
@@ -346,6 +384,10 @@
 
   async function renderSummary() {
     const summary = document.getElementById("summary");
+    const created = document.getElementById("docCreatedDate");
+    const updated = document.getElementById("docUpdatedDate");
+    if (created) created.textContent = new Date(state.createdAt).toLocaleString("de-DE");
+    if (updated) updated.textContent = new Date(state.updatedAt).toLocaleString("de-DE");
     const accessories = accessoryList();
     let html = '<div class="summary-card"><h3>Gegenstand</h3>' +
       row("Bezeichnung", state.item.name) +
@@ -411,9 +453,8 @@
     if (!photos.children.length) photos.innerHTML = '<p class="small">Noch keine Fotos oder Belege hinzugefügt.</p>';
   }
 
-  document.getElementById("printBtn").addEventListener("click", async () => {
-    await renderSummary();
-    setTimeout(() => window.print(), 150);
+  finalPrintBtn.addEventListener("click", () => {
+    window.print();
   });
 
   document.getElementById("deleteBtn").addEventListener("click", async () => {

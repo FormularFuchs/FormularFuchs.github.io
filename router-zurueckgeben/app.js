@@ -350,9 +350,9 @@
       row("Sendungsnummer", state.shipment.tracking) +
       row("Versanddatum", formatDate(state.shipment.date)) +
       row("Paketgewicht", formatWeight(state.shipment.weight)) +
-      row("Rückgabe bestätigt", state.return.confirmed) +
-      row("Bestätigungsdatum", formatDate(state.return.confirmationDate)) +
-      row("Bestätigung / Referenz", state.return.confirmationRef) +
+      row("Rückmeldung des Anbieters", state.return.confirmed) +
+      row("Datum der Rückmeldung", formatDate(state.return.confirmationDate)) +
+      row("Referenz / Ticket", state.return.confirmationRef) +
       row("Dokumentation erstellt", new Date(state.createdAt).toLocaleString("de-DE")) +
       row("Zuletzt geändert", new Date(state.updatedAt).toLocaleString("de-DE")) +
       '</div>';

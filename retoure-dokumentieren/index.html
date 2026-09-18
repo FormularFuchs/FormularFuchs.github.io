@@ -80,8 +80,11 @@
       .wizard{padding:0}
       .step{display:none!important;box-shadow:none;border:0;padding:0}
       #step-6{display:block!important}
-      #step-6>h2,#step-6>.intro,#step-6>.warning{display:none!important}
+      #step-6>h2,#step-6>.intro{display:none!important}
       .summary-card{border:0;border-bottom:1px solid #ddd;border-radius:0;padding:12px 0}
+      .summary-card h3{break-after:avoid;page-break-after:avoid}
+      .summary-row{break-inside:avoid;page-break-inside:avoid}
+      .warning{break-inside:avoid;page-break-inside:avoid;margin:10px 0 14px}
       .summary-photos{grid-template-columns:1fr 1fr}
       .print-only{display:block!important}
       a{color:inherit;text-decoration:none}
@@ -127,6 +130,10 @@
             <span class="hint">Bei Geräten besonders hilfreich.</span>
           </div>
           <div class="field">
+            <label for="sender">Absender / Name</label>
+            <input id="sender" data-field="party.sender" placeholder="optional">
+          </div>
+          <div class="field">
             <label for="seller">Händler / Empfänger</label>
             <input id="seller" data-field="party.recipient" placeholder="optional">
           </div>
@@ -158,8 +165,8 @@
         <h2>3. Zubehör und Inhalt</h2>
         <p class="intro">Markiere typische Bestandteile und ergänze weitere Dinge, die du mitsendest.</p>
         <div class="check-list">
-          <label class="check"><input type="checkbox" data-check="accessories.powerSupply"><span><strong>Netzteil / Ladegerät</strong><br><span class="hint">falls zum Artikel gehörend</span></span></label>
-          <label class="check"><input type="checkbox" data-check="accessories.cable"><span><strong>Kabel</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.powerSupply"><span><strong>Netzteil / Ladegerät</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.cable"><span><strong>Kabel / Anschlussleitung</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
           <label class="check"><input type="checkbox" data-check="accessories.manual"><span><strong>Anleitung / Unterlagen</strong></span></label>
           <label class="check"><input type="checkbox" data-check="accessories.originalBox"><span><strong>Originalverpackung</strong></span></label>
         </div>
@@ -226,8 +233,8 @@
             <input id="shipDate" type="date" data-field="shipment.date">
           </div>
           <div class="field">
-            <label for="weight">Paketgewicht</label>
-            <input id="weight" data-field="shipment.weight" placeholder="z. B. 2,4 kg">
+            <label for="weight">Paketgewicht (kg)</label>
+            <input id="weight" inputmode="decimal" data-field="shipment.weight" placeholder="z. B. 2,4">
           </div>
         </div>
         <div class="photo-task" data-task="receipt">

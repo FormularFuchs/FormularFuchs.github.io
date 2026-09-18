@@ -38,6 +38,9 @@
   const saveStatus = document.getElementById("saveStatus");
   const backBtn = document.getElementById("backBtn");
   const nextBtn = document.getElementById("nextBtn");
+  const finalPrintBtn = document.getElementById("finalPrintBtn");
+  const startBtn = document.getElementById("startBtn");
+  const wizardNav = document.getElementById("wizardNav");
 
   function loadState() {
     try {
@@ -110,7 +113,11 @@
     progressBar.style.width = ((state.currentStep / TOTAL_STEPS) * 100) + "%";
     progressText.textContent = "Schritt " + state.currentStep + " von " + TOTAL_STEPS;
     backBtn.style.visibility = state.currentStep === 1 ? "hidden" : "visible";
-    nextBtn.textContent = state.currentStep === TOTAL_STEPS ? "Zurück zum Anfang" : "Weiter";
+    const isFinal = state.currentStep === TOTAL_STEPS;
+    nextBtn.hidden = isFinal;
+    finalPrintBtn.hidden = !isFinal;
+    startBtn.hidden = !isFinal;
+    wizardNav.classList.toggle("final-nav", isFinal);
     saveState();
     if (state.currentStep === TOTAL_STEPS) renderSummary();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -128,10 +135,10 @@
 
   backBtn.addEventListener("click", () => showStep(state.currentStep - 1));
   nextBtn.addEventListener("click", () => {
-    if (state.currentStep === TOTAL_STEPS) return showStep(1);
     if (!validateCurrentStep()) return;
     showStep(state.currentStep + 1);
   });
+  startBtn.addEventListener("click", () => showStep(1));
 
   function openDb() {
     if (dbPromise) return dbPromise;
@@ -386,7 +393,7 @@
     if (!photos.children.length) photos.innerHTML = '<p class="small">Noch keine Fotos oder Belege hinzugefügt.</p>';
   }
 
-  document.getElementById("printBtn").addEventListener("click", async () => {
+  finalPrintBtn.addEventListener("click", async () => {
     await renderSummary();
     setTimeout(() => window.print(), 150);
   });

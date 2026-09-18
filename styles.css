@@ -1,0 +1,189 @@
+:root{
+  --bg:#f5f7fa;
+  --card:#fff;
+  --text:#172033;
+  --muted:#5b6577;
+  --line:#e3e8ef;
+  --brand:#1769aa;
+  --brand-dark:#0f4f83;
+  --soft:#eaf3fb;
+  --note:#fff8e8;
+  --note-line:#f0d899;
+  --shadow:0 10px 30px rgba(23,32,51,.08);
+  --radius:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6
+}
+a{color:var(--brand)}
+.wrap{width:min(1040px,calc(100% - 32px));margin:0 auto}
+header{
+  background:linear-gradient(135deg,#0e3556 0%,#1769aa 100%);
+  color:#fff;
+  padding:18px 0
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.2px
+}
+.fox{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:rgba(255,255,255,.14);
+  font-size:22px
+}
+.hero{padding:54px 0 30px}
+.hero-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:clamp(28px,5vw,54px)
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--soft);
+  color:var(--brand-dark);
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:.9rem;
+  font-weight:700;
+  margin-bottom:16px
+}
+h1{
+  margin:0 0 14px;
+  font-size:clamp(2.1rem,7vw,4rem);
+  line-height:1.04;
+  letter-spacing:-.04em
+}
+h2{margin:0 0 12px;font-size:1.5rem;line-height:1.25}
+h3{margin:0 0 8px;font-size:1.1rem}
+p{margin:0 0 12px}
+p:last-child{margin-bottom:0}
+.lead{
+  margin:0;
+  color:var(--muted);
+  font-size:clamp(1.05rem,2.5vw,1.22rem);
+  max-width:800px
+}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.button{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:48px;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:800;
+  text-decoration:none;
+  transition:transform .15s ease,box-shadow .15s ease
+}
+.button:hover{transform:translateY(-1px)}
+.primary{
+  background:var(--brand);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(23,105,170,.22)
+}
+.secondary{
+  border:1px solid var(--line);
+  color:var(--text);
+  background:#fff
+}
+.facts{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:28px
+}
+.fact{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  background:#fbfcfe;
+  font-size:.96rem;
+  font-weight:650
+}
+main{padding-bottom:58px}
+section{margin-top:20px}
+.section-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.tool-card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  text-decoration:none;
+  color:var(--text);
+  box-shadow:0 6px 18px rgba(23,32,51,.04)
+}
+a.tool-card:hover{
+  border-color:#bfd7eb;
+  box-shadow:0 10px 24px rgba(23,32,51,.08)
+}
+.tool-card .icon{font-size:1.6rem}
+.tool-card p{margin:0;color:var(--muted)}
+.badge{
+  display:inline-flex;
+  align-self:flex-start;
+  background:var(--soft);
+  color:var(--brand-dark);
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:.82rem;
+  font-weight:750
+}
+.note{
+  background:var(--note);
+  border:1px solid var(--note-line);
+  border-radius:var(--radius);
+  padding:24px
+}
+.small{color:var(--muted);font-size:.93rem}
+footer{
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  padding:28px 0 42px;
+  font-size:.92rem
+}
+footer .links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:8px
+}
+@media(max-width:720px){
+  .hero{padding-top:28px}
+  .hero-card{border-radius:18px}
+  .facts,.grid{grid-template-columns:1fr}
+  .actions{flex-direction:column}
+  .button{width:100%}
+  .section-card{padding:22px}
+}

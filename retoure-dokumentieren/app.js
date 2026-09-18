@@ -22,7 +22,7 @@
     updatedAt: new Date().toISOString(),
     currentStep: 1,
     item: { name: "", manufacturer: "", model: "", serial: "", reason: "" },
-    party: { recipient: "" },
+    party: { sender: "", recipient: "" },
     condition: { rating: "", note: "" },
     accessories: { powerSupply: false, cable: false, manual: false, originalBox: false, other: "" },
     shipment: { carrier: "", tracking: "", date: "", weight: "" }
@@ -297,7 +297,7 @@
   function accessoryList() {
     const items = [];
     if (state.accessories.powerSupply) items.push("Netzteil / Ladegerät");
-    if (state.accessories.cable) items.push("Kabel");
+    if (state.accessories.cable) items.push("Kabel / Anschlussleitung");
     if (state.accessories.manual) items.push("Anleitung / Unterlagen");
     if (state.accessories.originalBox) items.push("Originalverpackung");
     if (state.accessories.other) items.push(...state.accessories.other.split("\n").map(x => x.trim()).filter(Boolean));
@@ -308,6 +308,20 @@
     return '<div class="summary-row"><div class="summary-key">' + esc(key) + '</div><div>' + display(value) + '</div></div>';
   }
 
+  function formatDate(value) {
+    if (!value) return "";
+    const parts = String(value).split("-");
+    if (parts.length !== 3) return value;
+    return parts[2] + "." + parts[1] + "." + parts[0];
+  }
+
+  function formatWeight(value) {
+    const v = String(value || "").trim();
+    if (!v) return "";
+    if (/[a-zA-Z]/.test(v)) return v;
+    return v + " kg";
+  }
+
   async function renderSummary() {
     const summary = document.getElementById("summary");
     const accessories = accessoryList();
@@ -316,6 +330,7 @@
       row("Hersteller", state.item.manufacturer) +
       row("Modell", state.item.model) +
       row("Seriennummer / Kennung", state.item.serial) +
+      row("Absender", state.party.sender) +
       row("Empfänger", state.party.recipient) +
       row("Rücksendegrund", state.item.reason) +
       '</div>';
@@ -329,8 +344,8 @@
     html += '<div class="summary-card"><h3>Versand</h3>' +
       row("Paketdienst", state.shipment.carrier) +
       row("Sendungsnummer", state.shipment.tracking) +
-      row("Versanddatum", state.shipment.date) +
-      row("Paketgewicht", state.shipment.weight) +
+      row("Versanddatum", formatDate(state.shipment.date)) +
+      row("Paketgewicht", formatWeight(state.shipment.weight)) +
       row("Dokumentation erstellt", new Date(state.createdAt).toLocaleString("de-DE")) +
       row("Zuletzt geändert", new Date(state.updatedAt).toLocaleString("de-DE")) +
       '</div>';

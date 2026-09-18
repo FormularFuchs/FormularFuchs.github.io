@@ -73,70 +73,61 @@
     .document-head{
       position:relative;
       overflow:hidden;
-      border-bottom:2px solid #1769aa;
-      padding:0 0 16px;
-      margin:0 0 16px;
-      color:#172033
+      margin:0 0 18px;
+      color:#172033;
+      border:1px solid #dbe4ee;
+      border-radius:16px;
+      background:#fff
     }
-    .document-head::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-2px;
-      width:82px;
-      height:4px;
-      background:#d9822b;
-      z-index:3
-    }
-    .document-head-main{
+    .document-banner{
       position:relative;
-      z-index:2;
       display:grid;
       grid-template-columns:auto 1fr auto;
       gap:14px;
-      align-items:center
+      align-items:center;
+      padding:16px 18px;
+      background:linear-gradient(100deg,#0e3556 0%,#1769aa 70%,#1f78b9 100%);
+      color:#fff
+    }
+    .document-banner::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:4px;
+      background:linear-gradient(90deg,#d9822b 0 82px,rgba(255,255,255,.35) 82px 100%)
     }
     .document-logo{
       width:58px;
       height:58px;
       display:grid;
       place-items:center;
-      border:1.5px solid #1769aa;
+      border:1px solid rgba(255,255,255,.72);
       border-radius:14px;
-      background:#f6fbff;
-      color:#1769aa;
-      box-shadow:inset 0 0 0 3px #fff
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:900;
+      letter-spacing:-.05em;
+      font-size:20px
     }
-    .document-logo svg{width:44px;height:44px;display:block}
-    .document-brand{font-size:17pt;font-weight:850;line-height:1.05;letter-spacing:-.02em;color:#1769aa}
-    .document-tagline{font-size:8.5pt;color:#5b6577;margin-top:4px}
-    .document-meta{text-align:right;font-size:8.5pt;line-height:1.45;color:#445064}
-    .document-title{
-      position:relative;
-      z-index:2;
-      margin:16px 0 0;
-      font-size:22pt;
-      line-height:1.08;
-      letter-spacing:-.025em;
-      color:#172033
-    }
-    .document-subtitle{
-      position:relative;
-      z-index:2;
-      margin:5px 0 0;
-      font-size:9.5pt;
-      color:#5b6577
-    }
+    .document-brand{font-size:18pt;font-weight:850;line-height:1.05;letter-spacing:-.02em;color:#fff}
+    .document-tagline{font-size:8.7pt;color:rgba(255,255,255,.82);margin-top:4px}
+    .document-meta{text-align:right;font-size:8.4pt;line-height:1.5;color:rgba(255,255,255,.92)}
+    .document-title-area{position:relative;padding:18px 20px 17px;background:#fff}
+    .document-title{margin:0;font-size:22pt;line-height:1.08;letter-spacing:-.025em;color:#172033}
+    .document-subtitle{margin:6px 0 0;font-size:9.5pt;color:#5b6577}
     .document-watermark{
       position:absolute;
-      z-index:1;
-      right:20px;
-      top:15px;
-      width:135px;
-      height:135px;
+      right:14px;
+      bottom:-18px;
+      font-size:82px;
+      line-height:1;
+      font-weight:900;
       color:#1769aa;
-      opacity:.065;
-      pointer-events:none
+      opacity:.045;
+      pointer-events:none;
+      letter-spacing:-.08em
     }
     @media(max-width:720px){
       .field-grid,.choice-grid,.summary-photos{grid-template-columns:1fr}
@@ -322,26 +313,11 @@
         <div class="final-actions screen-only">
           <button class="btn btn-secondary" type="button" id="finalBackBtn">Zurück</button>
           <button class="btn btn-primary" type="button" id="finalPrintBtn">PDF speichern</button>
-          <button class="btn btn-tertiary" type="button" id="startBtn">Zum Anfang</button>
+          <button class="btn btn-tertiary" type="button" id="finishBtn">Vorgang abschließen</button>
         </div>
         <div class="print-only document-head">
-          
-          <svg class="document-watermark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 13l14 8 7-4 7 4 14-8-4 21c-2 11-9 18-17 21-8-3-15-10-17-21z"/>
-            <path d="M15 18l9 6M49 18l-9 6M23 38l9 7 9-7"/>
-            <circle cx="24" cy="32" r="1.8" fill="currentColor" stroke="none"/>
-            <circle cx="40" cy="32" r="1.8" fill="currentColor" stroke="none"/>
-            <path d="M29 45h6"/>
-          </svg>
-          <div class="document-head-main">
-            <div class="document-logo">
-            <svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 13l14 8 7-4 7 4 14-8-4 21c-2 11-9 18-17 21-8-3-15-10-17-21z"/>
-              <path d="M15 18l9 6M49 18l-9 6M23 38l9 7 9-7"/>
-              <circle cx="24" cy="32" r="1.8" fill="currentColor" stroke="none"/>
-              <circle cx="40" cy="32" r="1.8" fill="currentColor" stroke="none"/>
-              <path d="M29 45h6"/>
-            </svg></div>
+          <div class="document-banner">
+            <div class="document-logo" aria-hidden="true">FF</div>
             <div>
               <div class="document-brand">FormularFuchs</div>
               <div class="document-tagline">Praktische Helfer und Formulare für den Alltag</div>
@@ -352,13 +328,24 @@
               <div>Aktualisiert: <span id="docUpdatedDate">–</span></div>
             </div>
           </div>
-          <h1 class="document-title">Versand- und Zustandsdokumentation</h1>
-          <p class="document-subtitle">Retoure · Zustand, Inhalt, Verpackung und Versand</p>
+          <div class="document-title-area">
+            <div class="document-watermark" aria-hidden="true">FF</div>
+            <h1 class="document-title">Versand- und Zustandsdokumentation</h1>
+            <p class="document-subtitle">Retoure · Zustand, Inhalt, Verpackung und Versand</p>
+          </div>
         </div>
         <h2>6. Zusammenfassung</h2>
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
         <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. FormularFuchs prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
         <div id="summary" class="summary"></div>
+        <div id="completionPanel" class="screen-only" hidden style="margin-top:18px;border:1px solid #cfe3f5;background:#f4f9fd;border-radius:14px;padding:18px">
+          <h3 style="margin:0 0 8px;color:#1769aa">✓ Dokumentation abgeschlossen</h3>
+          <p style="margin:0 0 14px">Der Vorgang bleibt lokal auf diesem Gerät gespeichert. Du kannst die PDF erneut speichern oder einen neuen Vorgang beginnen.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" type="button" id="completionPrintBtn">PDF erneut speichern</button>
+            <button class="btn btn-secondary" type="button" id="newCaseBtn">Neuen Vorgang starten</button>
+          </div>
+        </div>
         <div class="screen-only" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
           <button class="btn btn-danger" type="button" id="deleteBtn">Vorgang löschen</button>
         </div>

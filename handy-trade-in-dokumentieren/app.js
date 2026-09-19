@@ -538,6 +538,58 @@
     return v + " €";
   }
 
+  function renderMissingCheck(photoTypes) {
+    const hints = [];
+    const suggest = (message, step) => hints.push({ message, step });
+    if (!String(state.party.recipient || "").trim())
+      suggest("Empfänger / Ankaufportal ergänzen, falls bekannt.", 1);
+    if (!state.condition.rating)
+      suggest("Zustand unmittelbar vor dem Verpacken auswählen.", 2);
+    if (!String(state.item.serial || "").trim() && !String(state.item.imei || "").trim())
+      suggest("Seriennummer oder IMEI ergänzen, falls vorhanden.", 1);
+    if (!String(state.offer.originalAmount || "").trim())
+      suggest("Ursprüngliches Ankaufangebot ergänzen, falls vorhanden.", 1);
+    if (!photoTypes.has("overall"))
+      suggest("Eine Gesamtansicht als Foto hinzufügen, wenn möglich.", 4);
+    if (!photoTypes.has("closedPackage"))
+      suggest("Das verschlossene Paket fotografieren, falls noch möglich.", 5);
+    if (!String(state.shipment.tracking || "").trim() &&
+        (state.shipment.carrier || state.shipment.date))
+      suggest("Sendungsnummer nach dem Versand ergänzen, sofern vorhanden.", 6);
+
+    missingCheck.replaceChildren();
+    missingCheck.hidden = false;
+    const title = document.createElement("strong");
+    title.textContent = hints.length ? "Vor dem PDF noch kurz prüfen" : "PDF bereit";
+    missingCheck.appendChild(title);
+    const intro = document.createElement("p");
+    intro.textContent = hints.length
+      ? "Diese Angaben können die Dokumentation ergänzen. Unzutreffende oder noch unbekannte Punkte darfst du überspringen – das PDF bleibt speicherbar."
+      : "Keine zusätzlichen Hinweise zu den wichtigsten Angaben. Bitte prüfe die Zusammenfassung trotzdem.";
+    missingCheck.appendChild(intro);
+    if (!hints.length) {
+      intro.classList.add("missing-ok");
+      return;
+    }
+    const list = document.createElement("ul");
+    for (const hint of hints) {
+      const li = document.createElement("li");
+      const label = document.createElement("span");
+      label.textContent = hint.message + " ";
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn btn-secondary";
+      button.textContent = "Schritt " + hint.step + " öffnen";
+      button.style.minHeight = "36px";
+      button.style.padding = "4px 9px";
+      button.style.margin = "4px 0";
+      button.addEventListener("click", () => showStep(hint.step));
+      li.append(label, button);
+      list.appendChild(li);
+    }
+    missingCheck.appendChild(list);
+  }
+
   async function renderSummary() {
     const summary = document.getElementById("summary");
     summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
@@ -617,9 +669,11 @@
     }
 
     const photos = document.getElementById("summaryPhotos");
+    const presentPhotoTypes = new Set();
     for (const [type, label] of Object.entries(photoLabels)) {
       const record = await getFile(type);
       if (!record) continue;
+      presentPhotoTypes.add(type);
       if (type === "receipt" && receiptIsPdf) continue;
       const box = document.createElement("div");
       box.className = "summary-photo";
@@ -663,6 +717,7 @@
         img.replaceWith(warning);
       }
     }));
+    renderMissingCheck(presentPhotoTypes);
   }
 
   finalPrintBtn.addEventListener("click", () => {

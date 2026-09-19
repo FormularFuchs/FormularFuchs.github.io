@@ -311,6 +311,35 @@
     .followup-block h3{color:#07365f;margin:0 0 6px}
     .followup-block p{margin:0 0 14px}
     @media(max-width:720px){.followup-block{padding:14px}}
+
+    /* Mehrere Vorgänge – kompakt auf Mobilgeräten, nur im Browser sichtbar */
+    .helper-page .case-manager{
+      margin:17px 0 6px;
+      padding:15px;
+      border:2px solid #b6ccde;
+      border-radius:14px;
+      background:#eef5fb;
+      color:#163b5b;
+    }
+    .helper-page .case-manager-heading{font-weight:850;color:#07365f}
+    .helper-page .case-manager-hint{font-size:.85rem;color:#40596e;margin:3px 0 12px}
+    .helper-page .case-manager-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}
+    .helper-page .case-manager-actions label{display:grid;gap:5px;font-size:.87rem}
+    .helper-page .case-manager-actions select{width:100%;min-width:0}
+    .helper-page .case-manager-actions .btn{white-space:normal;text-align:center}
+    .helper-page .missing-check{
+      margin:0 0 18px;padding:15px;border:2px solid #bed6e6;
+      border-radius:13px;background:#edf6fd;color:#193b5d
+    }
+    .helper-page .missing-check strong{color:#07365f}
+    .helper-page .missing-check p{margin:5px 0 8px}
+    .helper-page .missing-check ul{margin:8px 0 8px;padding-left:22px}
+    .helper-page .missing-check li{margin:4px 0}
+    .helper-page .missing-check .missing-ok{color:#17613f}
+    @media(max-width:720px){
+      .helper-page .case-manager-actions{grid-template-columns:1fr}
+      .helper-page .case-manager-actions .btn{width:100%}
+    }
     @media print{
       header,.wizard-head,.wizard-nav,.privacy-note,.screen-only{display:none!important}
       body{background:#fff;font-size:11pt;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -348,6 +377,16 @@
       <div class="eyebrow">Testversion · Daten bleiben auf deinem Gerät</div>
       <h1>Router / Mietgerät zurückgeben</h1>
       <p class="lead">Halte Gerät, Seriennummer, Zubehör, Verpackung und Versand deiner Rückgabe strukturiert fest.</p>
+      <div class="case-manager screen-only">
+        <div class="case-manager-heading">Meine Vorgänge <span id="caseCount"></span></div>
+        <p class="case-manager-hint">Nur in diesem Browser gespeichert. Wähle einen bisherigen Vorgang oder beginne einen neuen.</p>
+        <div class="case-manager-actions">
+          <label for="caseSelect">Gespeicherten Vorgang öffnen
+            <select id="caseSelect" aria-label="Gespeicherten Vorgang öffnen"></select>
+          </label>
+          <button class="btn btn-secondary" type="button" id="createCaseTopBtn">+ Neuer Vorgang</button>
+        </div>
+      </div>
       <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
       <div class="progress-label"><span id="progressText">Schritt 1 von 6</span><span id="saveStatus">lokal gespeichert</span></div>
     </div>
@@ -567,10 +606,11 @@
         <h2>6. Zusammenfassung</h2>
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
         <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. FormularFuchs prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
+        <div id="missingCheck" class="missing-check screen-only" aria-live="polite" hidden></div>
         <div id="summary" class="summary"></div>
         <div class="screen-only local-case-note">
           <strong>Automatisch lokal gespeichert</strong>
-          <p>Du kannst Angaben weiterhin ändern und die PDF jederzeit erneut speichern. Ein neuer Vorgang ersetzt den aktuellen und löscht dessen Fotos und Belege auf diesem Gerät.</p>
+          <p>Du kannst Angaben weiterhin ändern und die PDF jederzeit erneut speichern. Du kannst weitere Vorgänge anlegen und später hierher zurückkehren. Die Daten bleiben in diesem Browser, bis du sie löschst oder die Browserdaten entfernt werden.</p>
           <button class="btn btn-secondary" type="button" id="newCaseBtn">Neuen Vorgang starten</button>
         </div>
         <div class="screen-only" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">

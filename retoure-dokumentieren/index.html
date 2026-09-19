@@ -63,6 +63,9 @@
     .summary-card h3{margin-bottom:10px}
     .summary-row{display:grid;grid-template-columns:180px 1fr;gap:12px;padding:7px 0;border-bottom:1px solid #edf0f4}
     .summary-row:last-child{border-bottom:0}
+    .summary-row>div{min-width:0;overflow-wrap:anywhere}
+    .summary-row>div:last-child{white-space:pre-wrap}
+    .summary-photo strong,.summary-photo .hint{overflow-wrap:anywhere}
     .summary-key{color:var(--muted)}
     .summary-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .summary-photo{break-inside:avoid}
@@ -376,6 +379,17 @@
       #step-6>h2,#step-6>.intro{display:none!important}
       .summary-card{border:0;border-bottom:1px solid #dfe6ee;border-radius:0;padding:9px 0;break-inside:avoid;page-break-inside:avoid}
       .summary-card.photo-summary-card{break-inside:auto;page-break-inside:auto}
+      /* Nur ausnahmsweise lange Textkarten über Seiten umbrechen;
+         Standardfälle behalten die getestete kompakte Aufteilung. */
+      .summary-card.summary-card-long{break-inside:auto;page-break-inside:auto}
+      .summary-card.summary-card-long .summary-row-long{
+        display:block;
+        break-inside:auto;
+        page-break-inside:auto;
+      }
+      .summary-card.summary-card-long .summary-row-long .summary-key{
+        margin-bottom:4px;
+      }
       .summary-card.photo-summary-card h3{break-after:avoid;page-break-after:avoid}
       .summary-photo{break-inside:avoid;page-break-inside:avoid}
       /* Foto und Bildunterschrift bleiben immer zusammen. */
@@ -421,7 +435,7 @@
       <p class="lead">Halte Gegenstand, Zustand, Zubehör, Fotos, Verpackung und Versand strukturiert fest.</p>
       <div class="case-manager screen-only">
         <div class="case-manager-heading">Meine Vorgänge <span id="caseCount"></span></div>
-        <p class="case-manager-hint">Nur in diesem Browser gespeichert. Wähle einen bisherigen Vorgang oder beginne einen neuen.</p>
+        <p class="case-manager-hint">Nur in diesem Browser gespeichert – bei gelöschten Browserdaten oder Gerätewechsel nicht mehr verfügbar. Fertige PDFs separat sichern.</p>
         <div class="case-manager-actions">
           <label for="caseSelect">Gespeicherten Vorgang öffnen
             <select id="caseSelect" aria-label="Gespeicherten Vorgang öffnen"></select>
@@ -618,7 +632,7 @@
         <div id="summary" class="summary"></div>
         <div class="screen-only local-case-note">
           <strong>Automatisch lokal gespeichert</strong>
-          <p>Du kannst Angaben weiterhin ändern und die PDF jederzeit erneut speichern. Du kannst weitere Vorgänge anlegen und später hierher zurückkehren. Die Daten bleiben in diesem Browser, bis du sie löschst oder die Browserdaten entfernt werden.</p>
+          <p>Du kannst Angaben ändern, die PDF erneut speichern und weitere Vorgänge anlegen. Sichere die fertige PDF außerhalb dieses Browsers: Die gespeicherten Vorgänge und Fotos werden nicht auf ein neues Gerät übertragen und können beim Löschen von Browserdaten verloren gehen.</p>
           <button class="btn btn-secondary" type="button" id="newCaseBtn">Neuen Vorgang starten</button>
         </div>
         <div class="screen-only" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">

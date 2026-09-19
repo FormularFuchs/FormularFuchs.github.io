@@ -40,9 +40,6 @@
   const nextBtn = document.getElementById("nextBtn");
   const finalPrintBtn = document.getElementById("finalPrintBtn");
   const finalBackBtn = document.getElementById("finalBackBtn");
-  const finishBtn = document.getElementById("finishBtn");
-  const completionPanel = document.getElementById("completionPanel");
-  const completionPrintBtn = document.getElementById("completionPrintBtn");
   const newCaseBtn = document.getElementById("newCaseBtn");
   const wizardNav = document.getElementById("wizardNav");
 
@@ -122,11 +119,7 @@
     saveState();
     if (state.currentStep === TOTAL_STEPS) {
       renderSummary();
-      if (completionPanel) completionPanel.hidden = true;
-      if (finishBtn) {
-        finishBtn.disabled = false;
-        finishBtn.textContent = "Vorgang abschließen";
-      }
+
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -147,13 +140,6 @@
     showStep(state.currentStep + 1);
   });
   finalBackBtn.addEventListener("click", () => showStep(TOTAL_STEPS - 1));
-  finishBtn.addEventListener("click", () => {
-    completionPanel.hidden = false;
-    finishBtn.disabled = true;
-    finishBtn.textContent = "Abgeschlossen ✓";
-    completionPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
-  completionPrintBtn.addEventListener("click", () => window.print());
   newCaseBtn.addEventListener("click", async () => {
     if (!confirm("Neuen Vorgang starten? Der aktuelle lokale Vorgang und seine Fotos werden gelöscht.")) return;
     const oldCase = state.caseId;
@@ -165,9 +151,6 @@
     form.reset();
     hydrateForm();
     saveState();
-    completionPanel.hidden = true;
-    finishBtn.disabled = false;
-    finishBtn.textContent = "Vorgang abschließen";
     showStep(1);
   });
 

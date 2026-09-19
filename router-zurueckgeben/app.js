@@ -552,6 +552,9 @@
     if (!String(state.shipment.tracking || "").trim() &&
         (state.shipment.carrier || state.shipment.date))
       suggest("Sendungsnummer nach dem Versand ergänzen, sofern vorhanden.", 5);
+    if (state.shipment.date && state.return.confirmationDate &&
+        state.return.confirmationDate < state.shipment.date)
+      suggest("Die Rückmeldung des Anbieters ist vor dem Versand datiert. Bitte die Angaben prüfen.", 5);
 
     missingCheck.replaceChildren();
     missingCheck.hidden = false;

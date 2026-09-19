@@ -52,8 +52,8 @@
     return defaultState();
   }
 
-  function saveState() {
-    state.updatedAt = new Date().toISOString();
+  function saveState(updateTimestamp = true) {
+    if (updateTimestamp) state.updatedAt = new Date().toISOString();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     saveStatus.textContent = "lokal gespeichert";
   }
@@ -117,7 +117,7 @@
     backBtn.style.visibility = state.currentStep === 1 ? "hidden" : "visible";
     const isFinal = state.currentStep === TOTAL_STEPS;
     wizardNav.style.display = isFinal ? "none" : "";
-    saveState();
+    saveState(false);
     if (state.currentStep === TOTAL_STEPS) {
       finalPrintBtn.disabled = true;
       finalPrintBtn.textContent = "Fotos werden vorbereitet …";
@@ -158,10 +158,13 @@
     try { await deleteCaseFiles(oldCase); } catch (e) {}
     objectUrls.forEach(url => URL.revokeObjectURL(url));
     objectUrls.clear();
+    summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
+    summaryObjectUrls = [];
     state = defaultState();
     form.reset();
     hydrateForm();
     saveState();
+    await restorePreviews();
     showStep(1);
   });
 
@@ -278,7 +281,24 @@
     for (const type of Object.keys(photoLabels)) {
       try {
         const record = await getFile(type);
-        if (record) setPreview(type, record);
+        if (record) {
+          setPreview(type, record);
+        } else {
+          const task = document.querySelector('[data-task="' + type + '"]');
+          if (!task) continue;
+          task.classList.remove("done");
+          const status = task.querySelector(".photo-status");
+          if (status) status.textContent = type === "receipt" ? "noch keine Datei" : "noch kein Foto";
+          const img = task.querySelector("[data-preview]");
+          if (img) {
+            img.classList.remove("show");
+            img.removeAttribute("src");
+          }
+          if (objectUrls.has(type)) {
+            URL.revokeObjectURL(objectUrls.get(type));
+            objectUrls.delete(type);
+          }
+        }
       } catch (e) {}
     }
   }
@@ -299,6 +319,8 @@
         saveState();
       } catch (e) {
         status.textContent = "Fehler – bitte erneut versuchen";
+      } finally {
+        input.value = "";
       }
     });
   });
@@ -487,6 +509,8 @@
     try { await deleteCaseFiles(oldCase); } catch (e) {}
     objectUrls.forEach(url => URL.revokeObjectURL(url));
     objectUrls.clear();
+    summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
+    summaryObjectUrls = [];
     state = defaultState();
     hydrateForm();
     form.reset();

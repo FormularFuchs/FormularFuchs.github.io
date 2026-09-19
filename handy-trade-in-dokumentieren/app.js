@@ -32,6 +32,8 @@
     privacy: { backup: false, simRemoved: false, sdRemoved: false, accountRemoved: false, lockDisabled: false, reset: false }
   });
 
+  let caseIndex = { ids: [], activeId: "" };
+  let fileBusyCount = 0;
   let state = loadState();
   let summaryObjectUrls = [];
   let dbPromise;
@@ -46,20 +48,165 @@
   const finalPrintBtn = document.getElementById("finalPrintBtn");
   const finalBackBtn = document.getElementById("finalBackBtn");
   const newCaseBtn = document.getElementById("newCaseBtn");
+  const caseSelect = document.getElementById("caseSelect");
+  const caseCount = document.getElementById("caseCount");
+  const createCaseTopBtn = document.getElementById("createCaseTopBtn");
+  const missingCheck = document.getElementById("missingCheck");
   const wizardNav = document.getElementById("wizardNav");
 
+  const CASES_KEY = STORAGE_KEY + "-cases-v2";
+  const caseStorageKey = id => STORAGE_KEY + ":case:" + id;
   function loadState() {
+    let legacy = null;
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) return { ...defaultState(), ...JSON.parse(raw) };
+      legacy = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     } catch (e) {}
-    return defaultState();
+
+    let registry = null;
+    try {
+      registry = JSON.parse(localStorage.getItem(CASES_KEY) || "null");
+    } catch (e) {}
+    if (registry && Array.isArray(registry.ids)) {
+      caseIndex = {
+        ids: [...new Set(registry.ids.filter(id => typeof id === "string" && id))],
+        activeId: registry.activeId || ""
+      };
+      const ordered = [caseIndex.activeId, ...caseIndex.ids].filter(Boolean);
+      for (const id of ordered) {
+        try {
+          const found = JSON.parse(localStorage.getItem(caseStorageKey(id)) || "null");
+          if (found && found.caseId === id) {
+            caseIndex.activeId = id;
+            if (!caseIndex.ids.includes(id)) caseIndex.ids.push(id);
+            return found;
+          }
+        } catch (e) {}
+        if (legacy && legacy.caseId === id) {
+          caseIndex.activeId = id;
+          if (!caseIndex.ids.includes(id)) caseIndex.ids.push(id);
+          try { localStorage.setItem(caseStorageKey(id), JSON.stringify(legacy)); } catch (e) {}
+          return legacy;
+        }
+      }
+    }
+
+    // Erstmalige Migration: bisheriger Vorgang und die zugehörigen
+    // IndexedDB-Fotos behalten exakt ihre alten caseId-Schlüssel.
+    const initial = legacy && legacy.caseId ? legacy : defaultState();
+    caseIndex = { ids: [initial.caseId], activeId: initial.caseId };
+    try {
+      localStorage.setItem(caseStorageKey(initial.caseId), JSON.stringify(initial));
+      localStorage.setItem(CASES_KEY, JSON.stringify(caseIndex));
+    } catch (e) {}
+    return initial;
+  }
+
+  function caseTitle(saved) {
+    const item = saved.item || {};
+    const name = String(item.name || "").trim() || "Neuer Vorgang";
+    const date = saved.updatedAt ? new Date(saved.updatedAt) : null;
+    const dateLabel = date && !isNaN(date.getTime())
+      ? date.toLocaleDateString("de-DE") : "";
+    return (name.length > 35 ? name.slice(0, 32) + "…" : name)
+      + (dateLabel ? " · " + dateLabel : "");
+  }
+
+  function renderCaseList() {
+    if (!caseSelect) return;
+    const entries = caseIndex.ids.map(id => {
+      if (state.caseId === id) return state;
+      try {
+        const parsed = JSON.parse(localStorage.getItem(caseStorageKey(id)) || "null");
+        return parsed && parsed.caseId === id ? parsed : null;
+      } catch (e) { return null; }
+    }).filter(Boolean);
+    entries.sort((a,b) =>
+      String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
+    caseSelect.replaceChildren(...entries.map(saved => {
+      const option = document.createElement("option");
+      option.value = saved.caseId;
+      option.textContent = caseTitle(saved);
+      return option;
+    }));
+    caseSelect.value = state.caseId;
+    caseCount.textContent = "(" + entries.length + ")";
+    const busy = fileBusyCount > 0;
+    caseSelect.disabled = busy;
+    createCaseTopBtn.disabled = busy;
+    newCaseBtn.disabled = busy;
   }
 
   function saveState(updateTimestamp = true) {
     if (updateTimestamp) state.updatedAt = new Date().toISOString();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    saveStatus.textContent = "lokal gespeichert";
+    if (!caseIndex.ids.includes(state.caseId)) caseIndex.ids.push(state.caseId);
+    caseIndex.activeId = state.caseId;
+    try {
+      // Legacy-Kopie bleibt zur Sicherheit lesbar; weitere Fälle
+      // erhalten je einen eigenen Schlüssel. Fotos bleiben in IndexedDB.
+      localStorage.setItem(caseStorageKey(state.caseId), JSON.stringify(state));
+      localStorage.setItem(CASES_KEY, JSON.stringify(caseIndex));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      saveStatus.textContent = "lokal gespeichert";
+    } catch (e) {
+      saveStatus.textContent = "Speichern fehlgeschlagen – Speicherplatz prüfen";
+    }
+    renderCaseList();
+  }
+
+  function resetCaseImages() {
+    objectUrls.forEach(url => URL.revokeObjectURL(url));
+    objectUrls.clear();
+    summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
+    summaryObjectUrls = [];
+  }
+
+  async function openSavedCase(caseId) {
+    if (!caseId || caseId === state.caseId) return;
+    if (fileBusyCount) {
+      alert("Bitte warten, bis das Foto gespeichert wurde.");
+      renderCaseList();
+      return;
+    }
+    saveState(false);
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(caseStorageKey(caseId)) || "null"); }
+    catch (e) {}
+    if (!saved || saved.caseId !== caseId) {
+      alert("Dieser Vorgang konnte nicht geöffnet werden.");
+      renderCaseList();
+      return;
+    }
+    resetCaseImages();
+    state = saved;
+    form.reset();
+    hydrateForm();
+    saveState(false);
+    await restorePreviews();
+    showStep(state.currentStep || 1);
+  }
+
+  async function createNewCase() {
+    if (fileBusyCount) {
+      alert("Bitte warten, bis das Foto gespeichert wurde.");
+      return;
+    }
+    saveState(false);
+    resetCaseImages();
+    state = defaultState();
+    form.reset();
+    hydrateForm();
+    saveState(false);
+    await restorePreviews();
+    showStep(1);
+  }
+
+  function beginFileWork() {
+    fileBusyCount++;
+    renderCaseList();
+  }
+  function endFileWork() {
+    fileBusyCount = Math.max(0, fileBusyCount - 1);
+    renderCaseList();
   }
 
   function setPath(obj, path, value) {
@@ -155,22 +302,9 @@
     showStep(state.currentStep + 1);
   });
   finalBackBtn.addEventListener("click", () => showStep(TOTAL_STEPS - 1));
-  newCaseBtn.addEventListener("click", async () => {
-    if (!confirm("Neuen Vorgang starten? Der aktuelle lokale Vorgang und seine Fotos werden gelöscht.")) return;
-    const oldCase = state.caseId;
-    localStorage.removeItem(STORAGE_KEY);
-    try { await deleteCaseFiles(oldCase); } catch (e) {}
-    objectUrls.forEach(url => URL.revokeObjectURL(url));
-    objectUrls.clear();
-    summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
-    summaryObjectUrls = [];
-    state = defaultState();
-    form.reset();
-    hydrateForm();
-    saveState();
-    await restorePreviews();
-    showStep(1);
-  });
+  newCaseBtn.addEventListener("click", createNewCase);
+  createCaseTopBtn.addEventListener("click", createNewCase);
+  caseSelect.addEventListener("change", () => openSavedCase(caseSelect.value));
 
   function openDb() {
     if (dbPromise) return dbPromise;
@@ -315,6 +449,7 @@
       const task = document.querySelector('[data-task="' + type + '"]');
       const status = task.querySelector(".photo-status");
       status.textContent = "wird verarbeitet …";
+      beginFileWork();
       try {
         const blob = await compressImage(file);
         await putFile(type, blob, { name: file.name });
@@ -325,6 +460,7 @@
         status.textContent = "Fehler – bitte erneut versuchen";
       } finally {
         input.value = "";
+        endFileWork();
       }
     });
   });
@@ -337,6 +473,7 @@
       const task = document.querySelector('[data-task="' + type + '"]');
       const status = task.querySelector(".photo-status");
       status.textContent = "wird gespeichert …";
+      beginFileWork();
       try {
         const blob = file.type.startsWith("image/") ? await compressImage(file) : file;
         await putFile(type, blob, { name: file.name, mime: file.type });
@@ -347,6 +484,7 @@
         status.textContent = "Fehler – bitte erneut versuchen";
       } finally {
         input.value = "";
+        endFileWork();
       }
     });
   });
@@ -532,21 +670,36 @@
   });
 
   document.getElementById("deleteBtn").addEventListener("click", async () => {
-    if (!confirm("Diesen lokalen Vorgang einschließlich gespeicherter Fotos und Belege wirklich löschen?")) return;
+    if (fileBusyCount) {
+      alert("Bitte warten, bis das Foto gespeichert wurde.");
+      return;
+    }
+    if (!confirm("Nur diesen Vorgang einschließlich seiner Fotos und Belege löschen? Andere gespeicherte Vorgänge bleiben erhalten.")) return;
     const oldCase = state.caseId;
-    localStorage.removeItem(STORAGE_KEY);
-    try { await deleteCaseFiles(oldCase); } catch (e) {}
-    objectUrls.forEach(url => URL.revokeObjectURL(url));
-    objectUrls.clear();
-    summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
-    summaryObjectUrls = [];
-    state = defaultState();
-    hydrateForm();
+    try {
+      await deleteCaseFiles(oldCase);
+    } catch (e) {
+      alert("Die Dateien konnten nicht gelöscht werden. Bitte erneut versuchen.");
+      return;
+    }
+    resetCaseImages();
+    try { localStorage.removeItem(caseStorageKey(oldCase)); } catch (e) {}
+    caseIndex.ids = caseIndex.ids.filter(id => id !== oldCase);
+    let next = null;
+    for (const id of caseIndex.ids) {
+      try {
+        next = JSON.parse(localStorage.getItem(caseStorageKey(id)) || "null");
+        if (next && next.caseId === id) break;
+      } catch (e) {}
+      next = null;
+    }
+    state = next || defaultState();
+    caseIndex.activeId = state.caseId;
     form.reset();
-    saveState();
+    hydrateForm();
+    saveState(false);
     await restorePreviews();
-    showStep(1);
-    alert("Der lokale Vorgang wurde gelöscht.");
+    showStep(next ? (state.currentStep || 1) : 1);
   });
 
   hydrateForm();

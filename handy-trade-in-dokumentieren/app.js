@@ -522,7 +522,10 @@
   }
 
   function row(key, value) {
-    return '<div class="summary-row"><div class="summary-key">' + esc(key) + '</div><div>' + display(value) + '</div></div>';
+    const text = String(value ?? "");
+    const isLong = text.length > 420 || text.split("\n").length > 8;
+    return '<div class="summary-row' + (isLong ? ' summary-row-long' : '') +
+      '"><div class="summary-key">' + esc(key) + '</div><div>' + display(value) + '</div></div>';
   }
 
   function formatDate(value) {
@@ -660,6 +663,11 @@
 
     html += '<div class="summary-card photo-summary-card"><h3>Fotodokumentation und Belege</h3><div class="summary-photos" id="summaryPhotos"></div></div>';
     summary.innerHTML = html;
+    summary.querySelectorAll(".summary-card").forEach(card => {
+      if (card.querySelector(".summary-row-long")) {
+        card.classList.add("summary-card-long");
+      }
+    });
 
     // Ein bereits hochgeladenes PDF lässt sich nicht verlässlich in den
     // mobilen Browserdruck einbetten. Es wird deshalb getrennt ausgewiesen

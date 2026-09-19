@@ -417,7 +417,7 @@
       row("IMEI / Gerätekennung", state.item.imei) +
       row("Absender", state.party.sender) +
       row("Empfänger", state.party.recipient) +
-      row("Rücksendegrund", state.item.reason) +
+      row("Anlass der Einsendung", state.item.reason) +
       '</div>';
 
     html += '<div class="summary-card"><h3>Zustand, Angebot und Zubehör</h3>' +

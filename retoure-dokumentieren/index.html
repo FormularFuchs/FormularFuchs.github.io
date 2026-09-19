@@ -378,8 +378,24 @@
       .summary-card.photo-summary-card{break-inside:auto;page-break-inside:auto}
       .summary-card.photo-summary-card h3{break-after:avoid;page-break-after:avoid}
       .summary-photo{break-inside:avoid;page-break-inside:avoid}
-      .summary-photo img{max-height:310px}
+      /* Foto und Bildunterschrift bleiben immer zusammen. */
+      .summary-photo{break-inside:avoid;page-break-inside:avoid}
+      .summary-photo img{max-height:250px;object-fit:contain}
       .summary-photos{gap:10px}
+      /* Bei genau drei Beweisfotos verhindert eine Zeile mit zwei
+         Bildern plus einem verwaisten Einzelbild die leere Folgeseite. */
+      .summary-photos.print-three-images{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        column-gap:9px;
+      }
+      .summary-photos.print-three-images .summary-photo img{
+        height:160px;
+        max-height:160px;
+        width:100%;
+        object-fit:contain;
+      }
+      .summary-photos.print-three-images .summary-photo strong{font-size:9pt}
+      .summary-photos.print-three-images .summary-photo .hint{font-size:8pt}
       .receipt-print-note{font-weight:650;color:#233d54}
       .summary-card h3{break-after:avoid;page-break-after:avoid;color:#1769aa;border-left:3px solid #d9822b;padding-left:8px}
       .summary-row{break-inside:avoid;page-break-inside:avoid}

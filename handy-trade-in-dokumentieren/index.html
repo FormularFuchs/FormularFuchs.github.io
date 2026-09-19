@@ -296,6 +296,11 @@
         .helper-page .final-actions{grid-template-columns:1fr}
       }
     }
+    @media screen{
+      .helper-page .receipt-download{display:inline-flex;margin-top:10px;text-decoration:none}
+      .helper-page .receipt-help{margin-top:5px;line-height:1.4}
+      .helper-page .receipt-print-note{font-weight:750;color:#07365f}
+    }
     @media print{
       header,.wizard-head,.wizard-nav,.privacy-note,.screen-only{display:none!important}
       body{background:#fff;font-size:11pt;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -304,7 +309,13 @@
       .step{display:none!important;box-shadow:none;border:0;padding:0}
       #step-7{display:block!important}
       #step-7>h2,#step-7>.intro{display:none!important}
-      .summary-card{border:0;border-bottom:1px solid #dfe6ee;border-radius:0;padding:12px 0;break-inside:avoid;page-break-inside:avoid}
+      .summary-card{border:0;border-bottom:1px solid #dfe6ee;border-radius:0;padding:9px 0;break-inside:avoid;page-break-inside:avoid}
+      .summary-card.photo-summary-card{break-inside:auto;page-break-inside:auto}
+      .summary-card.photo-summary-card h3{break-after:avoid;page-break-after:avoid}
+      .summary-photo{break-inside:avoid;page-break-inside:avoid}
+      .summary-photo img{max-height:310px}
+      .summary-photos{gap:10px}
+      .receipt-print-note{font-weight:650;color:#233d54}
       .summary-card h3{break-after:avoid;page-break-after:avoid;color:#1769aa;border-left:3px solid #d9822b;padding-left:8px}
       .summary-row{break-inside:avoid;page-break-inside:avoid}
       .warning{break-inside:avoid;page-break-inside:avoid;margin:10px 0 14px;background:#fff8e8;border-color:#f0d899;color:#3b3528}
@@ -540,7 +551,7 @@
           </div>
         </div>
         <div class="photo-task" data-task="receipt">
-          <div class="photo-top"><div><div class="photo-title">Einlieferungsbeleg</div><div class="hint">Foto oder PDF des Belegs – optional.</div></div><span class="photo-status">noch keine Datei</span></div>
+          <div class="photo-top"><div><div class="photo-title">Einlieferungsbeleg</div><div class="hint">Optional: Ein Foto wird in die Dokumentation eingefügt. Eine hochgeladene PDF-Datei muss separat mitgespeichert und beigefügt werden.</div></div><span class="photo-status">noch keine Datei</span></div>
           <label class="file-label">Beleg auswählen<input type="file" accept="image/*,application/pdf" data-attachment="receipt"></label>
           <img class="preview" data-preview="receipt" alt="Vorschau Einlieferungsbeleg">
         </div>

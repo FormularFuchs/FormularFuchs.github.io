@@ -699,6 +699,10 @@
       photos.appendChild(box);
     }
     if (!photos.children.length) photos.innerHTML = '<p class="small">Noch keine Fotos oder Belege hinzugefügt.</p>';
+    // Ausschließlich die Druckdarstellung verwendet bei genau drei
+    // Bildern drei gleich breite Spalten. Bildschirm-Layout unverändert.
+    photos.classList.toggle("print-three-images",
+      photos.querySelectorAll(".summary-photo").length === 3);
     // Warten, bis die Foto-Vorschauen decodiert sind, bevor der Druckknopf
     // freigegeben wird. window.print() selbst bleibt synchron im Klick-Handler.
     const images = [...photos.querySelectorAll("img")];

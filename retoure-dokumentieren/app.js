@@ -29,6 +29,7 @@
   });
 
   let state = loadState();
+  let summaryObjectUrls = [];
   let dbPromise;
   const objectUrls = new Map();
 
@@ -118,7 +119,17 @@
     wizardNav.style.display = isFinal ? "none" : "";
     saveState();
     if (state.currentStep === TOTAL_STEPS) {
-      renderSummary();
+      finalPrintBtn.disabled = true;
+      finalPrintBtn.textContent = "Fotos werden vorbereitet …";
+      renderSummary().then(() => {
+        if (state.currentStep === TOTAL_STEPS) {
+          finalPrintBtn.disabled = false;
+          finalPrintBtn.textContent = "PDF speichern";
+        }
+      }).catch(() => {
+        finalPrintBtn.disabled = false;
+        finalPrintBtn.textContent = "PDF speichern";
+      });
 
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -308,6 +319,8 @@
         saveState();
       } catch (e) {
         status.textContent = "Fehler – bitte erneut versuchen";
+      } finally {
+        input.value = "";
       }
     });
   });
@@ -345,6 +358,8 @@
 
   async function renderSummary() {
     const summary = document.getElementById("summary");
+    summaryObjectUrls.forEach(url => URL.revokeObjectURL(url));
+    summaryObjectUrls = [];
     const created = document.getElementById("docCreatedDate");
     const updated = document.getElementById("docUpdatedDate");
     if (created) created.textContent = new Date(state.createdAt).toLocaleString("de-DE");
@@ -375,17 +390,53 @@
       row("Zuletzt geändert", new Date(state.updatedAt).toLocaleString("de-DE")) +
       '</div>';
 
-    html += '<div class="summary-card"><h3>Fotodokumentation und Belege</h3><div class="summary-photos" id="summaryPhotos"></div></div>';
+    html += '<div class="summary-card photo-summary-card"><h3>Fotodokumentation und Belege</h3><div class="summary-photos" id="summaryPhotos"></div></div>';
     summary.innerHTML = html;
+
+    // Ein bereits hochgeladenes PDF lässt sich nicht verlässlich in den
+    // mobilen Browserdruck einbetten. Es wird deshalb getrennt ausgewiesen
+    // und als Originaldatei zum Herunterladen angeboten.
+    const receipt = await getFile("receipt");
+    const receiptIsPdf = receipt &&
+      (receipt.mime === "application/pdf" || /\\.pdf$/i.test(receipt.name || ""));
+    if (receiptIsPdf) {
+      const shippingCard = summary.querySelectorAll(".summary-card")[2];
+      const receiptRow = document.createElement("div");
+      receiptRow.className = "summary-row";
+      const key = document.createElement("div");
+      key.className = "summary-key";
+      key.textContent = "Einlieferungsbeleg";
+      const value = document.createElement("div");
+      const printed = document.createElement("div");
+      printed.className = "receipt-print-note";
+      printed.textContent = "Original-PDF separat beifügen: " + (receipt.name || "Einlieferungsbeleg.pdf");
+      value.appendChild(printed);
+      const help = document.createElement("div");
+      help.className = "hint screen-only receipt-help";
+      help.textContent = "Die Original-PDF ist nicht in der FormularFuchs-PDF enthalten. Bitte beide Dateien speichern und gemeinsam weitergeben.";
+      value.appendChild(help);
+      const link = document.createElement("a");
+      link.className = "btn btn-secondary screen-only receipt-download";
+      link.textContent = "Original-PDF speichern";
+      link.download = receipt.name || "Einlieferungsbeleg.pdf";
+      const receiptUrl = URL.createObjectURL(receipt.blob);
+      summaryObjectUrls.push(receiptUrl);
+      link.href = receiptUrl;
+      value.appendChild(link);
+      receiptRow.append(key, value);
+      shippingCard.appendChild(receiptRow);
+    }
 
     const photos = document.getElementById("summaryPhotos");
     for (const [type, label] of Object.entries(photoLabels)) {
       const record = await getFile(type);
       if (!record) continue;
+      if (type === "receipt" && receiptIsPdf) continue;
       const box = document.createElement("div");
       box.className = "summary-photo";
       if (record.mime.startsWith("image/")) {
         const url = URL.createObjectURL(record.blob);
+        summaryObjectUrls.push(url);
         const img = document.createElement("img");
         img.src = url;
         img.alt = label;
@@ -405,6 +456,24 @@
       photos.appendChild(box);
     }
     if (!photos.children.length) photos.innerHTML = '<p class="small">Noch keine Fotos oder Belege hinzugefügt.</p>';
+    // Warten, bis die Foto-Vorschauen decodiert sind, bevor der Druckknopf
+    // freigegeben wird. window.print() selbst bleibt synchron im Klick-Handler.
+    const images = [...photos.querySelectorAll("img")];
+    await Promise.all(images.map(async img => {
+      try {
+        if (typeof img.decode === "function") await img.decode();
+        else if (!img.complete) await new Promise(resolve => {
+          img.addEventListener("load", resolve, { once: true });
+          img.addEventListener("error", resolve, { once: true });
+        });
+        if (!img.naturalWidth) throw new Error("Bild konnte nicht geladen werden");
+      } catch (e) {
+        const warning = document.createElement("p");
+        warning.className = "receipt-print-note";
+        warning.textContent = "Dieses Bild konnte nicht geladen werden. Bitte das Foto erneut hinzufügen.";
+        img.replaceWith(warning);
+      }
+    }));
   }
 
   finalPrintBtn.addEventListener("click", () => {

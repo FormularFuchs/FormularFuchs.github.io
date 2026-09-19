@@ -103,6 +103,172 @@
       .final-actions{grid-template-columns:1fr}
       .final-actions .btn{width:100%}
     }
+
+    /* FormularFuchs – gut erkennbare mobile Eingaben und Aktionen */
+    @media screen{
+      .helper-page{
+        --brand:#09558f;
+        --brand-dark:#07365f;
+        --muted:#46576a;
+        --line:#c5d4e2;
+        --soft:#e5f1fa;
+        --text:#172538;
+        background:#eaf1f7;
+      }
+      .helper-page header{
+        background:linear-gradient(110deg,#081f3e 0%,#103e6c 100%);
+        border-bottom:3px solid #1597e5;
+      }
+      .helper-page header .brand{
+        color:#fff;
+        font-size:1.22rem;
+        font-weight:850;
+        gap:12px;
+      }
+      .helper-brand-mark{
+        display:block;
+        width:54px;
+        height:54px;
+        flex:none;
+        object-fit:contain;
+        border:2px solid #fff;
+        border-radius:13px;
+        background:#fff;
+        box-shadow:0 4px 14px rgba(0,0,0,.23);
+      }
+      .helper-brand-name{color:#fff;letter-spacing:-.025em}
+      .helper-brand-name span{color:#78d8ff}
+      .helper-page .wizard-head,.helper-page .step{
+        border-color:#c3d2df;
+        box-shadow:0 7px 22px rgba(12,49,88,.08);
+      }
+      .helper-page .intro,.helper-page .hint,
+      .helper-page .progress-label,.helper-page .summary-key{
+        color:#44566a;
+      }
+      .helper-page input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+      .helper-page textarea,.helper-page select{
+        border:2px solid #9bb2c8;
+        background:#fff;
+        color:#172538;
+      }
+      .helper-page input::placeholder,.helper-page textarea::placeholder{color:#5a6a7b;opacity:1}
+      .helper-page input:focus-visible,.helper-page textarea:focus-visible,
+      .helper-page select:focus-visible{
+        outline:3px solid #80caff;
+        outline-offset:2px;
+        border-color:#09558f;
+      }
+      .helper-page .choice label{
+        display:flex;
+        align-items:center;
+        min-height:49px;
+        border:2px solid #a9bfd2;
+        background:#f0f6fb;
+        color:#193b5d;
+        font-weight:800;
+      }
+      .helper-page .choice input:checked+label{
+        border-color:#07365f;
+        background:#09558f;
+        color:#fff;
+        box-shadow:0 3px 10px rgba(9,85,143,.20);
+      }
+      .helper-page .choice input:checked+label::before{
+        content:"✓";
+        margin-right:9px;
+        font-weight:900;
+      }
+      .helper-page .choice input:focus-visible+label{
+        outline:3px solid #80caff;
+        outline-offset:3px;
+      }
+      .helper-page .check{
+        background:#f0f6fb;
+        border:2px solid #c0cfdd;
+        color:#193b5d;
+      }
+      .helper-page .check input{accent-color:#09558f}
+      .helper-page .check:has(input:checked){
+        background:#e0f0fb;
+        border-color:#09558f;
+      }
+      .helper-page .photo-task{
+        border:2px solid #c2d3e1;
+        background:#f0f6fb;
+      }
+      .helper-page .photo-task.done{
+        border-color:#78a78c;
+        background:#edf8f1;
+      }
+      .helper-page .photo-task.done .photo-status{color:#165d37}
+      .helper-page .photo-actions{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:12px;
+      }
+      .helper-page .file-label{
+        min-height:48px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:10px 15px;
+        border:2px solid #07365f;
+        border-radius:11px;
+        background:#09558f;
+        color:#fff;
+        font-weight:800;
+        cursor:pointer;
+      }
+      .helper-page .file-label.file-gallery{
+        border-color:#5184ab;
+        background:#e0effa;
+        color:#07365f;
+      }
+      .helper-page .file-label:hover,
+      .helper-page .file-label:focus-within{filter:brightness(.96)}
+      .helper-page .file-label:focus-within{outline:3px solid #80caff;outline-offset:2px}
+      .helper-page .file-label input{
+        position:absolute;
+        width:1px;
+        height:1px;
+        min-height:0;
+        padding:0;
+        margin:0;
+        opacity:0;
+        overflow:hidden;
+        clip-path:inset(50%);
+      }
+      .helper-page .btn{
+        border-radius:11px;
+        font-weight:850;
+        transition:filter .15s ease,transform .15s ease;
+      }
+      .helper-page .btn:hover{filter:brightness(.95)}
+      .helper-page .btn:focus-visible{outline:3px solid #80caff;outline-offset:3px}
+      .helper-page .btn-primary{background:#09558f;color:#fff;border:2px solid #07365f}
+      .helper-page .btn-secondary{
+        background:#e6f0f9;
+        color:#07365f;
+        border:2px solid #648fb2;
+      }
+      .helper-page .btn-tertiary{
+        background:#dfeef9;
+        color:#07365f;
+        border:2px solid #648fb2;
+      }
+      .helper-page .btn-danger{
+        background:#fff0ef;
+        color:#832123;
+        border:2px solid #b96a6c;
+      }
+      .helper-page .btn:disabled{opacity:.75;cursor:default}
+      @media(max-width:720px){
+        .helper-page .photo-actions .file-label{flex:1 1 130px}
+        .helper-page .wizard-nav{background:rgba(234,241,247,.97)}
+      }
+    }
     @media print{
       header,.wizard-head,.wizard-nav,.privacy-note,.screen-only{display:none!important}
       body{background:#fff;font-size:11pt;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -122,10 +288,10 @@
     }
   </style>
 </head>
-<body>
+<body class="helper-page">
   <header>
     <div class="wrap">
-      <a class="brand" href="/"><span class="fox" aria-hidden="true">🦊</span><span>FormularFuchs</span></a>
+      <a class="brand" href="/" aria-label="FormularFuchs Startseite"><img class="helper-brand-mark" src="/assets/formularfuchs-logo-mark.jpg" alt=""><span class="helper-brand-name">Formular<span>Fuchs</span></span></a>
     </div>
   </header>
 
@@ -225,32 +391,50 @@
         <div class="photo-list">
           <div class="photo-task" data-task="overall">
             <div class="photo-top"><div><div class="photo-title">1. Gesamtansicht des Geräts</div><div class="hint">Gerät gut erkennbar, bevor du es verpackst.</div></div><span class="photo-status">noch kein Foto</span></div>
-            <label class="file-label">Foto aufnehmen / wählen<input type="file" accept="image/*" capture="environment" data-photo="overall"></label>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="overall" aria-label="Foto für overall aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="overall" aria-label="Bild für overall aus Galerie wählen"></label>
+            </div>
             <img class="preview" data-preview="overall" alt="Vorschau Gesamtansicht">
           </div>
           <div class="photo-task" data-task="serial">
             <div class="photo-top"><div><div class="photo-title">2. Typenschild / Seriennummer / MAC</div><div class="hint">Falls vorhanden und lesbar.</div></div><span class="photo-status">noch kein Foto</span></div>
-            <label class="file-label">Foto aufnehmen / wählen<input type="file" accept="image/*" capture="environment" data-photo="serial"></label>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="serial" aria-label="Foto für serial aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="serial" aria-label="Bild für serial aus Galerie wählen"></label>
+            </div>
             <img class="preview" data-preview="serial" alt="Vorschau Seriennummer">
           </div>
           <div class="photo-task" data-task="accessories">
             <div class="photo-top"><div><div class="photo-title">3. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
-            <label class="file-label">Foto aufnehmen / wählen<input type="file" accept="image/*" capture="environment" data-photo="accessories"></label>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="accessories" aria-label="Foto für accessories aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="accessories" aria-label="Bild für accessories aus Galerie wählen"></label>
+            </div>
             <img class="preview" data-preview="accessories" alt="Vorschau Zubehör">
           </div>
           <div class="photo-task" data-task="openPackage">
             <div class="photo-top"><div><div class="photo-title">4. Inhalt im offenen Paket</div><div class="hint">Vor dem endgültigen Verschließen.</div></div><span class="photo-status">noch kein Foto</span></div>
-            <label class="file-label">Foto aufnehmen / wählen<input type="file" accept="image/*" capture="environment" data-photo="openPackage"></label>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="openPackage" aria-label="Foto für openPackage aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="openPackage" aria-label="Bild für openPackage aus Galerie wählen"></label>
+            </div>
             <img class="preview" data-preview="openPackage" alt="Vorschau offenes Paket">
           </div>
           <div class="photo-task" data-task="protected">
             <div class="photo-top"><div><div class="photo-title">5. Verpackung / Polsterung</div><div class="hint">Zeigt, wie das Gerät geschützt wurde.</div></div><span class="photo-status">noch kein Foto</span></div>
-            <label class="file-label">Foto aufnehmen / wählen<input type="file" accept="image/*" capture="environment" data-photo="protected"></label>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="protected" aria-label="Foto für protected aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="protected" aria-label="Bild für protected aus Galerie wählen"></label>
+            </div>
             <img class="preview" data-preview="protected" alt="Vorschau Verpackung">
           </div>
           <div class="photo-task" data-task="closedPackage">
             <div class="photo-top"><div><div class="photo-title">6. Geschlossenes Paket</div><div class="hint">Optional mit Versandetikett, sofern sensible Daten für dich in Ordnung sind.</div></div><span class="photo-status">noch kein Foto</span></div>
-            <label class="file-label">Foto aufnehmen / wählen<input type="file" accept="image/*" capture="environment" data-photo="closedPackage"></label>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="closedPackage" aria-label="Foto für closedPackage aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="closedPackage" aria-label="Bild für closedPackage aus Galerie wählen"></label>
+            </div>
             <img class="preview" data-preview="closedPackage" alt="Vorschau geschlossenes Paket">
           </div>
         </div>

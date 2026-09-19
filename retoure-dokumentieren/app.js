@@ -398,7 +398,7 @@
     // und als Originaldatei zum Herunterladen angeboten.
     const receipt = await getFile("receipt");
     const receiptIsPdf = receipt &&
-      (receipt.mime === "application/pdf" || /\\.pdf$/i.test(receipt.name || ""));
+      (receipt.mime === "application/pdf" || (receipt.name || "").toLowerCase().endsWith(".pdf"));
     if (receiptIsPdf) {
       const shippingCard = summary.querySelectorAll(".summary-card")[2];
       const receiptRow = document.createElement("div");

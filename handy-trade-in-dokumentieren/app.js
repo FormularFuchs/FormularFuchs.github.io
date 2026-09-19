@@ -575,6 +575,9 @@
     if (!String(state.shipment.tracking || "").trim() &&
         (state.shipment.carrier || state.shipment.date))
       suggest("Sendungsnummer nach dem Versand ergänzen, sofern vorhanden.", 6);
+    if (state.shipment.date && state.offer.revisedDate &&
+        state.offer.revisedDate < state.shipment.date)
+      suggest("Das neue Angebot ist vor dem Versand datiert. Bitte prüfen, ob die Datumsangaben stimmen.", 6);
 
     missingCheck.replaceChildren();
     missingCheck.hidden = false;
@@ -643,12 +646,17 @@
       row("Sendungsnummer", state.shipment.tracking) +
       row("Versanddatum", formatDate(state.shipment.date)) +
       row("Paketgewicht", formatWeight(state.shipment.weight)) +
-      row("Neues Angebot", euro(state.offer.revisedAmount)) +
-      row("Datum neues Angebot", formatDate(state.offer.revisedDate)) +
-      row("Begründung", state.offer.revisedReason) +
       row("Dokumentation erstellt", new Date(state.createdAt).toLocaleString("de-DE")) +
       row("Zuletzt geändert", new Date(state.updatedAt).toLocaleString("de-DE")) +
       '</div>';
+
+    if (state.offer.revisedAmount || state.offer.revisedDate || state.offer.revisedReason) {
+      html += '<div class="summary-card"><h3>Rückmeldung des Ankaufportals (nach Prüfung)</h3>' +
+        row("Neues Angebot", euro(state.offer.revisedAmount)) +
+        row("Datum des neuen Angebots", formatDate(state.offer.revisedDate)) +
+        row("Begründung des Ankaufportals", state.offer.revisedReason) +
+        '</div>';
+    }
 
     html += '<div class="summary-card photo-summary-card"><h3>Fotodokumentation und Belege</h3><div class="summary-photos" id="summaryPhotos"></div></div>';
     summary.innerHTML = html;

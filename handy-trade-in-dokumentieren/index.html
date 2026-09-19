@@ -270,6 +270,32 @@
         .helper-page .wizard-nav{background:rgba(234,241,247,.97)}
       }
     }
+    @media screen{
+      .helper-page .wizard-head .eyebrow{
+        background:#e2f0fa;
+        color:#07365f;
+        border:2px solid #91b7d6;
+        font-weight:900;
+        letter-spacing:.005em;
+      }
+      .helper-page .local-case-note{
+        margin-top:20px;
+        padding:16px;
+        border:2px solid #bad0e1;
+        border-radius:13px;
+        background:#edf5fb;
+        color:#193b5d;
+      }
+      .helper-page .local-case-note strong{color:#07365f}
+      .helper-page .local-case-note p{margin:6px 0 14px;color:#344c61}
+      .helper-page .final-actions{
+        grid-template-columns:1fr 1.35fr;
+        gap:10px;
+      }
+      @media(max-width:720px){
+        .helper-page .final-actions{grid-template-columns:1fr}
+      }
+    }
     @media print{
       header,.wizard-head,.wizard-nav,.privacy-note,.screen-only{display:none!important}
       body{background:#fff;font-size:11pt;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -524,7 +550,6 @@
         <div class="final-actions screen-only">
           <button class="btn btn-secondary" type="button" id="finalBackBtn">Zurück</button>
           <button class="btn btn-primary" type="button" id="finalPrintBtn">PDF speichern</button>
-          <button class="btn btn-tertiary" type="button" id="finishBtn">Vorgang abschließen</button>
         </div>
         <div class="print-only document-head">
           <div class="document-banner">
@@ -548,13 +573,10 @@
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
         <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. FormularFuchs prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
         <div id="summary" class="summary"></div>
-        <div id="completionPanel" class="screen-only" hidden style="margin-top:18px;border:1px solid #cfe3f5;background:#f4f9fd;border-radius:14px;padding:18px">
-          <h3 style="margin:0 0 8px;color:#1769aa">✓ Dokumentation abgeschlossen</h3>
-          <p style="margin:0 0 14px">Der Vorgang bleibt lokal auf diesem Gerät gespeichert. Du kannst die PDF erneut speichern oder einen neuen Vorgang beginnen.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-primary" type="button" id="completionPrintBtn">PDF erneut speichern</button>
-            <button class="btn btn-secondary" type="button" id="newCaseBtn">Neuen Vorgang starten</button>
-          </div>
+        <div class="screen-only local-case-note">
+          <strong>Automatisch lokal gespeichert</strong>
+          <p>Du kannst Angaben weiterhin ändern und die PDF jederzeit erneut speichern. Ein neuer Vorgang ersetzt den aktuellen und löscht dessen Fotos und Belege auf diesem Gerät.</p>
+          <button class="btn btn-secondary" type="button" id="newCaseBtn">Neuen Vorgang starten</button>
         </div>
         <div class="screen-only" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
           <button class="btn btn-danger" type="button" id="deleteBtn">Vorgang löschen</button>

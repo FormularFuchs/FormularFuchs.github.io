@@ -4,6 +4,9 @@
   const STORAGE_KEY = "formularfuchs-return-v1";
   const DB_NAME = "formularfuchs-local";
   const STORE_NAME = "files";
+  const CASES_KEY = STORAGE_KEY + "-cases-v2";
+  const CASE_PREFIX = STORAGE_KEY + ":case:";
+  const caseStorageKey = id => CASE_PREFIX + id;
   const TOTAL_STEPS = 6;
   const photoLabels = {
     overall: "Gesamtansicht des Artikels",
@@ -50,8 +53,7 @@
   const missingCheck = document.getElementById("missingCheck");
   const wizardNav = document.getElementById("wizardNav");
 
-  const CASES_KEY = STORAGE_KEY + "-cases-v2";
-  const caseStorageKey = id => STORAGE_KEY + ":case:" + id;
+
   function loadState() {
     let legacy = null;
     try {
@@ -62,39 +64,49 @@
     try {
       registry = JSON.parse(localStorage.getItem(CASES_KEY) || "null");
     } catch (e) {}
-    if (registry && Array.isArray(registry.ids)) {
-      caseIndex = {
-        ids: [...new Set(registry.ids.filter(id => typeof id === "string" && id))],
-        activeId: registry.activeId || ""
-      };
-      const ordered = [caseIndex.activeId, ...caseIndex.ids].filter(Boolean);
-      for (const id of ordered) {
+
+    // Auch wenn ein älterer Start die Vorgangsliste versehentlich auf
+    // einen Eintrag reduziert hat, bleiben andere :case:-Schlüssel
+    // möglicherweise erhalten. Alle gültigen Einträge wiederfinden.
+    const saved = new Map();
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (!key || !key.startsWith(CASE_PREFIX)) continue;
+        const id = key.slice(CASE_PREFIX.length);
         try {
-          const found = JSON.parse(localStorage.getItem(caseStorageKey(id)) || "null");
-          if (found && found.caseId === id) {
-            caseIndex.activeId = id;
-            if (!caseIndex.ids.includes(id)) caseIndex.ids.push(id);
-            return found;
-          }
+          const found = JSON.parse(localStorage.getItem(key) || "null");
+          if (found && found.caseId === id) saved.set(id, found);
         } catch (e) {}
-        if (legacy && legacy.caseId === id) {
-          caseIndex.activeId = id;
-          if (!caseIndex.ids.includes(id)) caseIndex.ids.push(id);
-          try { localStorage.setItem(caseStorageKey(id), JSON.stringify(legacy)); } catch (e) {}
-          return legacy;
-        }
       }
+    } catch (e) {}
+
+    if (legacy && legacy.caseId && !saved.has(legacy.caseId)) {
+      saved.set(legacy.caseId, legacy);
+      try { localStorage.setItem(caseStorageKey(legacy.caseId), JSON.stringify(legacy)); }
+      catch (e) {}
     }
 
-    // Erstmalige Migration: bisheriger Vorgang und die zugehörigen
-    // IndexedDB-Fotos behalten exakt ihre alten caseId-Schlüssel.
-    const initial = legacy && legacy.caseId ? legacy : defaultState();
-    caseIndex = { ids: [initial.caseId], activeId: initial.caseId };
-    try {
-      localStorage.setItem(caseStorageKey(initial.caseId), JSON.stringify(initial));
-      localStorage.setItem(CASES_KEY, JSON.stringify(caseIndex));
-    } catch (e) {}
-    return initial;
+    const orderedIds = registry && Array.isArray(registry.ids)
+      ? registry.ids.filter(id => typeof id === "string" && saved.has(id))
+      : [];
+    const ids = [...new Set([...orderedIds, ...saved.keys()])];
+    if (!ids.length) {
+      const initial = defaultState();
+      ids.push(initial.caseId);
+      saved.set(initial.caseId, initial);
+      try { localStorage.setItem(caseStorageKey(initial.caseId), JSON.stringify(initial)); }
+      catch (e) {}
+    }
+
+    let activeId = registry && saved.has(registry.activeId)
+      ? registry.activeId
+      : legacy && saved.has(legacy.caseId)
+        ? legacy.caseId
+        : ids[0];
+    caseIndex = { ids, activeId };
+    try { localStorage.setItem(CASES_KEY, JSON.stringify(caseIndex)); } catch (e) {}
+    return saved.get(activeId);
   }
 
   function caseTitle(saved) {

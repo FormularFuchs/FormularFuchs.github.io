@@ -280,15 +280,13 @@ p{margin:0}
 .quick-arrow{margin-left:auto;color:var(--navy-2);font-size:1.05rem}
 .product-card,.classic-card{scroll-margin-top:94px}
 
-/* Website-Marke: derselbe FormularFuchs wie in den PDF-Dokumenten,
-   als ruhiger, bildbeschnittener Fuchskopf statt als Geräte-Emoji. */
+/* Die echte FormularFuchs-Grafik: auf jeder Fläche vollständig anzeigen.
+   Kein CSS-Zoom und kein variierender Anschnitt zwischen den Icon-Größen. */
 .brand-mark--fox,
 .fox-image{
-  background-color:#fff;
-  background-image:url("/assets/formularfuchs-logo-mark.jpg");
-  background-repeat:no-repeat;
-  background-size:165%;
-  background-position:54% 19%;
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
 }
 .brand-mark--fox{border-color:rgba(255,255,255,.65)}
 .hero-brand-card .fox-image{

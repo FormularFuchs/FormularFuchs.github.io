@@ -29,8 +29,8 @@ a{color:var(--navy-2)}
   position:sticky;
   top:0;
   z-index:20;
-  background:rgba(8,40,80,.96);
-  border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(6,30,58,.98);
+  border-bottom:3px solid #1597e5;
   backdrop-filter:blur(12px)
 }
 .header-inner{
@@ -64,7 +64,7 @@ a{color:var(--navy-2)}
 .brand-copy strong span{color:#fff}
 .brand-copy strong em{color:#4bc3ff;font-style:normal}
 .brand-copy small{
-  color:rgba(255,255,255,.66);
+  color:rgba(255,255,255,.86);
   font-size:.66rem;
   letter-spacing:.13em;
   text-transform:uppercase;
@@ -288,7 +288,10 @@ p{margin:0}
   object-position:center;
   background:#fff;
 }
-.brand-mark--fox{border-color:rgba(255,255,255,.65)}
+.brand-mark--fox{
+  border:2px solid #fff;
+  box-shadow:0 4px 14px rgba(0,0,0,.24);
+}
 .hero-brand-card .fox-image{
   border:1px solid rgba(255,255,255,.58);
   background-color:#fff;

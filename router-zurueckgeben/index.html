@@ -301,6 +301,16 @@
       .helper-page .receipt-help{margin-top:5px;line-height:1.4}
       .helper-page .receipt-print-note{font-weight:750;color:#07365f}
     }
+    .followup-block{
+      padding:17px;
+      margin:18px 0;
+      border:1px solid #c4d7e6;
+      border-radius:14px;
+      background:#edf5fb;
+    }
+    .followup-block h3{color:#07365f;margin:0 0 6px}
+    .followup-block p{margin:0 0 14px}
+    @media(max-width:720px){.followup-block{padding:14px}}
     @media print{
       header,.wizard-head,.wizard-nav,.privacy-note,.screen-only{display:none!important}
       body{background:#fff;font-size:11pt;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -502,7 +512,10 @@
             <input id="weight" inputmode="decimal" data-field="shipment.weight" placeholder="z. B. 2,4">
           </div>
         </div>
-        <div class="field-grid" style="margin-top:8px">
+        <div class="followup-block">
+          <h3>Später ergänzen: Rückmeldung des Anbieters</h3>
+          <p class="hint">Erst nach dem Versand ausfüllen, wenn der Anbieter den Eingang bestätigt oder die Rückgabe beanstandet. Du kannst diese Angaben auch nach dem ersten PDF ergänzen.</p>
+          <div class="field-grid">
           <div class="field">
             <label for="returnConfirmed">Rückmeldung des Anbieters</label>
             <select id="returnConfirmed" data-field="return.confirmed">
@@ -518,6 +531,7 @@
           <div class="field full">
             <label for="confirmationRef">Referenz / Ticket</label>
             <input id="confirmationRef" data-field="return.confirmationRef" placeholder="z. B. E-Mail-Betreff, Ticketnummer oder Vorgangsnummer">
+          </div>
           </div>
         </div>
         <div class="photo-task" data-task="receipt">

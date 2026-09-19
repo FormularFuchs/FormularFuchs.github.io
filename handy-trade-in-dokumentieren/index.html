@@ -385,7 +385,7 @@
             <input id="seller" data-field="party.recipient" placeholder="optional">
           </div>
           <div class="field full">
-            <label for="reason">Grund der Rücksendung</label>
+            <label for="reason">Anlass der Einsendung</label>
             <textarea id="reason" data-field="item.reason" placeholder="z. B. Verkauf über Ankaufportal"></textarea>
           </div>
         </div>
@@ -424,22 +424,9 @@
       </section>
 
       <section class="step" id="step-4" data-step="4">
-        <h2>4. Account, Daten und Rücksetzung</h2>
-        <p class="intro">Prüfe nur, was für dein Gerät zutrifft. FormularFuchs speichert keine Passwörter oder PINs.</p>
-        <div class="check-list">
-          <label class="check"><input type="checkbox" data-check="privacy.backup"><span><strong>Backup erstellt</strong></span></label>
-          <label class="check"><input type="checkbox" data-check="privacy.simRemoved"><span><strong>SIM-Karte entfernt</strong></span></label>
-          <label class="check"><input type="checkbox" data-check="privacy.sdRemoved"><span><strong>SD-/Speicherkarte entfernt</strong></span></label>
-          <label class="check"><input type="checkbox" data-check="privacy.accountRemoved"><span><strong>Apple-/Google-/Herstellerkonto entfernt</strong></span></label>
-          <label class="check"><input type="checkbox" data-check="privacy.lockDisabled"><span><strong>„Wo ist?“ / Aktivierungssperre deaktiviert</strong></span></label>
-          <label class="check"><input type="checkbox" data-check="privacy.reset"><span><strong>Auf Werkseinstellungen zurückgesetzt</strong></span></label>
-        </div>
-        <div class="privacy-note"><strong>Keine Zugangsdaten eintragen.</strong><br>Passwörter, PINs oder Entsperrcodes gehören nicht in diese Dokumentation.</div>
-      </section>
-
-      <section class="step" id="step-5" data-step="5">
-        <h2>5. Fotos und Verpackung</h2>
-        <p class="intro">Die Fotos werden auf deinem Gerät verkleinert und lokal gespeichert. Sie werden nicht an FormularFuchs übertragen.</p>
+        <h2>4. Gerät dokumentieren und Daten sichern</h2>
+        <p class="intro">Fotografiere das Gerät und – falls möglich – den eingeschalteten Bildschirm <strong>vor dem Zurücksetzen</strong>. Prüfe danach die für dich passenden Punkte zur Datensicherung und Rücksetzung. Ein ungeöffnetes Gerät musst du dafür nicht öffnen.</p>
+        <h3 style="margin:0 0 12px">Gerätefotos vor der Rücksetzung (optional)</h3>
         <div class="photo-list">
           <div class="photo-task" data-task="overall">
             <div class="photo-top"><div><div class="photo-title">1. Gesamtansicht des Geräts</div><div class="hint">Gut erkennbar, bevor du es verpackst.</div></div><span class="photo-status">noch kein Foto</span></div>
@@ -473,8 +460,25 @@
             </div>
             <img class="preview" data-preview="back" alt="Vorschau Rückseite">
           </div>
+        </div>
+        <h3 style="margin:23px 0 12px">Daten und Konten vorbereiten</h3>
+        <div class="check-list">
+          <label class="check"><input type="checkbox" data-check="privacy.backup"><span><strong>Backup erstellt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.simRemoved"><span><strong>SIM-Karte entfernt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.sdRemoved"><span><strong>SD-/Speicherkarte entfernt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.accountRemoved"><span><strong>Apple-/Google-/Herstellerkonto entfernt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.lockDisabled"><span><strong>„Wo ist?“ / Aktivierungssperre deaktiviert</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.reset"><span><strong>Auf Werkseinstellungen zurückgesetzt</strong></span></label>
+        </div>
+        <div class="privacy-note"><strong>Keine Zugangsdaten eintragen.</strong><br>Passwörter, PINs oder Entsperrcodes gehören nicht in diese Dokumentation.</div>
+      </section>
+
+      <section class="step" id="step-5" data-step="5">
+        <h2>5. Zubehör und Verpackung fotografieren</h2>
+        <p class="intro">Nachdem die benötigten Daten gesichert und Konten entfernt sind, dokumentiere das mitgesendete Zubehör und das Verpacken. Die Fotos werden lokal verarbeitet; nichts wird automatisch an FormularFuchs übertragen.</p>
+        <div class="photo-list">
           <div class="photo-task" data-task="accessories">
-            <div class="photo-top"><div><div class="photo-title">3. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">5. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="accessories" aria-label="Foto für accessories aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="accessories" aria-label="Bild für accessories aus Galerie wählen"></label>

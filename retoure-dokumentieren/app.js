@@ -130,6 +130,7 @@
     caseSelect.disabled = busy;
     createCaseTopBtn.disabled = busy;
     newCaseBtn.disabled = busy;
+    document.getElementById("deleteBtn").disabled = busy;
   }
 
   function saveState(updateTimestamp = true) {
@@ -266,16 +267,22 @@
     wizardNav.style.display = isFinal ? "none" : "";
     saveState(false);
     if (state.currentStep === TOTAL_STEPS) {
+      missingCheck.hidden = true;
+      beginFileWork();
       finalPrintBtn.disabled = true;
       finalPrintBtn.textContent = "Fotos werden vorbereitet …";
       renderSummary().then(() => {
+        endFileWork();
         if (state.currentStep === TOTAL_STEPS) {
           finalPrintBtn.disabled = false;
           finalPrintBtn.textContent = "PDF speichern";
         }
       }).catch(() => {
+        endFileWork();
         finalPrintBtn.disabled = false;
         finalPrintBtn.textContent = "PDF speichern";
+        missingCheck.hidden = false;
+        missingCheck.textContent = "Die Dokumentation konnte nicht vollständig vorbereitet werden. Bitte Seite neu laden oder Fotos prüfen.";
       });
 
     }

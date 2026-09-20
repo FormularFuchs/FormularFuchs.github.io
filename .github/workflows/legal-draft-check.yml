@@ -1,0 +1,21 @@
+name: Rechtsseiten-Entwurf prüfen
+on:
+  push:
+    branches:
+      - vorbereitung-nur-rechtsseiten
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  legal-draft-static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Main-Stand für unveränderte Helfer laden
+        run: git fetch origin main
+      - name: Statische Kontrolle
+        run: node scripts/check-legal-draft.mjs

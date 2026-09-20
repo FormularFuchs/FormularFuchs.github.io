@@ -46,3 +46,23 @@
 4. Für neue Favoriten dieselbe Prüfung wiederholen, danach Entscheidung mit Nutzer.
 5. Kein automatischer GitHub-Account-, Repository-, URL-, Email-, Logo- oder PDF-Rename. Bestehende live-Links müssen auch bei einem Wechsel funktionsfähig bleiben, lokale Daten dürfen nicht verloren gehen.
 6. Für eine verbindlichere Einschätzung vor größerem Start mit Werbeeinnahmen Patentanwalt/Rechtsanwalt für Markenrecht konsultieren.
+
+
+## Nachrecherche vom 20.09.2026 – neue, belegte Details
+
+### Formfuchs (ohne „ular“) seit April 2021
+- https://formfuchs.de/ — Grafikdesignerin Corinna Wellisch beschreibt Eigenbezeichnung „Formfuchs“ seit April 2021 und Grafikdesign, Print und Corporate Identity; https://formfuchs.de/impressum/ führt Betreiberin auf.
+- Zeichen „Formfuchs“ ist nicht gleich „FormularFuchs“, aber wegen Fuchs-/Form-Bestandteilen und Grafik-/Logo-/Print-Leistungen als weiterer Begriff in der Ähnlichkeitsrecherche zu vermerken. Keine Aussage, ob Registereintrag oder rechtliche Verwechslung.
+
+### Formularfüchse: Trägerschaft und **Singular** jetzt belegbar
+- Das Portal der Stadt Cuxhaven https://www.cuxhaven.de/unser-service-fuer-sie/mitmachen-and-engagieren/projekte/formularfuechse.html verwendet im Aufruf selbst „Möchtest Du gerne Formularfuchs werden“. Der **exakte Singular „Formularfuchs“** kommt damit in älteren fremden Bezeichnungen/Redaktionstexten vor.
+- Cuxhavener Nachrichten vom 12.11.2021 https://www.cnv-medien.de/news/cuxhaven-diese-pfiffigen-fuechse-kann-kein-formular-schrecken.html nennen als damaligen Träger „Engagierte Stadt Cuxhaven e.V.“ und Ursprung August 2011. Zusätzlich https://www.engagiertestadt.de/cuxhaven/ nennt Formularfüchse als eigenes Projekt.
+- https://www.wir-in-suederwisch.de/termine/ zeigt am 20.09.2026 öffentliche Sprechstunden mit Veranstalter Freiwilligenagentur Cuxhaven. Sachlage **nicht** als ein kommerzielles Einzelunternehmen oder eigene gleichnamige e.V. ausgeben; Trägerverhältnisse können sich geändert haben.
+- Rechtskonflikt weiter **ungeklärt**: Bloßer Singular in einem Freiwilligenaufruf beweist keine Markenrechte und ist kein eigenständiger Markenregistertreffer.
+
+### Externe Alternativen/Recherche
+- Für exakte Fantasiekombinationen „Dokuanker“, „Belegpfad“ und „Nachweispfad“ ergab die allgemeine Websuche keinen offensichtlich etablierten Anbieter gleichen Namens als Plattform. „Belegpfad“ und „Nachweispfad“ werden allerdings als beschreibende Wörter verwendet. **Nicht als „frei“ oder registrierbar erklären.**
+- DPMAregister-Basisformular war sichtbar (https://register.dpma.de/DPMAregister/marke/basis) aber mit Web-Zugriff nicht interaktiv ausführbar; https://www.tmdn.org/tmview/ und https://branddb.wipo.int/ lieferten ebenfalls keine prüfbaren individuellen Registertreffer. Kein dokumentierter Nulltreffer!
+
+### Kontrollfrage an Ansprechpartner vor finaler Freigabe
+- Wenn der Nutzer möchte, kann eine höfliche neutrale Anfrage an die Freiwilligenagentur/Engagierte Stadt Cuxhaven entworfen werden, ob sie eine Verwechslungsgefahr sehen und ob sie den Namen „Formularfüchse“ markenrechtlich registriert haben. Eine Zustimmung allein wäre keine umfassende Freigabe gegen Rechte anderer.

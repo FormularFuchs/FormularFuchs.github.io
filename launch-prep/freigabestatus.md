@@ -72,6 +72,10 @@ Für `vorbereitung-nur-rechtsseiten` wurden ausschließlich auf diesem Zweig `sc
 
 Prüfumfang: Links auf Impressum/Datenschutz in Startseite und drei Helfern, lokale statische Ressourcen, Betreibername und gebuchte c/o-Anschrift, weiterhin sichtbar als Entwürfe/`noindex`, keine aktiven Ad-Skripte, JavaScript-Dateien bytegleich mit `main`, keine vorzeitige Marken-Umbenennung. Bei Druck/PDF sind die Helfer-Rechtslinks als `screen-only` gemäß bestehendem `@media print` versteckt. Dies ist **kein Browser-Test und keine rechtliche Freigabe**. Live-`main` wurde nicht berührt.
 
+## Zuständige Aufsicht: Anfrage zur DDG-Einordnung vorbereitet (21.09.2026)
+
+Der Entwurf `launch-prep/anfrage-lfk-impressum-kontaktweg-2026-09-21.md` ist an die für die Impressumspflicht in Baden-Württemberg zuständige Landesanstalt für Kommunikation (Team Aufsicht, telemedienaufsicht@lfk.de) gerichtet. Er beschreibt die tatsächlich kostenlose, werbefreie, dauerhaft öffentliche Formularhilfe, fragt nach § 18 MStV / § 5 DDG und einem schnellen Kontaktweg ohne private Telefonnummer. **Nicht verschickt:** Der Nutzer hat bisher keinen Sendeauftrag erteilt. Eine etwaige Antwort ist nicht als verbindliche Rechtsberatung zu behandeln. Das neue Dokument liegt ausschließlich im breiten Entwicklungszweig, nicht im minimalen Rechtsseiten-Releasezweig, und erscheint nicht auf der Live-Site.
+
 ## Aktualisierte Freigabesperren (20.09.2026, 22:40 Uhr Ortszeit)
 
 1. **Erledigt:** Anschrift.net-Bestellung abgeschlossen, Legitimation bestätigt; Serviceanschrift und Betreibername mit Zustimmung des Nutzers nur in öffentlichen *Entwurfszweig* eingetragen. Keine Privatadresse / Ausweisdatei / Rechnung öffentlich committen.

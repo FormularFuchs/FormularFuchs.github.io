@@ -1,0 +1,23 @@
+name: FormularFuchs preflight
+on:
+  push:
+    branches:
+      - vorbereitung-impressum-datenschutz-werbung
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check site draft
+        run: node scripts/preflight.mjs
+      - name: Check release readiness on pull request
+        if: ${{ github.event_name == 'pull_request' }}
+        run: node scripts/preflight.mjs --release

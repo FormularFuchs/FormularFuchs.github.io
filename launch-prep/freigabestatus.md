@@ -26,6 +26,20 @@ Stand: 20. September 2026
 - Vor öffentlicher Bewerbung, Monetarisierung oder Markenanmeldung: „FormularFuchs“, „Formular Fuchs“, „Formular-Fuchs“, „Formularfuchs“ und „Formularfüchse“ in amtlichen Registern und weiteren Kennzeichenquellen prüfen, insbesondere gleiche oder ähnliche digitale Formularhilfe-Dienstleistungen. Ggf. anwaltliche Kollisionsprüfung.
 - Bis zur Klärung keine Namensfreigabe behaupten, keine kostenpflichtige Markenanmeldung auslösen. Bestehende Live-Seite ist bereits online; nicht behaupten, sie sei noch unveröffentlicht.
 
+
+## Update 20.09.2026 abends: Impressumsanschrift bestätigt, Entwürfe ausgefüllt
+
+Anschrift.net hat die Bestellung Nr. 155225 abgeschlossen und die Legitimation per Mail ausdrücklich als abgeschlossen bezeichnet. Die gebuchte Anschrift ist:
+Felix Ducksch, c/o Block Services, Stuttgarter Str. 106, 70736 Fellbach. Der Nutzer hat ausdrücklich bestätigt, dass diese Kombination im **öffentlichen GitHub-Entwurfszweig** als Impressums-/Datenschutz-Verantwortlicher verwendet werden darf. Weder die persönliche Rechnungsanschrift noch Ausweisbilder/Rechnung gehören ins Repository.
+
+Dateien aktualisiert:
+- `impressum/index.html`
+- `datenschutz/index.html`
+- `launch-prep/impressum-entwurf.md`
+- `launch-prep/datenschutz-entwurf.md`
+
+**Noch keine Live-Freigabe:** Beide Rechtsseiten zeigen weiterhin den Arbeitsentwurf-Hinweis und `noindex,nofollow`. Der Zweig `main` bleibt unberührt. Vor Übernahme: schnelle unmittelbare Kontaktmöglichkeit zusätzlich zur E-Mail klären, mögliche USt-IdNr./W-IdNr. und andere Zusatzpflichten abfragen, tatsächliche E-Mail-/Brief-Löschpraxis bestätigen, Anbieter-Datenschutzlinks und Rechtsseiten im Browser testen. Markenentscheidung (FormularFuchs vs. Erdilotse/Otterlotse/Rabenlotse) bleibt getrennt. Keine Werbeskripte aktivieren. Die E-Mail-Anmerkung zum Pseudonym zeigt einen leeren Wert zwischen Anführungszeichen; für Post ausschließlich an das Pseudonym zur Sicherheit Anschrift.net fragen.
+
 ## Offene Freigabesperren
 1. Legitimation bei Anschrift.net ist hochgeladen, Freigabe/Bestätigungs-E-Mail mit konkreter Anschrift steht aus.
 2. Nur ausdrücklich freigegebene Anschrift im korrekten Adressformat übernehmen; Privat-/Rechnungsanschrift nicht in GitHub.

@@ -295,10 +295,10 @@
         }
       }).catch(() => {
         endFileWork();
-        finalPrintBtn.disabled = false;
-        finalPrintBtn.textContent = "PDF speichern";
+        finalPrintBtn.disabled = true;
+        finalPrintBtn.textContent = "PDF derzeit nicht verfügbar";
         missingCheck.hidden = false;
-        missingCheck.textContent = "Die Dokumentation konnte nicht vollständig vorbereitet werden. Bitte Seite neu laden oder Fotos prüfen.";
+        missingCheck.textContent = "Die Dokumentation konnte nicht vollständig vorbereitet werden. Bitte Fotos prüfen und zur Zusammenfassung zurückkehren oder die Seite neu laden. Ein unvollständiges PDF wird nicht ausgegeben.";
       });
 
     }

@@ -17,11 +17,28 @@ Deutschland
 
 Basis: E-Mail „Auftrags- und Zahlungsbestätigung“ von Anschrift.net vom 20.09.2026, Bestellnummer 155225, mit der angegebenen Adressform sowie Anmerkung „Legitimation abgeschlossen“. Der Nutzer hat der Veröffentlichung seines Klarnamens mit genau dieser Serviceanschrift **im öffentlichen Entwurfszweig** ausdrücklich zugestimmt.
 
-**Noch vor Übernahme nach main prüfen:**
-1. Ist die Serviceanschrift weiterhin aktiv und für diese Website korrekt verwendbar? Bei Beendigung sofort aktualisieren.
-2. Nutzerangabe vom 20.09.2026: Für FormularFuchs sind keine USt-IdNr., Wirtschafts-ID oder Registereintragung vorhanden. Deshalb im Impressum dafür keine Zeilen erzeugen und insbesondere keine persönliche Steuer-ID/Steuernummer einsetzen. Falls spätere Zuteilung oder Betriebsänderung: neu prüfen. Gesonderte Zusatzpflichten (z. B. zulassungspflichtige Tätigkeit, redaktionelle Verantwortung) nur bei tatsächlicher Einschlägigkeit aufnehmen.
-3. § 5 Abs. 1 Nr. 2 DDG: Es liegt eine E-Mail vor. Eine weitere tatsächlich erreichbare, schnelle/unmittelbare Kontaktmöglichkeit prüfen (z. B. Telefon oder entsprechend betreutes elektronisches Kontaktangebot); keine private Telefonnummer ohne ausdrückliche Zustimmung eintragen. Ob der gebuchte reine Postservice für die konkrete Anbieteranschrift und rechtliche Zustellung genügt, ist gesondert rechtlich zu beurteilen – gebuchte Postannahme allein ist kein allgemeiner Rechtssicherheitsnachweis.
-4. Der Anbieterhinweis nennt das im Kundenkonto hinterlegte Pseudonym in der Anmerkung leer („“); für Zustellungen an den **Klarnamen** ist der Name in der Auftragsbestätigung vorgesehen. Eventuell vor Nutzung des Pseudonyms für Geschäftspost klären.
+## Entscheidung Erreichbarkeit – Quellencheck 20.09.2026
 
-Rechtsgrundlage: https://www.gesetze-im-internet.de/ddg/__5.html
-Orientierung: https://www.ihk.de/karlsruhe/fachthemen/recht/internetrecht/impressumspflichten-6266634
+Nutzer möchte zunächst **ausschließlich die Projekt-E-Mail** als elektronische Kontaktmöglichkeit belassen und klären, ob das für das aktuell kostenlose Angebot genügt. Kein Formular, keine Telefon-/Privatnummer ohne Entscheidung des Betreibers anlegen.
+
+Die rechtliche Beurteilung hängt davon ab, welche Impressumspflichten einschlägig sind:
+
+- **§ 18 Abs. 1 Medienstaatsvertrag:** An öffentliche Angebote außerhalb ausschließlich persönlicher/familiärer Zwecke knüpft mindestens Name/Anschrift an; ein zusätzlicher Kontaktweg neben der E-Mail ist in diesem Absatz nicht vorgeschrieben. Die E-Mail wird freiwillig mit angegeben.
+- **§ 5 Abs. 1 DDG:** Geschäftsmaßige, in der Regel gegen Entgelt angebotene digitale Dienste müssen zusätzlich eine schnelle elektronische Kontaktaufnahme und unmittelbare Kommunikation einschließlich E-Mail ermöglichen. Dass die Formulare für Nutzer kostenlos sind, schließt DDG *nicht sicher* aus: nachhaltig öffentlich angebotene Leistungen können marktüblich vergütbar sein; tatsächliche Werbung/Monetarisierung ist ein starkes Indiz. Laut IHK Karlsruhe und LFK Baden-Württemberg sollte neben der E-Mail ein anderer schneller effizienter Kommunikationsweg verfügbar sein. Der EuGH (C-298/07) verlangt **keine zwingende Telefonnummer**; ein zusätzliches betreutes elektronisches Anfrageformular kann bei zügiger Antwort ausreichen. Ein bloßer zweiter `mailto:`-Link ist nicht als eigenständige Lösung nachgewiesen.
+- **Konkretes Projekt:** Aktuell kostenlose Formulare ohne aktive Werbung/Tracking, aber Werbung zur Kostendeckung ist später geplant. Ob schon die öffentliche nachhaltige Präsentation oder die konkret vergleichbaren Leistungen § 5 DDG auslöst, bleibt ein Einzelfall. **Nicht** pauschal behaupten, das kostenlose Projekt sei von § 5 DDG befreit. Vor aktiver Werbung erneut zwingend prüfen und gegebenenfalls zweiten Kommunikationsweg herstellen.
+
+**Zusätzliche postalische Unsicherheit:** Die bestätigte Anschrift bei Anschrift.net / Block Services (Empfang, Digitalisierung von Post) ist nicht automatisch rechtlich als Niederlassung oder wirksame Anschrift für gerichtliche Zustellung verifiziert. LFK warnt ausdrücklich, dass rein virtuelles Büro / bloße Weiterleitung für förmliche Zustellungen nicht ausreicht; gegebenenfalls tatsächliche Empfangs- oder Zustellungsvollmacht sowie Eignung für das Impressum schriftlich klären. Keine private Wohnanschrift veröffentlichen ohne gesondertes Okay.
+
+**Noch vor Übernahme nach main prüfen:**
+1. Ist die gebuchte Serviceanschrift weiterhin aktiv und sind dort förmliche Zustellungen / zivilgerichtliche Ladungen an den Klarname wirksam möglich? Betreiber oder geeignete Rechtsauskunft soll die Adressnutzung für das konkrete Angebot prüfen. Dienstende sofort in Impressum berücksichtigen.
+2. Gilt § 5 DDG schon jetzt? Wenn ja, eine weitere schnelle/unmittelbare Kontaktoption als separate Entscheidung treffen; keine private Telefonnummer ohne Zustimmung aufnehmen. E-Mail-only ist dann rechtlich nicht verlässlich abgesichert.
+3. Nutzerangabe vom 20.09.2026: Keine USt-IdNr., Wirtschafts-ID oder Registereintragung für FormularFuchs. Nichts ergänzen; keine private Steuer-ID/Steuernummer.
+4. Sonstige Zusatzpflichten wie journalistisch-redaktionelle Verantwortung, erlaubnispflichtige Tätigkeit nur bei tatsächlicher Anwendbarkeit.
+5. Keine Inhalte im Live-Zweig ändern oder Marke umbenennen ohne separate ausdrückliche Zustimmung.
+
+**Quellen (Abgleich vom 20.09.2026):**
+- https://www.gesetze-bayern.de/Content/Document/MStV-18
+- https://www.gesetze-im-internet.de/ddg/__5.html
+- https://www.lfk.de/service/dokumente-rechtsgrundlagen/leitfaden-zur-impressumspflicht-im-internet
+- https://www.ihk.de/karlsruhe/fachthemen/recht/internetrecht/impressumspflichten-6266634
+- https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A62007CJ0298_SUM

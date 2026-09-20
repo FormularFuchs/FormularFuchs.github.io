@@ -517,3 +517,12 @@ footer{
 .draft-warning{border:2px solid #d08319;border-radius:12px;background:#fff5e8;padding:14px;margin:0 0 20px;color:#5c3608;font-weight:700}
 .legal-card .placeholder{border-radius:6px;background:#fff0db;color:#663700;padding:2px 5px}
 @media print{.legal-links{display:none!important}}
+
+/* Vorbereiteter, deaktivierter Werbebereich: erst nach Freigabe mit echten Anzeigen belegen. */
+.after-pdf-sponsor[hidden]{display:none!important}
+.after-pdf-sponsor{border:1px solid #9ab5cc;border-radius:15px;background:#eef6fc;margin:18px 0;padding:14px;color:#153652}
+.after-pdf-sponsor-label{font-size:.78rem;font-weight:800;letter-spacing:.035em;color:#35516a;text-transform:uppercase;margin-bottom:8px}
+.after-pdf-sponsor-content{background:#fff;border:1px solid #cadbea;border-radius:10px;padding:16px;min-height:110px}
+.after-pdf-sponsor-content strong{display:block;color:#123d62;font-size:1rem}
+.after-pdf-sponsor-content p{margin:6px 0 0;color:#38536a;font-size:.92rem}
+@media print{.after-pdf-sponsor{display:none!important}}

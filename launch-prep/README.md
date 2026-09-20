@@ -7,9 +7,13 @@
 - Interaktive Formulare und PDF bleiben kostenlos.
 - Keine Pflichtwerbung, kein Werbe-Countdown vor PDF.
 - Geplante Finanzierung: dezenter Werbeplatz am Ende des Vorgangs / nach Öffnen des PDF-Dialogs; zunächst keine externen Werbeskripte.
-- Externe Impressumsanschrift erst nach verbindlicher Buchung/Bestätigung; keine Privatanschrift in öffentlichem GitHub-Verlauf.
-- Anbieter-Kandidat Anschrift.net, BW; Preis und Eignung unmittelbar vor Buchung erneut prüfen.
+- Impressumsanschrift seit 20.09.2026 durch Anschrift.net bestätigt, Legitimation abgeschlossen; Betreiber hat die Verwendung des Klarnamens mit Fellbacher Serviceanschrift im öffentlichen Entwurfszweig freigegeben. Keine Privatanschrift/ID-Dokumente im Repository.
+- Anschrift.net DE-Süd gebucht: 6,90 € monatlich, postalische Entgegennahme/Digitalisierung; Bestellnummer 155225. Den Service bei Vertragsende aus Impressum entfernen.
 - Kein Kauf, keine Werbeanmeldung und keine Freigabe durch dieses Dokument.
+
+## Rechtstexte ausgefüllt (nur Entwicklungszweig)
+
+Die bestätigte Serviceanschrift und der vom Betreiber freigegebene Name sind in `impressum/index.html` und `datenschutz/index.html` eingesetzt. Die Texte sind weiterhin mit `noindex,nofollow` und einem Arbeitsentwurf-Hinweis markiert; `main` wurde nicht geändert. Noch zu klären: zweite schnelle Kontaktmöglichkeit neben E-Mail, etwaige tatsächlich vorhandene USt-/Wirtschafts-ID oder Registerangaben, reale Nachrichtenaufbewahrung und abschließende Rechts-/Browsertests. Neue Marke ist noch nicht entschieden.
 
 ## Priorität: Aktuelle öffentliche Testseite (20.09.2026)
 

@@ -60,6 +60,12 @@ Anschrift.net beantwortet die zuvor als offen dargestellte allgemeine Gerichtspo
 
 Zusätzlich existiert der ausschließlich für die Rechtsseiten bestimmte, von `main` abgezweigte Branch `vorbereitung-nur-rechtsseiten`. Er enthält nur zwei weiterhin sichtbar als **Arbeitsentwurf** und `noindex,nofollow` markierte Rechtsseiten, die erforderlichen CSS-Regeln und Links aus Startseite und drei Helfern. Er enthält **keine** versteckten Anzeigen-Container oder zusätzliche Scriptdateien. Die `app.js`-Dateien entsprechen exakt `main`, damit bleiben Vorgänge und PDF-Logik unverändert. 22 programmgesteuerte Quelltext-Prüfungen wurden über die GitHub-Connector-Leseantworten bestanden; das ist kein echter Browser-/Rechtstest. `main` weiterhin unberührt, keine Live-Freigabe erfolgt.
 
+## Zweites Repository für isolierten Rechtslinks-Release (20.09.2026)
+
+Der von `main` abgezweigte Branch `vorbereitung-nur-rechtslinks` im öffentlichen Repository `FormularFuchs/entsorgungsnachweis-starterbatterie` fügt ausschließlich Impressum- und Datenschutzlinks hinzu. Diese Links gehen nach `https://formularfuchs.github.io/impressum/` und `https://formularfuchs.github.io/datenschutz/`; daher darf der Zweig nicht vor den tatsächlich veröffentlichten Rechtsseiten live gehen. Ein Quelltextvergleich ergab: Durch Entfernen der exakt zwei neuen Links ist das Batterie-`index.html` bytegleich mit `main`; PDF-Release-Link, Download, Styles und die Seite sonst sind unverändert. Kein `main`-Branch wurde geändert.
+
+**Weitere Quelle zur DDG-Einordnung:** Bundesportal (Bayern, zuletzt aktualisiert 12.05.2026) nennt ausdrücklich: Kostenfreie Abrufbarkeit bzw. kostenlose Dienste befreien nicht automatisch von der Anbieterkennzeichnung. Eine beworbene eigene Dienstleistung oder geplante werbliche Einnahmen sind relevante Gesichtspunkte; keine definitive Feststellung der Anwendbarkeit für das individuelle Projekt ohne genauere Einordnung. https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99000000025492/herausgeber/BY-25492/region/09
+
 ## Aktualisierte Freigabesperren (20.09.2026, 22:40 Uhr Ortszeit)
 
 1. **Erledigt:** Anschrift.net-Bestellung abgeschlossen, Legitimation bestätigt; Serviceanschrift und Betreibername mit Zustimmung des Nutzers nur in öffentlichen *Entwurfszweig* eingetragen. Keine Privatadresse / Ausweisdatei / Rechnung öffentlich committen.

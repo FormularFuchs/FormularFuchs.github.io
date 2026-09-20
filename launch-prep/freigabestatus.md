@@ -46,9 +46,15 @@ Nutzer möchte zunächst **nur FormularFuchs@genial.ms** anbieten und den rechtl
 
 Die staged HTML-Seite nennt nun § 18 MStV und § 5 DDG bedingt; Betreibername, Serviceanschrift, E-Mail unverändert. Eine unbestätigte Rechtsaussage über den genügenden Kontaktweg nicht in die Live-Seite schreiben.
 
-**Zweite noch offene Rechtsfrage:** Die Buchung des Postservices beweist nicht schon die Möglichkeit förmlicher Zustellungen an der c/o-Anschrift oder eine Niederlassung im Sinne des § 5 DDG. Laut LFK reichen bloße Weiterleitungsadressen/virtuelle Büros für förmliche Zustellung nicht aus. Anbieter um ausdrückliche schriftliche Bestätigung der Entgegennahme gerichtlicher Zustellungen und ggf. Empfangsvollmacht bitten; unabhängige Prüfung empfohlen. Nicht als erwiesene Unzulässigkeit dieses Dienstes formulieren.
+**Postservice-Anbieterangaben jetzt konkret geprüft:** Anschrift.net bestätigt in der FAQ explizit die Annahme von förmlicher Gerichtspost nach ZPO, Behördenpost und Einschreiben, den physischen Workspace-Bezug und die Möglichkeit, die Anschrift für mehrere Projekte zu nutzen. FAQ und Leistungsbeschreibung grenzen das Modell von reiner Postweiterleitung ab; laut Anbieter keine Betriebsstätte, Niederlassung oder Wohnadresse. Die allgemeine frühere Aussage „gerichtliche Zustellung noch unbestätigt, erst Anbieter fragen“ war zu pauschal. Nun nicht wegen eines vermeintlich unbeantworteten Standardpunkts blockieren; tatsächliche Buchungsunterlagen / aktuelle Servicefreigabe prüfen, rechtliche Beurteilung der konkreten Gestaltung bleibt davon getrennt. Für Pseudonym „FormularFuchs“ enthält die Anbieter-Anmerkungsmail leere Anführungszeichen; hier besteht bei reiner Pseudonym-Zustellung tatsächlich Klärungsbedarf.
+
+Belege: https://anschrift.net/faq/ · https://anschrift.net/dein-impressum/ · https://anschrift.net/kontakt/ · https://www.lfk.de/service/dokumente-rechtsgrundlagen/leitfaden-zur-impressumspflicht-im-internet
 
 Quellen: https://www.gesetze-bayern.de/Content/Document/MStV-18 ; https://www.gesetze-im-internet.de/ddg/__5.html ; https://www.lfk.de/service/dokumente-rechtsgrundlagen/leitfaden-zur-impressumspflicht-im-internet ; https://www.ihk.de/karlsruhe/fachthemen/recht/internetrecht/impressumspflichten-6266634 ; https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A62007CJ0298_SUM
+
+## Ergänzung nach Anbieter-FAQ (20.09.2026)
+
+Anschrift.net beantwortet die zuvor als offen dargestellte allgemeine Gerichtspostfrage bereits ausdrücklich: förmliche gerichtliche und behördliche Sendungen werden an die gebuchte c/o-Anschrift angenommen, ein real nutzbarer Workspace ist laut Anbieter Vertragsbestandteil und es gibt ein physisches Standortangebot. FAQ erklärt, dass die Adresse nicht als Wohnort/Firmensitz/Niederlassung genutzt werden darf. Dies sind Anbieterangaben, **keine** unabhängige abschließende rechtliche Garantie für die konkrete Konstellation. Keine weitere Support-Anfrage zu bereits ausdrücklich beantworteten Standardfragen nötig. Was der Betreiber ggf. im Kundenkonto prüfen sollte: Name/Pseudonym richtig hinterlegt, gebuchte Standortnutzung und aktuelle Servicefreigabe.
 
 ## Aktualisierte Freigabesperren (20.09.2026, 22:40 Uhr Ortszeit)
 

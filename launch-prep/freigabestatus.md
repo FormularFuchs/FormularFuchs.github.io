@@ -17,7 +17,7 @@ Stand: 20. September 2026
 - Kein Werbeanbieter, Tracking-Skript oder aktiver Ad-Code eingebunden.
 - Originale `app.js`-Dateien der drei Helfer sind im Entwicklungszweig unverändert gegenüber main.
 - Die Live-Seiten auf main haben keinen neuen Werbebereich.
-- Die beiden Rechtsseiten sind nur unvollständige, noindex-markierte Entwürfe im Entwicklungszweig.
+- Die beiden Rechtsseiten sind mit bestätigten Betreiberangaben ausgefüllte, noindex-markierte **noch nicht freigegebene** Entwürfe im Entwicklungszweig.
 
 ## Neu entdeckter Namens-Check (vor Marken-Freigabe)
 - Öffentliche Internetrecherche am 20.09.2026 ergab eine seit 2011 bestehende ehrenamtliche Initiative **„Die Formularfüchse“** in Cuxhaven, die Menschen beim Ausfüllen von Anträgen und Schreiben hilft. Sie ist **nicht** automatisch mit „FormularFuchs“ identisch oder zwingend eine geschützte Marke, aber thematisch nahe genug für vertiefte Kennzeichenrecherche.
@@ -38,15 +38,21 @@ Dateien aktualisiert:
 - `launch-prep/impressum-entwurf.md`
 - `launch-prep/datenschutz-entwurf.md`
 
-**Noch keine Live-Freigabe:** Beide Rechtsseiten zeigen weiterhin den Arbeitsentwurf-Hinweis und `noindex,nofollow`. Der Zweig `main` bleibt unberührt. Vor Übernahme: schnelle unmittelbare Kontaktmöglichkeit zusätzlich zur E-Mail klären, mögliche USt-IdNr./W-IdNr. und andere Zusatzpflichten abfragen, tatsächliche E-Mail-/Brief-Löschpraxis bestätigen, Anbieter-Datenschutzlinks und Rechtsseiten im Browser testen. Markenentscheidung (FormularFuchs vs. Erdilotse/Otterlotse/Rabenlotse) bleibt getrennt. Keine Werbeskripte aktivieren. Die E-Mail-Anmerkung zum Pseudonym zeigt einen leeren Wert zwischen Anführungszeichen; für Post ausschließlich an das Pseudonym zur Sicherheit Anschrift.net fragen.
+**Noch keine Live-Freigabe:** Beide Rechtsseiten zeigen weiterhin den Arbeitsentwurf-Hinweis und `noindex,nofollow`. Der Zweig `main` bleibt unberührt. Vor Übernahme: schnelle unmittelbare Kontaktmöglichkeit zusätzlich zur E-Mail klären, sonstige tatsächlich anwendbare Zusatzpflichten und tatsächliche E-Mail-/Brief-Löschpraxis bestätigen sowie Rechtsseiten im Browser testen. Keine USt-IdNr./W-IdNr./Registereintragung laut Nutzer vorhanden; Anbieter-Datenschutzlinks sind abgeglichen. Markenentscheidung (FormularFuchs vs. Erdilotse/Otterlotse/Rabenlotse) bleibt getrennt. Keine Werbeskripte aktivieren. Die E-Mail-Anmerkung zum Pseudonym zeigt einen leeren Wert zwischen Anführungszeichen; für Post ausschließlich an das Pseudonym zur Sicherheit Anschrift.net fragen.
 
-## Offene Freigabesperren
-1. Legitimation bei Anschrift.net ist hochgeladen, Freigabe/Bestätigungs-E-Mail mit konkreter Anschrift steht aus.
-2. Nur ausdrücklich freigegebene Anschrift im korrekten Adressformat übernehmen; Privat-/Rechnungsanschrift nicht in GitHub.
-3. Betreiberpflichtangaben und Datenschutzerklärung vollständig prüfen, dann rechtliche HTML-Seiten freigeben.
-4. Statische Vorschau und echten Browser-/Smartphone-Test der Rechtsseiten durchführen.
-5. HTML-Seiten von Entwicklungszweig nach Freigabe in Live-Zweig übernehmen. Nie Platzhalter veröffentlichen.
-6. Entscheidung über tatsächliche Werbung, Zahlungs-/Steuerfrage und ggf. Einwilligungslösung separat treffen; aktuell **keine Werbung freischalten**.
-7. Wenn Projekt später eingestellt oder Anschrift geändert wird, Impressum vor Ende des Adressnutzungsrechts aktualisieren.
+## Aktualisierte Freigabesperren (20.09.2026, 22:40 Uhr Ortszeit)
+
+1. **Erledigt:** Anschrift.net-Bestellung abgeschlossen, Legitimation bestätigt; Serviceanschrift und Betreibername mit Zustimmung des Nutzers nur in öffentlichen *Entwurfszweig* eingetragen. Keine Privatadresse / Ausweisdatei / Rechnung öffentlich committen.
+2. **Erledigt:** Nutzer besitzt für FormularFuchs derzeit keine USt-IdNr., Wirtschafts-ID und keinen Registereintrag. Keine solchen Angaben oder privaten Steuerkennzeichen ergänzen.
+3. **Offen:** Noch keine vom Nutzer gewählte, tatsächlich betreute zusätzliche schnelle/unmittelbare Kontaktmöglichkeit neben der E-Mail. Der EuGH lässt andere Wege als Telefon grundsätzlich zu (C-298/07), sagt aber nicht, dass bloßer zusätzlicher `mailto`-Link einen zweiten Kommunikationsweg schafft. Nicht einfach Telefon- oder Formulardaten erfinden.
+4. **Offen:** Wirkliche Lösch-/Aufbewahrungspraxis bei Nutzer-E-Mails und vom Postservice bereitgestellten Briefscans sowie weitere mögliche gesetzliche Zusatzpflichten final mit Betreiber abgleichen.
+5. **Erledigt:** Fehlerhafter Link `anschrift.net/datenschutz/` durch den überprüften Link `https://anschrift.net/datenschutzerklaerung/` ersetzt; Postservice-Datenschutzerklärung benennt COCENTER GmbH als Verantwortlichen. WEB.DE-Datenschutzlink überprüft.
+6. **Offen:** HTML-Rechtstexte im Browser/Mobilgerät gegen tatsächliche Website prüfen, rechtliche Endabnahme, Entwurfshinweis/`noindex` *erst bei expliziter Live-Freigabe* entfernen. Frühere GitHub Actions prüften die statische Struktur; kein vollständiger Browser-/Rechtstest.
+7. **Wichtig:** Website auf `main` ist **schon öffentlich** und besitzt derzeit noch keine erreichbaren Rechtsseiten. Die Rechtsseiten nicht unnötig mit dem noch offenen zukünftigen Markennamen koppeln. Einen **getrennten Minimal-Release der Rechtstexte im bestehenden Namen FormularFuchs** dem Nutzer zur expliziten Zustimmung vorlegen, ohne Werbeplatz oder andere ungetestete Branchänderungen auszurollen.
+8. GitHub-Pages-Bedingungen beachten: Die derzeit kostenlosen Projekt-/Vorlagen-Seiten sind anders als ein hauptsächlich kommerzielles SaaS; konkrete monetarisierte Geschäftsmodelle und Werbung vor Aktivierung anhand der Pages-Bedingungen prüfen. Spenden-/Crowdfundinglinks sind laut GitHub in bestimmten Fällen erlaubt, allgemeines Werbenetzwerk damit **nicht pauschal freigegeben**.
+9. Markenentscheidung (FormularFuchs vs. Erdilotse, Rabenlotse, Otterlotse) und eventuelle Konto-/URL-Umbenennung getrennt; `localStorage` und `IndexedDB` sind origin-gebunden, daher wichtige Nutzer vor einer Domainmigration auf PDF-Export hinweisen.
+10. Anschrift.net-Anmerkung zeigt hinterlegtes Pseudonym als leer („“); für ausschließlich pseudonym adressierte Post erst beim Provider bestätigen lassen. Klarnamensanschrift ist bestätigt. Dienst bei Vertragsende sofort im Impressum aktualisieren.
+
+Quellen: https://www.gesetze-im-internet.de/ddg/__5.html · https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A62007CJ0298_SUM · https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features · https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits · https://anschrift.net/datenschutzerklaerung/ · https://www.gesetze-im-internet.de/ttdsg/__25.html
 
 Die Freigabe eines Impressums ist kein automatisches „Testversion entfernen“ bei den Helfern; das sind zwei getrennte Entscheidungen.

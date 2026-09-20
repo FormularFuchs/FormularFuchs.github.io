@@ -36,7 +36,7 @@ Belege: https://anschrift.net/faq/ (Fragen „Sind förmliche und gerichtliche Z
 2. Gilt § 5 DDG schon jetzt? Wenn ja, eine weitere schnelle/unmittelbare Kontaktoption als separate Entscheidung treffen; keine private Telefonnummer ohne Zustimmung aufnehmen. E-Mail-only ist dann rechtlich nicht verlässlich abgesichert.
 3. Nutzerangabe vom 20.09.2026: Keine USt-IdNr., Wirtschafts-ID oder Registereintragung für FormularFuchs. Nichts ergänzen; keine private Steuer-ID/Steuernummer.
 4. Sonstige Zusatzpflichten wie journalistisch-redaktionelle Verantwortung, erlaubnispflichtige Tätigkeit nur bei tatsächlicher Anwendbarkeit.
-5. Das vom Anbieter per E-Mail in Anführungszeichen leer ausgegebene Pseudonym vor **ausschließlich** unter FormularFuchs bzw. späterer Marke adressierter Post im Anbieter-Kundenkonto kontrollieren oder Support kurz um eindeutige Bestätigung bitten. Klarnamensanschrift und Betreiberangabe sind hiervon nicht betroffen.\n6. Keine Inhalte im Live-Zweig ändern oder Marke umbenennen ohne separate ausdrückliche Zustimmung.
+5. **Erledigt für aktuellen Namen:** Der Betreiber zeigte am 21.09.2026 Screenshots der Bestelldetails: Im Feld „Anmerkung“ steht ausdrücklich „Pseudonym: FormularFuchs“. Die Bestellnotiz zeigt dagegen nur leere Anführungszeichen; dies ist offensichtlich eine unvollständig befüllte Nachrichtenvorlage. Die Bestelldetails bestätigen die Hinterlegung des aktuellen Pseudonyms; hierfür keine zusätzliche Support-Anfrage nötig. Bei späterem neuen Markennamen dessen Hinterlegung beim Anbieter gesondert ändern bzw. bestätigen lassen.\n6. Keine Inhalte im Live-Zweig ändern oder Marke umbenennen ohne separate ausdrückliche Zustimmung.
 
 **Quellen (Abgleich vom 20.09.2026):**
 - https://www.gesetze-bayern.de/Content/Document/MStV-18

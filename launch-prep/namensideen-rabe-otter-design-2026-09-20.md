@@ -40,3 +40,20 @@ Kein Namensvorschlag ist markenrechtlich freigegeben. Keine Websuch-Treffer sind
 2. Vergleich von zwei Moodboards oder Logoentwürfen in identischer Website-Umgebung.
 3. DPMA/EUIPO/WIPO, Domains, soziale Namen, Apps und ähnliche Wortzeichen auf Favoriten beschränken.
 4. Keine unaufgeforderte Umbenennung, URL-/Repo-/Kontaktänderung, privaten Daten in öffentlichen Commits.
+
+## Erweiterung: Erdmännchen als dritte Markenfigur (20.09.2026)
+
+Nutzer nimmt Erdmännchen zusätzlich zu Rabe und Otter in den Vergleich auf. Entscheidend ist der frühere Fuchs-Charakter: clever, freundlich, leicht verspielt, professionell und sympathisch. Keine Rangfolge oder Entscheidung getroffen.
+
+| Ansatz | Arbeitsname | Einschränkung |
+|---|---|---|
+| Lotse + Tier | Erdmännchenlotse | verständlich, aber sehr lang auf Mobilgeräten/als Domain |
+| Kurzform + Lotse | Erdlotse | gut lesbar, aber „Erd-“ erklärt Erdmännchen nicht; kann an Erdarbeiten denken lassen |
+| Fantasie | Erdmilo | freundlich, braucht Erdmännchen-Logo/Untertitel als Erklärung |
+| Fantasie | Erdmino | eigenständig wirkende Wortbildung, Tierbezug ohne Logo nicht eindeutig |
+
+Design: aufrecht stehendes Erdmännchen mit klarem, wachem Blick und leichtem Lächeln; kleine Pfoten zeigen den nächsten Schritt. Warmes Sandbraun/Creme mit bereits etabliertem kräftigen FormularFuchs-Blau und gutem Kontrast. Nicht als Kinderfigur mit übergroßen Augen gestalten. Bei gleicher Webseite je ein Headermockup für Rabe, Otter und Erdmännchen.
+
+**Recherchehinweis:** https://erdmaennchenundbaer.de/ existiert bereits seit 2018 mit digitaler Teilhabe, inklusiven digitalen Lernangeboten, Webseiten/Apps und Workshops. Kein identischer neuer Namensvorschlag, aber ein thematisch nahes Erdmännchen-basiertes Digitalangebot. Quelle: https://erdmaennchenundbaer.de/ueber-uns/ . Eine allgemeine Websuche der Arbeitsnamen ist **kein** abgeschlossener Marken-/Kennzeichencheck.
+
+Auf Wunsch des Nutzers keinen Namen, kein Logo und keine Live-Website ändern.

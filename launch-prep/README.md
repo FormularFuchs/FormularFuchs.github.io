@@ -11,6 +11,16 @@
 - Anbieter-Kandidat Anschrift.net, BW; Preis und Eignung unmittelbar vor Buchung erneut prüfen.
 - Kein Kauf, keine Werbeanmeldung und keine Freigabe durch dieses Dokument.
 
+## Priorität: Aktuelle öffentliche Testseite (20.09.2026)
+
+Die Hauptseite wird bereits öffentlich auf GitHub Pages bereitgestellt und setzt `index,follow`. Auf `main` gibt es derzeit noch keine erreichbaren Seiten `/impressum/` und `/datenschutz/`. Der Entwicklungszweig mit Rechtsseiten behebt **noch nichts auf der Live-Seite**. Die Kennzeichnung der Helfer als „Testversion“ und `noindex` schließt mögliche Informationspflichten **nicht** aus.
+
+**Nächste erforderliche Betreiberentscheidung:** Ist die Website weiterhin öffentlich, vor weiterer Werbung und allgemeiner Bewerbung die zutreffenden Rechtspflichten prüfen und die bestätigte Anschrift zeitnah einrichten. Alternativ die öffentliche Testseite zeitweise offline nehmen, bis die Rechtsseiten vollständig sind. Keine Privatanschrift ohne ausdrückliche Einwilligung in eine öffentliche Datei committen. Ein `noindex`-Tag ist kein Zugangsschutz.
+
+**Anschrift.net laut Anbieter:** DE-Süd derzeit 6,90 € monatlich bzw. 80,40 € jährlich. Die konkrete Adresse wird erst nach Legitimierung und Auftragsbestätigung zur Nutzung mitgeteilt. Dieser Anbieter kann rechtliche Einzelfallberatung nicht ersetzen. Vor Zahlung Preis, Vertragsbedingungen, Korrektheit des Zustellformats und Nutzbarkeit für dieses Projekt prüfen.
+
+**Kommunikationsvorlage:** `anschrift-net-anfrage.md`. Keine Bestellung und keine E-Mail automatisch versenden.
+
 ## Noch vor der Veröffentlichung zwingend zu klären
 1. Vollständiger Name des Betreibers und korrektes Zustelladress-Format **nach** Vertragsschluss mit dem Impressumsdienst.
 2. Ob weitere Pflichtangaben wie USt-IdNr./Register/zulassungspflichtiger Beruf vorhanden sind (keine erfundenen Angaben).

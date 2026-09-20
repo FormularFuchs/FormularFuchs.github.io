@@ -19,6 +19,13 @@ Stand: 20. September 2026
 - Die Live-Seiten auf main haben keinen neuen Werbebereich.
 - Die beiden Rechtsseiten sind nur unvollständige, noindex-markierte Entwürfe im Entwicklungszweig.
 
+## Neu entdeckter Namens-Check (vor Marken-Freigabe)
+- Öffentliche Internetrecherche am 20.09.2026 ergab eine seit 2011 bestehende ehrenamtliche Initiative **„Die Formularfüchse“** in Cuxhaven, die Menschen beim Ausfüllen von Anträgen und Schreiben hilft. Sie ist **nicht** automatisch mit „FormularFuchs“ identisch oder zwingend eine geschützte Marke, aber thematisch nahe genug für vertiefte Kennzeichenrecherche.
+- Quellen: https://www.cuxhaven.de/unser-service-fuer-sie/mitmachen-and-engagieren/projekte/formularfuechse.html und https://www.cnv-medien.de/news/cuxhaven-diese-pfiffigen-fuechse-kann-kein-formular-schrecken.html
+- Das bisherige Web-Suchresultat ist **keine** vollständige DPMA/EUIPO/WIPO-Registerrecherche; über das Bestehen oder Nichtbestehen eines Registerrechts ist damit nichts Endgültiges gesagt.
+- Vor öffentlicher Bewerbung, Monetarisierung oder Markenanmeldung: „FormularFuchs“, „Formular Fuchs“, „Formular-Fuchs“, „Formularfuchs“ und „Formularfüchse“ in amtlichen Registern und weiteren Kennzeichenquellen prüfen, insbesondere gleiche oder ähnliche digitale Formularhilfe-Dienstleistungen. Ggf. anwaltliche Kollisionsprüfung.
+- Bis zur Klärung keine Namensfreigabe behaupten, keine kostenpflichtige Markenanmeldung auslösen. Bestehende Live-Seite ist bereits online; nicht behaupten, sie sei noch unveröffentlicht.
+
 ## Offene Freigabesperren
 1. Legitimation bei Anschrift.net ist hochgeladen, Freigabe/Bestätigungs-E-Mail mit konkreter Anschrift steht aus.
 2. Nur ausdrücklich freigegebene Anschrift im korrekten Adressformat übernehmen; Privat-/Rechnungsanschrift nicht in GitHub.

@@ -66,6 +66,12 @@ Der von `main` abgezweigte Branch `vorbereitung-nur-rechtslinks` im öffentliche
 
 **Weitere Quelle zur DDG-Einordnung:** Bundesportal (Bayern, zuletzt aktualisiert 12.05.2026) nennt ausdrücklich: Kostenfreie Abrufbarkeit bzw. kostenlose Dienste befreien nicht automatisch von der Anbieterkennzeichnung. Eine beworbene eigene Dienstleistung oder geplante werbliche Einnahmen sind relevante Gesichtspunkte; keine definitive Feststellung der Anwendbarkeit für das individuelle Projekt ohne genauere Einordnung. https://verwaltung.bund.de/leistungsverzeichnis/DE/leistung/99000000025492/herausgeber/BY-25492/region/09
 
+## Automatische Kontrollen für isolierten Rechtsseitenzweig (20.09.2026)
+
+Für `vorbereitung-nur-rechtsseiten` wurden ausschließlich auf diesem Zweig `scripts/check-legal-draft.mjs` und `.github/workflows/legal-draft-check.yml` ergänzt. Der GitHub-Actions-Lauf 35538179292 ist erfolgreich abgeschlossen: https://github.com/FormularFuchs/FormularFuchs.github.io/actions/runs/35538179292
+
+Prüfumfang: Links auf Impressum/Datenschutz in Startseite und drei Helfern, lokale statische Ressourcen, Betreibername und gebuchte c/o-Anschrift, weiterhin sichtbar als Entwürfe/`noindex`, keine aktiven Ad-Skripte, JavaScript-Dateien bytegleich mit `main`, keine vorzeitige Marken-Umbenennung. Bei Druck/PDF sind die Helfer-Rechtslinks als `screen-only` gemäß bestehendem `@media print` versteckt. Dies ist **kein Browser-Test und keine rechtliche Freigabe**. Live-`main` wurde nicht berührt.
+
 ## Aktualisierte Freigabesperren (20.09.2026, 22:40 Uhr Ortszeit)
 
 1. **Erledigt:** Anschrift.net-Bestellung abgeschlossen, Legitimation bestätigt; Serviceanschrift und Betreibername mit Zustimmung des Nutzers nur in öffentlichen *Entwurfszweig* eingetragen. Keine Privatadresse / Ausweisdatei / Rechnung öffentlich committen.

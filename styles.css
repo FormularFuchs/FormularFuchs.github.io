@@ -505,3 +505,15 @@ footer{
   .next-mark{display:none}
   .footer-inner{align-items:flex-start;flex-direction:column;padding:26px 0}
 }
+/* Entwurfszweig: rechtliche Links und Textseiten – noch nicht freigegeben */
+.legal-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin:18px 0 0;font-size:.92rem}
+.legal-links a{color:var(--navy-2);font-weight:700;text-underline-offset:3px}
+.legal-page{padding:42px 0 80px}
+.legal-card{max-width:800px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,4vw,42px);box-shadow:var(--shadow)}
+.legal-card h1{line-height:1.2;margin:0 0 22px}
+.legal-card h2{font-size:1.25rem;margin:24px 0 8px}
+.legal-card p{overflow-wrap:anywhere}
+.legal-card a{overflow-wrap:anywhere}
+.draft-warning{border:2px solid #d08319;border-radius:12px;background:#fff5e8;padding:14px;margin:0 0 20px;color:#5c3608;font-weight:700}
+.legal-card .placeholder{border-radius:6px;background:#fff0db;color:#663700;padding:2px 5px}
+@media print{.legal-links{display:none!important}}

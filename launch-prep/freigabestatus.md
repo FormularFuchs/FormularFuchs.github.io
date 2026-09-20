@@ -56,6 +56,10 @@ Quellen: https://www.gesetze-bayern.de/Content/Document/MStV-18 ; https://www.ge
 
 Anschrift.net beantwortet die zuvor als offen dargestellte allgemeine Gerichtspostfrage bereits ausdrücklich: förmliche gerichtliche und behördliche Sendungen werden an die gebuchte c/o-Anschrift angenommen, ein real nutzbarer Workspace ist laut Anbieter Vertragsbestandteil und es gibt ein physisches Standortangebot. FAQ erklärt, dass die Adresse nicht als Wohnort/Firmensitz/Niederlassung genutzt werden darf. Dies sind Anbieterangaben, **keine** unabhängige abschließende rechtliche Garantie für die konkrete Konstellation. Keine weitere Support-Anfrage zu bereits ausdrücklich beantworteten Standardfragen nötig. Was der Betreiber ggf. im Kundenkonto prüfen sollte: Name/Pseudonym richtig hinterlegt, gebuchte Standortnutzung und aktuelle Servicefreigabe.
 
+## Isolierter Rechtsseiten-Release vorbereitet (20.09.2026)
+
+Zusätzlich existiert der ausschließlich für die Rechtsseiten bestimmte, von `main` abgezweigte Branch `vorbereitung-nur-rechtsseiten`. Er enthält nur zwei weiterhin sichtbar als **Arbeitsentwurf** und `noindex,nofollow` markierte Rechtsseiten, die erforderlichen CSS-Regeln und Links aus Startseite und drei Helfern. Er enthält **keine** versteckten Anzeigen-Container oder zusätzliche Scriptdateien. Die `app.js`-Dateien entsprechen exakt `main`, damit bleiben Vorgänge und PDF-Logik unverändert. 22 programmgesteuerte Quelltext-Prüfungen wurden über die GitHub-Connector-Leseantworten bestanden; das ist kein echter Browser-/Rechtstest. `main` weiterhin unberührt, keine Live-Freigabe erfolgt.
+
 ## Aktualisierte Freigabesperren (20.09.2026, 22:40 Uhr Ortszeit)
 
 1. **Erledigt:** Anschrift.net-Bestellung abgeschlossen, Legitimation bestätigt; Serviceanschrift und Betreibername mit Zustimmung des Nutzers nur in öffentlichen *Entwurfszweig* eingetragen. Keine Privatadresse / Ausweisdatei / Rechnung öffentlich committen.

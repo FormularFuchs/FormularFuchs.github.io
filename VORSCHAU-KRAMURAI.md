@@ -49,12 +49,14 @@ Praxisprobe des Nutzers am 29.09.2026: Retouren-Sicherung mit sieben Bildern auf
 
 Feinschliff: Die drei PDF-Köpfe lassen das Logofeld bei noch nicht festgelegtem Logo nun ganz weg. Der Kramurai-Schriftzug bleibt links sichtbar; die Konfiguration kann später wieder ein echtes Logo einsetzen.
 
+Erneute Android-PDF-Probe nach Veröffentlichung dieses Feinschliffs: Der Nutzer speicherte den ursprünglichen Retouren-Vorgang erneut als PDF. Die neue Datei hat drei A4-Seiten statt vier; der Schriftzug steht ohne leeres Logofeld im Kopf. Alle sieben eingebetteten Fotos sind bytegleich zur vorherigen PDF, und alle Angaben einschließlich der unveränderten ursprünglichen Vorgangsbezeichnung sind vorhanden. Die drei gerenderten Seiten wurden visuell auf Abschnittswechsel, Lesbarkeit und abgeschnittene Inhalte geprüft. Der kompaktere Umbruch enthält keine leere Seite.
+
 Offen vor einer Umstellung der Hauptseite:
 - Router- und Trade-in-PDFs auf einem echten Mobilgerät sowie deren Layout und Seitenumbrüche prüfen.
 - Alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen prüfen.
 - Beschädigte Sicherung im Browser abweisen lassen; bisher automatisiert geprüft.
 
-Der Retouren-Praxistest ist erfolgreich. Die übrigen Helfer und die neue PDF-Kopfgestaltung sind damit noch nicht vollständig mobil abgenommen.
+Der Retouren-Praxistest einschließlich der neuen PDF-Kopfgestaltung ist erfolgreich. Die übrigen Helfer sind damit noch nicht vollständig mobil abgenommen.
 
 ## Reproduzierbarkeit
 

@@ -1,0 +1,4 @@
+Kramurai-Testvorschau
+Quell-Commit (lokal): e9ab3849b32043c23909d92c02a09a2df9b86086
+Quellbaum: 034820f4889287566bfbda2c8da31e9fb6b84c94
+GitHub-Entwicklungsstand mit identischem Baum: 29de9a6fba0865bfb01be1dbe81f34eccae180f3

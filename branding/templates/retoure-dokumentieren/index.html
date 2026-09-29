@@ -86,7 +86,7 @@
     .document-banner{
       position:relative;
       display:grid;
-      grid-template-columns:auto 1fr auto;
+      grid-template-columns:minmax(0,1fr) auto;
       gap:14px;
       align-items:center;
       padding:16px 18px;
@@ -132,6 +132,7 @@
       letter-spacing:-.08em
     }
     .document-logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .document-identity{display:flex;align-items:center;gap:14px;min-width:0}
     .brand-formular{color:#fff}
     .brand-fuchs{color:#4bc3ff}
     @media(max-width:720px){
@@ -617,10 +618,12 @@
         </div>
         <div class="print-only document-head">
           <div class="document-banner">
-            <div class="document-logo" aria-hidden="true">{{BRAND_LOGO}}</div>
-            <div>
-              <div class="document-brand">{{BRAND_NAME}}</div>
-              <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
+            <div class="document-identity">
+              {{BRAND_DOCUMENT_LOGO}}
+              <div>
+                <div class="document-brand">{{BRAND_NAME}}</div>
+                <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
+              </div>
             </div>
             <div class="document-meta">
               <div>Erstellt: <span id="docCreatedDate">–</span></div>

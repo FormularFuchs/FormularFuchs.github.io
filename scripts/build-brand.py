@@ -30,6 +30,7 @@ def render(config):
     values = {
         'BRAND_NAME': name,
         'BRAND_LOGO': (f'<img src="{logo}" class="brand-mark helper-brand-mark" alt="">' if logo else ''),
+        'BRAND_DOCUMENT_LOGO': (f'<div class="document-logo" aria-hidden="true"><img src="{logo}" alt=""></div>' if logo else ''),
         'BRAND_FAVICON': (f'<link rel="icon" href="{logo}">' if logo else ''),
         'BRAND_HERO': (f'<img src="{mascot}" class="hero-fox fox-image" alt="">' if mascot else '<div class="brand-initial" aria-hidden="true">' + initial + '</div>'),
     }

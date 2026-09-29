@@ -18,7 +18,8 @@ Kontaktdaten, GitHub-Adresse, Canonical-URLs und das separat verwaltete Batterie
 - Erledigt: austauschbare Marke für Startseite und drei bestehende Helfer, einschließlich PDF-Wasserzeichen und Hinweisen.
 - Erhalten: Speicherkennungen, IndexedDB, Vorgangs-IDs, Abläufe, Helfer-URLs und Testkennzeichnung.
 - Offen: visuelle Abnahme auf Smartphone/Desktop und PDF-Praxistest; Name/Logo endgültig festlegen.
-- Nächster funktionaler Schwerpunkt: wieder importierbare Sicherung der Vorgänge einschließlich Fotos/Belegen. Dafür zuerst das Format und ein zerstörungsfreier Import festlegen; ein PDF allein ist keine editierbare Sicherung.
+- Umgesetzt im Entwurf: Sicherung und Wiederimport eines Vorgangs einschließlich Fotos/Belegen als zusätzliche Kopie. Format, Bedienung, Grenzen und Tests stehen in [docs/vorgangssicherung.md](../docs/vorgangssicherung.md).
+- Nächster Schritt: Praxisprüfung der Sicherungsdatei auf Smartphone/Desktop und PDF-Probe eines importierten Vorgangs.
 - Rechtsseiten: der bestehende Zweig `vorbereitung-nur-rechtsseiten` bleibt gesondert erhalten. Vor Veröffentlichung mit den Markenvorlagen abgleichen; keine automatische Übernahme der älteren Werbevorbereitung.
 - LFK: Anfrage laut Nutzer abgeschickt, Antwort bislang ausstehend. Kein erneuter Versand durch diese Änderung.
 - Finanzierung: GitHub Pages bleibt Hosting-Grundlage. Keine Werbung, kostenpflichtigen Dienste oder neuen Konten hinzugefügt.

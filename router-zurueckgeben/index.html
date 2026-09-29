@@ -409,13 +409,20 @@
       <p class="lead">Halte Gerät, Seriennummer, Zubehör, Verpackung und Versand deiner Rückgabe strukturiert fest.</p>
       <div class="case-manager screen-only">
         <div class="case-manager-heading">Meine Vorgänge <span id="caseCount"></span></div>
-        <p class="case-manager-hint">Nur in diesem Browser gespeichert – bei gelöschten Browserdaten oder Gerätewechsel nicht mehr verfügbar. Fertige PDFs separat sichern.</p>
+        <p class="case-manager-hint">Lokal in diesem Browser gespeichert. Mit einer Sicherungsdatei kannst du einen Vorgang samt gespeicherten Fotos und Belegen später wieder öffnen – auch auf einem anderen Gerät.</p>
         <div class="case-manager-actions">
           <label for="caseSelect">Gespeicherten Vorgang öffnen
             <select id="caseSelect" aria-label="Gespeicherten Vorgang öffnen"></select>
           </label>
           <button class="btn btn-secondary" type="button" id="createCaseTopBtn">+ Neuer Vorgang</button>
         </div>
+        <div class="backup-actions">
+          <button class="btn btn-secondary" type="button" id="backupExportBtn">Vorgang sichern</button>
+          <button class="btn btn-secondary" type="button" id="backupImportBtn">Sicherung öffnen</button>
+          <input type="file" id="backupFile" accept=".json,application/json" hidden aria-label="Vorgangssicherung auswählen">
+        </div>
+        <p class="case-manager-hint">Die Sicherungsdatei enthält deine Angaben und gespeicherten Dateien unverschlüsselt. Bewahre sie sicher auf. Beim Öffnen wird ein zusätzlicher Vorgang angelegt. Das PDF bleibt die lesbare Dokumentation.</p>
+        <p id="backupStatus" class="case-manager-hint" role="status" aria-live="polite"></p>
       </div>
       <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
       <div class="progress-label"><span id="progressText">Schritt 1 von 6</span><span id="saveStatus">lokal gespeichert</span></div>
@@ -661,6 +668,7 @@
     </div>
   </main>
 
+  <script src="/assets/case-backup.js"></script>
   <script src="/router-zurueckgeben/app.js"></script>
 </body>
 </html>

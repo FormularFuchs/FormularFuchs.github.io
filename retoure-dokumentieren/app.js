@@ -757,6 +757,22 @@
     showStep(next ? (state.currentStep || 1) : 1);
   });
 
+  CaseBackup.mount({
+    helper: "retoure", defaultState, types: Object.keys(photoLabels),
+    openDb, storeName: STORE_NAME, prefix: CASE_PREFIX,
+    getState: () => state, isBusy: () => fileBusyCount > 0,
+    begin: beginFileWork, end: endFileWork,
+    onImported: async imported => {
+      resetCaseImages();
+      state = imported;
+      form.reset();
+      hydrateForm();
+      saveState(false);
+      await restorePreviews();
+      showStep(1);
+    }
+  });
+
   hydrateForm();
   bindAutosave();
   restorePreviews();

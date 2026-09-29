@@ -511,3 +511,6 @@ footer{
   border-radius:28px;background:#123f6b;color:#fff;
   font-size:64px;font-weight:800;line-height:1;
 }
+
+.backup-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+@media(max-width:600px){.backup-actions .btn{width:100%}}

@@ -14,7 +14,7 @@ FormularFuchs entwickelt problemorientierte, geführte Dokumentationen und Formu
 - keine garantierte rechtliche Beweiskraft; Dokumente geben die eigenen Angaben und hinzugefügten Unterlagen wieder
 - keine kostenpflichtige Cloud für Kernfunktionen
 
-**Wichtig:** Lokale Vorgänge und Fotos sind kein dauerhaftes Backup. Sie können beim Löschen von Browser- oder Websitedaten verloren gehen. Fertige PDFs sollten deshalb außerhalb des Browsers gesichert werden. Hochgeladene PDF-Einlieferungsbelege werden als getrennte Originaldatei angeboten und nicht automatisch mit der FormularFuchs-PDF zusammengeführt.
+**Wichtig:** Lokale Vorgänge und Fotos sind kein dauerhaftes Backup. Sie können beim Löschen von Browser- oder Websitedaten verloren gehen. Fertige PDFs sollten deshalb außerhalb des Browsers gesichert werden. Der vorbereitete Entwicklungszweig bietet zusätzlich eine wieder importierbare Vorgangssicherung einschließlich gespeicherter Fotos und Belege; siehe [Bedienung und Prüfstand](docs/vorgangssicherung.md). Hochgeladene PDF-Einlieferungsbelege werden als getrennte Originaldatei angeboten und nicht automatisch mit der FormularFuchs-PDF zusammengeführt.
 
 ## Öffentliche Startseite und bestehendes Formular
 

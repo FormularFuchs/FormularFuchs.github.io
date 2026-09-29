@@ -30,6 +30,17 @@ for name in FILES:
         text = text.replace('href="/"', 'href="' + PREFIX + '"')
         banner = '<aside class="preview-notice" aria-label="Testvorschau"><strong>Testvorschau · Kramurai</strong><span>Bitte nur erfundene Angaben verwenden. Testvorgänge werden getrennt von der bisherigen Website gespeichert.</span><a href="/">Zur bisherigen Website</a></aside>'
         text = re.sub(r'(<body[^>]*>)', lambda m: m[1] + '\n  ' + banner, text, count=1)
+        legal_links = '<a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a>'
+        if name == 'index.html':
+            marker = '<div class="footer-links">'
+            if text.count(marker) != 1:
+                raise SystemExit('Vorschau-Fußzeile nicht eindeutig: ' + name)
+            text = text.replace(marker, marker + '\n        ' + legal_links, 1)
+        else:
+            marker = '  </main>'
+            if text.count(marker) != 1:
+                raise SystemExit('Vorschau-Helferabschluss nicht eindeutig: ' + name)
+            text = text.replace(marker, '    <nav class="preview-legal-links screen-only" aria-label="Rechtliche Informationen">' + legal_links + '</nav>\n' + marker, 1)
     elif name.endswith('/app.js'):
         text, n = re.subn(r'const STORAGE_KEY = "([^"]+)";', r'const STORAGE_KEY = "preview-\1";', text)
         if n != 1:
@@ -38,7 +49,7 @@ for name in FILES:
         if n != 1:
             raise SystemExit('Datenbankkennung nicht eindeutig: ' + name)
     elif name == 'styles.css':
-        text += '''\n.preview-notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:12px 20px;background:#fff2cd;color:#312600;border-bottom:1px solid #c6a652;font-size:.9rem}\n.preview-notice span{flex:1 1 260px}\n.preview-notice a{color:#193e66;font-weight:700}\n@media print{.preview-notice{display:none!important}}\n'''
+        text += '''\n.preview-notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:12px 20px;background:#fff2cd;color:#312600;border-bottom:1px solid #c6a652;font-size:.9rem}\n.preview-notice span{flex:1 1 260px}\n.preview-notice a{color:#193e66;font-weight:700}\n.preview-legal-links{display:flex;flex-wrap:wrap;gap:10px 20px;margin:24px 0;color:#233d54;font-weight:700}\n.preview-legal-links a{color:#09558f}\n@media print{.preview-notice,.preview-legal-links{display:none!important}}\n'''
     target = output / name
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(text)

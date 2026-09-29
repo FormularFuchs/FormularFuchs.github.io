@@ -505,3 +505,12 @@ footer{
   .next-mark{display:none}
   .footer-inner{align-items:flex-start;flex-direction:column;padding:26px 0}
 }
+/* Rechtsseiten – isolierter Entwurf, keine Änderungen an den Formularhelfern. */
+.legal-page{padding:42px 0 80px}
+.legal-card{max-width:800px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,4vw,42px);box-shadow:var(--shadow)}
+.legal-card h1{line-height:1.2;margin:0 0 22px}
+.legal-card h2{font-size:1.25rem;margin:24px 0 8px}
+.legal-card p,.legal-card a{overflow-wrap:anywhere}
+.draft-warning{border:2px solid #d08319;border-radius:12px;background:#fff5e8;padding:14px;margin:0 0 20px;color:#5c3608;font-weight:700}
+.legal-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.legal-links a{display:inline-block;padding:8px 13px;background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;font-weight:700}

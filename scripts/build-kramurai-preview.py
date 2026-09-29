@@ -11,6 +11,7 @@ HELPERS = ('retoure-dokumentieren', 'router-zurueckgeben', 'handy-trade-in-dokum
 FILES = ['index.html', 'styles.css', 'assets/case-backup.js'] + [f'{h}/{f}' for h in HELPERS for f in ('index.html', 'app.js')]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('source', type=Path, help='Checked-out Kramurai development repository')
+parser.add_argument('--github-source', help='GitHub commit with an identical source tree')
 args = parser.parse_args()
 source = args.source.resolve()
 sha = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
@@ -41,5 +42,5 @@ for name in FILES:
     target = output / name
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(text)
-(output / 'QUELLSTAND.txt').write_text('Kramurai-Testvorschau\nQuell-Commit (lokal): ' + sha + '\nQuellbaum: ' + tree + '\nGitHub-Entwicklungsstand mit identischem Baum: 29de9a6fba0865bfb01be1dbe81f34eccae180f3\n')
+(output / 'QUELLSTAND.txt').write_text('Kramurai-Testvorschau\nQuell-Commit (lokal): ' + sha + '\nQuellbaum: ' + tree + ('\nGitHub-Entwicklungsstand mit identischem Baum: ' + args.github_source + '\n' if args.github_source else '\n'))
 print('Vorschau erzeugt: ' + str(output))

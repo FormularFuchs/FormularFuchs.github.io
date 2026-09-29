@@ -35,3 +35,12 @@ Diese drei Helfer bleiben bis zur abschließenden Freigabe als **Testversionen**
 - Die veröffentlichten PDF-Beispiele sind Testdokumente, keine Zusage, dass alle Browser, Papierformate und beliebig lange Texte fehlerfrei dargestellt werden.
 - Änderungen an gespeicherten Vorgängen müssen rückwärtskompatibel bleiben. Bestehende `caseId`-Schlüssel in IndexedDB dürfen nicht leichtfertig geändert oder gelöscht werden.
 - Weitere Helfer werden schrittweise nach Abschluss der Basistests ergänzt.
+
+## Vorbereitete Weiterentwicklung: Kramurai
+
+Kramurai ist der aktuelle Arbeitsname. GitHub Pages bleibt die Hosting-Grundlage.
+Die Markenangaben für Startseite und drei Helfer werden zentral aus
+`branding/brand.json` erzeugt; Anleitung und offene Schritte stehen in
+[branding/README.md](branding/README.md). Die bestehenden Speicherkennungen und
+URLs bleiben erhalten. Die öffentlich eingesetzte Marke wird erst mit einem
+bewussten späteren Veröffentlichungsentscheid geändert.

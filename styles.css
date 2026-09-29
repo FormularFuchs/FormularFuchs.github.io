@@ -505,3 +505,9 @@ footer{
   .next-mark{display:none}
   .footer-inner{align-items:flex-start;flex-direction:column;padding:26px 0}
 }
+/* Neutraler Platzhalter, solange Logo und Maskottchen offen sind. */
+.brand-initial{
+  display:grid;place-items:center;width:112px;height:112px;margin:0 auto 20px;
+  border-radius:28px;background:#123f6b;color:#fff;
+  font-size:64px;font-weight:800;line-height:1;
+}

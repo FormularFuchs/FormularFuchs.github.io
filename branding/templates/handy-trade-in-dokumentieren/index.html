@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Router / Mietgerät zurückgeben – Kramurai Testversion</title>
-  <meta name="description" content="Gerät, Seriennummer, Zubehör, Verpackung und Versand eines Routers oder Mietgeräts strukturiert dokumentieren.">
+  <title>Handy / Elektronik an Ankaufportal schicken – {{BRAND_NAME}} Testversion</title>
+  <meta name="description" content="Zustand, Gerätekennung, Zubehör, Account-Status, Verpackung und Versand an ein Ankaufportal strukturiert dokumentieren.">
   <meta name="robots" content="noindex,nofollow">
   <link rel="stylesheet" href="/styles.css">
   <style>
@@ -107,7 +107,7 @@
       .final-actions .btn{width:100%}
     }
 
-    /* Kramurai – gut erkennbare mobile Eingaben und Aktionen */
+    /* {{BRAND_NAME}} – gut erkennbare mobile Eingaben und Aktionen */
     @media screen{
       .helper-page{
         --brand:#09558f;
@@ -304,16 +304,6 @@
       .helper-page .receipt-help{margin-top:5px;line-height:1.4}
       .helper-page .receipt-print-note{font-weight:750;color:#07365f}
     }
-    .followup-block{
-      padding:17px;
-      margin:18px 0;
-      border:1px solid #c4d7e6;
-      border-radius:14px;
-      background:#edf5fb;
-    }
-    .followup-block h3{color:#07365f;margin:0 0 6px}
-    .followup-block p{margin:0 0 14px}
-    @media(max-width:720px){.followup-block{padding:14px}}
 
     /* Mehrere Vorgänge – kompakt auf Mobilgeräten, nur im Browser sichtbar */
     .helper-page .case-manager{
@@ -349,8 +339,8 @@
       .wrap{width:100%;max-width:none}
       .wizard{padding:0}
       .step{display:none!important;box-shadow:none;border:0;padding:0}
-      #step-6{display:block!important}
-      #step-6>h2,#step-6>.intro{display:none!important}
+      #step-7{display:block!important}
+      #step-7>h2,#step-7>.intro{display:none!important}
       .summary-card{border:0;border-bottom:1px solid #dfe6ee;border-radius:0;padding:9px 0;break-inside:avoid;page-break-inside:avoid}
       .summary-card.photo-summary-card{break-inside:auto;page-break-inside:auto}
       /* Nur ausnahmsweise lange Textkarten über Seiten umbrechen;
@@ -398,15 +388,15 @@
 <body class="helper-page">
   <header>
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Kramurai Startseite"><span class="helper-brand-name">Kramurai</span></a>
+      <a class="brand" href="/" aria-label="{{BRAND_NAME}} Startseite">{{BRAND_LOGO}}<span class="helper-brand-name">{{BRAND_NAME}}</span></a>
     </div>
   </header>
 
   <main class="wrap wizard">
     <div class="wizard-head">
       <div class="eyebrow">Testversion · Daten bleiben auf deinem Gerät</div>
-      <h1>Router / Mietgerät zurückgeben</h1>
-      <p class="lead">Halte Gerät, Seriennummer, Zubehör, Verpackung und Versand deiner Rückgabe strukturiert fest.</p>
+      <h1>Handy / Elektronik an Ankaufportal schicken</h1>
+      <p class="lead">Halte Zustand, Gerätekennung, Zubehör, Account-Status, Verpackung und Versand vor dem Ankauf fest.</p>
       <div class="case-manager screen-only">
         <div class="case-manager-heading">Meine Vorgänge <span id="caseCount"></span></div>
         <p class="case-manager-hint">Nur in diesem Browser gespeichert – bei gelöschten Browserdaten oder Gerätewechsel nicht mehr verfügbar. Fertige PDFs separat sichern.</p>
@@ -418,20 +408,20 @@
         </div>
       </div>
       <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-      <div class="progress-label"><span id="progressText">Schritt 1 von 6</span><span id="saveStatus">lokal gespeichert</span></div>
+      <div class="progress-label"><span id="progressText">Schritt 1 von 7</span><span id="saveStatus">lokal gespeichert</span></div>
     </div>
 
     <form id="returnForm" novalidate>
       <section class="step active" id="step-1" data-step="1">
         <h2>1. Gegenstand</h2>
-        <p class="intro">Welches Mietgerät gibst du zurück? Nur die Gerätebezeichnung ist erforderlich.</p>
+        <p class="intro">Welches Gerät schickst du an ein Ankaufportal?</p>
         <div class="field-grid">
           <div class="field full">
             <label for="itemName">Gerät *</label>
-            <input id="itemName" data-field="item.name" required placeholder="z. B. Router, Receiver, Repeater">
+            <input id="itemName" data-field="item.name" required placeholder="z. B. iPhone 15, Galaxy S24, MacBook Air">
           </div>
           <div class="field">
-            <label for="manufacturer">Hersteller / Marke</label>
+            <label for="manufacturer">Hersteller</label>
             <input id="manufacturer" data-field="item.manufacturer" placeholder="optional">
           </div>
           <div class="field">
@@ -439,40 +429,40 @@
             <input id="model" data-field="item.model" placeholder="optional">
           </div>
           <div class="field">
-            <label for="provider">Anbieter</label>
-            <input id="provider" data-field="party.provider" placeholder="z. B. Telekom, Vodafone, O2, 1&1, Sky">
+            <label for="imei">IMEI / Gerätekennung</label>
+            <input id="imei" data-field="item.imei" placeholder="optional">
           </div>
           <div class="field">
-            <label for="customerNo">Kunden-/Vertragsnummer</label>
-            <input id="customerNo" data-field="party.customerNo" placeholder="optional">
+            <label for="offerAmount">Ursprüngliches Angebot (€)</label>
+            <input id="offerAmount" inputmode="decimal" data-field="offer.originalAmount" placeholder="z. B. 325">
           </div>
           <div class="field">
-            <label for="mac">MAC-Adresse / Gerätekennung</label>
-            <input id="mac" data-field="item.mac" placeholder="optional">
+            <label for="offerClass">Angegebene Zustandsklasse</label>
+            <input id="offerClass" data-field="offer.originalClass" placeholder="z. B. Sehr gut">
           </div>
           <div class="field">
-            <label for="serial">Seriennummer</label>
+            <label for="serial">Seriennummer / Kennung</label>
             <input id="serial" data-field="item.serial" placeholder="optional">
-            <span class="hint">Wenn vorhanden, möglichst exakt vom Typenschild übernehmen.</span>
+            <span class="hint">Bei Geräten besonders hilfreich.</span>
           </div>
           <div class="field">
             <label for="sender">Absender / Name</label>
             <input id="sender" data-field="party.sender" placeholder="optional">
           </div>
           <div class="field">
-            <label for="seller">Anbieter / Empfänger</label>
+            <label for="seller">Ankaufportal / Empfänger</label>
             <input id="seller" data-field="party.recipient" placeholder="optional">
           </div>
           <div class="field full">
-            <label for="reason">Grund der Rücksendung</label>
-            <textarea id="reason" data-field="item.reason" placeholder="z. B. Vertragsende, Gerätetausch, Kündigung"></textarea>
+            <label for="reason">Anlass der Einsendung</label>
+            <textarea id="reason" data-field="item.reason" placeholder="z. B. Verkauf über Ankaufportal"></textarea>
           </div>
         </div>
       </section>
 
       <section class="step" id="step-2" data-step="2">
         <h2>2. Zustand</h2>
-        <p class="intro">Wie ist der Zustand des Mietgeräts unmittelbar vor dem Verpacken?</p>
+        <p class="intro">Wie würdest du den Zustand des Geräts unmittelbar vor dem Versand beschreiben?</p>
         <div class="choice-grid">
           <div class="choice"><input type="radio" id="c1" name="condition" value="Ungeöffnet" data-radio="condition.rating"><label for="c1">Ungeöffnet</label></div>
           <div class="choice"><input type="radio" id="c2" name="condition" value="Sehr gut" data-radio="condition.rating"><label for="c2">Sehr gut</label></div>
@@ -489,25 +479,26 @@
 
       <section class="step" id="step-3" data-step="3">
         <h2>3. Zubehör und Inhalt</h2>
-        <p class="intro">Markiere alles, was du zusammen mit dem Mietgerät zurücksendest.</p>
+        <p class="intro">Markiere Zubehör und Unterlagen, die du tatsächlich mitsendest.</p>
         <div class="check-list">
-          <label class="check"><input type="checkbox" data-check="accessories.powerSupply"><span><strong>Netzteil</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
-          <label class="check"><input type="checkbox" data-check="accessories.cable"><span><strong>LAN-/DSL-/Antennenkabel</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
-          <label class="check"><input type="checkbox" data-check="accessories.manual"><span><strong>Fernbedienung / Zusatzgerät</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.powerSupply"><span><strong>Netzteil / Ladegerät</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.cable"><span><strong>Ladekabel / Anschlusskabel</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.manual"><span><strong>Originalunterlagen</strong></span></label>
           <label class="check"><input type="checkbox" data-check="accessories.originalBox"><span><strong>Originalverpackung</strong></span></label>
         </div>
         <div class="field" style="margin-top:18px">
           <label for="accessoriesOther">Weiteres Zubehör / Inhalt</label>
-          <textarea id="accessoriesOther" data-field="accessories.other" placeholder="Ein Eintrag pro Zeile, z. B. Standfuß&#10;Repeater&#10;Adapter"></textarea>
+          <textarea id="accessoriesOther" data-field="accessories.other" placeholder="Ein Eintrag pro Zeile, z. B. Hülle&#10;Adapter&#10;Originalrechnung"></textarea>
         </div>
       </section>
 
       <section class="step" id="step-4" data-step="4">
-        <h2>4. Fotos und Verpackung</h2>
-        <p class="intro">Die Fotos werden auf deinem Gerät verkleinert und lokal gespeichert. Sie werden nicht an Kramurai übertragen.</p>
+        <h2>4. Gerät dokumentieren und Daten sichern</h2>
+        <p class="intro">Fotografiere das Gerät und – falls möglich – den eingeschalteten Bildschirm <strong>vor dem Zurücksetzen</strong>. Prüfe danach die für dich passenden Punkte zur Datensicherung und Rücksetzung. Ein ungeöffnetes Gerät musst du dafür nicht öffnen.</p>
+        <h3 style="margin:0 0 12px">Gerätefotos vor der Rücksetzung (optional)</h3>
         <div class="photo-list">
           <div class="photo-task" data-task="overall">
-            <div class="photo-top"><div><div class="photo-title">1. Gesamtansicht des Geräts</div><div class="hint">Gerät gut erkennbar, bevor du es verpackst.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">1. Gesamtansicht des Geräts</div><div class="hint">Gut erkennbar, bevor du es verpackst.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="overall" aria-label="Foto für overall aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="overall" aria-label="Bild für overall aus Galerie wählen"></label>
@@ -515,15 +506,48 @@
             <img class="preview" data-preview="overall" alt="Vorschau Gesamtansicht">
           </div>
           <div class="photo-task" data-task="serial">
-            <div class="photo-top"><div><div class="photo-title">2. Typenschild / Seriennummer / MAC</div><div class="hint">Falls vorhanden und lesbar.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">2. Seriennummer / IMEI / Geräteinfo</div><div class="hint">Falls vorhanden und lesbar.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="serial" aria-label="Foto für serial aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="serial" aria-label="Bild für serial aus Galerie wählen"></label>
             </div>
             <img class="preview" data-preview="serial" alt="Vorschau Seriennummer">
           </div>
+          <div class="photo-task" data-task="displayOn">
+            <div class="photo-top"><div><div class="photo-title">3. Display / Gerät eingeschaltet</div><div class="hint">Falls möglich, Funktionszustand sichtbar festhalten.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="displayOn" aria-label="Foto für displayOn aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="displayOn" aria-label="Bild für displayOn aus Galerie wählen"></label>
+            </div>
+            <img class="preview" data-preview="displayOn" alt="Vorschau eingeschaltetes Gerät">
+          </div>
+          <div class="photo-task" data-task="back">
+            <div class="photo-top"><div><div class="photo-title">4. Rückseite / Gehäuse</div><div class="hint">Kratzer, Dellen oder Gebrauchsspuren gut erkennbar.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-actions">
+              <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="back" aria-label="Foto für back aufnehmen"></label>
+              <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="back" aria-label="Bild für back aus Galerie wählen"></label>
+            </div>
+            <img class="preview" data-preview="back" alt="Vorschau Rückseite">
+          </div>
+        </div>
+        <h3 style="margin:23px 0 12px">Daten und Konten vorbereiten</h3>
+        <div class="check-list">
+          <label class="check"><input type="checkbox" data-check="privacy.backup"><span><strong>Backup erstellt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.simRemoved"><span><strong>SIM-Karte entfernt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.sdRemoved"><span><strong>SD-/Speicherkarte entfernt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.accountRemoved"><span><strong>Apple-/Google-/Herstellerkonto entfernt</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.lockDisabled"><span><strong>„Wo ist?“ / Aktivierungssperre deaktiviert</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="privacy.reset"><span><strong>Auf Werkseinstellungen zurückgesetzt</strong></span></label>
+        </div>
+        <div class="privacy-note"><strong>Keine Zugangsdaten eintragen.</strong><br>Passwörter, PINs oder Entsperrcodes gehören nicht in diese Dokumentation.</div>
+      </section>
+
+      <section class="step" id="step-5" data-step="5">
+        <h2>5. Zubehör und Verpackung fotografieren</h2>
+        <p class="intro">Nachdem die benötigten Daten gesichert und Konten entfernt sind, dokumentiere das mitgesendete Zubehör und das Verpacken. Die Fotos werden lokal verarbeitet; nichts wird automatisch an {{BRAND_NAME}} übertragen.</p>
+        <div class="photo-list">
           <div class="photo-task" data-task="accessories">
-            <div class="photo-top"><div><div class="photo-title">3. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">5. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="accessories" aria-label="Foto für accessories aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="accessories" aria-label="Bild für accessories aus Galerie wählen"></label>
@@ -531,7 +555,7 @@
             <img class="preview" data-preview="accessories" alt="Vorschau Zubehör">
           </div>
           <div class="photo-task" data-task="openPackage">
-            <div class="photo-top"><div><div class="photo-title">4. Inhalt im offenen Paket</div><div class="hint">Vor dem endgültigen Verschließen.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">6. Inhalt im offenen Paket</div><div class="hint">Vor dem endgültigen Verschließen.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="openPackage" aria-label="Foto für openPackage aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="openPackage" aria-label="Bild für openPackage aus Galerie wählen"></label>
@@ -539,7 +563,7 @@
             <img class="preview" data-preview="openPackage" alt="Vorschau offenes Paket">
           </div>
           <div class="photo-task" data-task="protected">
-            <div class="photo-top"><div><div class="photo-title">5. Verpackung / Polsterung</div><div class="hint">Zeigt, wie das Gerät geschützt wurde.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">7. Verpackung / Polsterung</div><div class="hint">Zeigt, wie das Gerät geschützt wurde.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="protected" aria-label="Foto für protected aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="protected" aria-label="Bild für protected aus Galerie wählen"></label>
@@ -547,7 +571,7 @@
             <img class="preview" data-preview="protected" alt="Vorschau Verpackung">
           </div>
           <div class="photo-task" data-task="closedPackage">
-            <div class="photo-top"><div><div class="photo-title">6. Geschlossenes Paket</div><div class="hint">Optional mit Versandetikett, sofern sensible Daten für dich in Ordnung sind.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">8. Geschlossenes Paket</div><div class="hint">Optional mit Versandetikett, sofern sensible Daten für dich in Ordnung sind.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="closedPackage" aria-label="Foto für closedPackage aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="closedPackage" aria-label="Bild für closedPackage aus Galerie wählen"></label>
@@ -557,8 +581,8 @@
         </div>
       </section>
 
-      <section class="step" id="step-5" data-step="5">
-        <h2>5. Versand</h2>
+      <section class="step" id="step-6" data-step="6">
+        <h2>6. Versand</h2>
         <p class="intro">Diese Angaben kannst du auch später ergänzen.</p>
         <div class="field-grid">
           <div class="field">
@@ -581,26 +605,22 @@
             <input id="weight" inputmode="decimal" data-field="shipment.weight" placeholder="z. B. 2,4">
           </div>
         </div>
-        <div class="followup-block">
-          <h3>Später ergänzen: Rückmeldung des Anbieters</h3>
-          <p class="hint">Erst nach dem Versand ausfüllen, wenn der Anbieter den Eingang bestätigt oder die Rückgabe beanstandet. Du kannst diese Angaben auch nach dem ersten PDF ergänzen.</p>
+        <div class="section-card" style="padding:18px;margin:18px 0 0">
+          <h3>Nach Prüfung durch das Ankaufportal</h3>
+          <p class="hint" style="margin-bottom:14px">Kannst du später ergänzen, falls das Ankaufportal sein Angebot ändert.</p>
           <div class="field-grid">
-          <div class="field">
-            <label for="returnConfirmed">Rückmeldung des Anbieters</label>
-            <select id="returnConfirmed" data-field="return.confirmed">
-              <option value="">Noch offen / unbekannt</option>
-              <option value="Bestätigt">Rückgabe bestätigt</option>
-              <option value="Nicht anerkannt">Rückgabe nicht anerkannt</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="confirmationDate">Datum der Rückmeldung</label>
-            <input id="confirmationDate" type="date" data-field="return.confirmationDate">
-          </div>
-          <div class="field full">
-            <label for="confirmationRef">Referenz / Ticket</label>
-            <input id="confirmationRef" data-field="return.confirmationRef" placeholder="z. B. E-Mail-Betreff, Ticketnummer oder Vorgangsnummer">
-          </div>
+            <div class="field">
+              <label for="revisedAmount">Neues Angebot (€)</label>
+              <input id="revisedAmount" inputmode="decimal" data-field="offer.revisedAmount" placeholder="optional">
+            </div>
+            <div class="field">
+              <label for="revisedDate">Datum des neuen Angebots</label>
+              <input id="revisedDate" type="date" data-field="offer.revisedDate">
+            </div>
+            <div class="field full">
+              <label for="revisedReason">Begründung des Ankaufportals</label>
+              <textarea id="revisedReason" data-field="offer.revisedReason" placeholder="optional"></textarea>
+            </div>
           </div>
         </div>
         <div class="photo-task" data-task="receipt">
@@ -610,7 +630,7 @@
         </div>
       </section>
 
-      <section class="step" id="step-6" data-step="6">
+      <section class="step" id="step-7" data-step="7">
         <div id="missingCheck" class="missing-check screen-only" aria-live="polite" hidden></div>
         <div class="final-actions screen-only">
           <button class="btn btn-secondary" type="button" id="finalBackBtn">Zurück</button>
@@ -618,7 +638,7 @@
         </div>
         <div class="print-only document-head">
           <div class="document-banner">
-            <div class="document-logo" aria-hidden="true"></div>
+            <div class="document-logo" aria-hidden="true">{{BRAND_LOGO}}</div>
             <div>
               <div class="document-brand"><span class="brand-formular">Formular</span><span class="brand-fuchs">Fuchs</span></div>
               <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
@@ -629,14 +649,14 @@
             </div>
           </div>
           <div class="document-title-area">
-            <div class="document-watermark" aria-hidden="true">Kramurai</div>
-            <h1 class="document-title">Rückgabe- und Versanddokumentation</h1>
-            <p class="document-subtitle">Router / Mietgerät · Gerät, Zubehör, Verpackung und Versand</p>
+            <div class="document-watermark" aria-hidden="true">{{BRAND_NAME}}</div>
+            <h1 class="document-title">Trade-in- und Zustandsdokumentation</h1>
+            <p class="document-subtitle">Ankaufportal · Zustand, Gerätekennung, Account-Check und Versand</p>
           </div>
         </div>
-        <h2>6. Zusammenfassung</h2>
+        <h2>7. Zusammenfassung</h2>
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
-        <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. Kramurai prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
+        <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. {{BRAND_NAME}} prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
         <div id="summary" class="summary"></div>
         <div class="screen-only local-case-note">
           <strong>Automatisch lokal gespeichert</strong>
@@ -656,11 +676,11 @@
 
     <div class="privacy-note screen-only">
       <strong>🔒 Lokal auf diesem Gerät</strong><br>
-      Deine Eingaben und ausgewählten Dateien werden für diese Testversion im Browser gespeichert. Wenn du Browserdaten löschst, können auch diese Daten verloren gehen. Es findet keine automatische Übertragung an Kramurai statt.<br>
+      Deine Eingaben und ausgewählten Dateien werden für diese Testversion im Browser gespeichert. Wenn du Browserdaten löschst, können auch diese Daten verloren gehen. Es findet keine automatische Übertragung an {{BRAND_NAME}} statt.<br>
       Fragen oder Rückmeldungen? <a href="mailto:FormularFuchs@genial.ms">FormularFuchs@genial.ms</a>
     </div>
   </main>
 
-  <script src="/router-zurueckgeben/app.js"></script>
+  <script src="/handy-trade-in-dokumentieren/app.js"></script>
 </body>
 </html>

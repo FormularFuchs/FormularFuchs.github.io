@@ -665,7 +665,7 @@
       value.appendChild(printed);
       const help = document.createElement("div");
       help.className = "hint screen-only receipt-help";
-      help.textContent = "Die Original-PDF ist nicht in der FormularFuchs-PDF enthalten. Bitte beide Dateien speichern und gemeinsam weitergeben.";
+      help.textContent = "Die Original-PDF ist nicht in der erstellten Dokumentation enthalten. Bitte beide Dateien speichern und gemeinsam weitergeben.";
       value.appendChild(help);
       const link = document.createElement("a");
       link.className = "btn btn-secondary screen-only receipt-download";

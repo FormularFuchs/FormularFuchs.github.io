@@ -12,6 +12,7 @@ Die aktuellen Vorschau-Dateien und die zuvor separat vorbereiteten Rechtsseiten 
 - Datenschutzhinweise erläutern die lokale, unverschlüsselte Sicherungsdatei, den Import als zusätzlichen Vorgang und die manuelle Verwaltung heruntergeladener Dateien.
 - Die Trennung der Vorschau-Speicher wird ohne Behauptung einer separaten Sicherheitsumgebung beschrieben.
 - Überholten Hinweis auf einen vorbereiteten Werbebereich aus dem isolierten Rechtsseitenentwurf entfernt.
+- Kontakt und Postbearbeitung anhand der veröffentlichten Datenschutzhinweise von Anschrift.net präzisiert: PDF-Scans im Kundenkonto und E-Mail-Benachrichtigung ohne PDF-Anhang, Verfügbarkeit grundsätzlich bis Kontoschließung oder Löschanfrage mit dort genannten Ausnahmen, Papieroriginale sechs Monate. Eigene heruntergeladene Kopien und Projekt-E-Mails sind gesondert beschrieben; deren tatsächliche Löschpraxis ist noch offen.
 
 ## Abgleich zur Anschrift
 
@@ -23,6 +24,7 @@ Die FAQ von Anschrift.net beschreibt ein im Service enthaltenes Workspace-Nutzun
 - https://anschrift.net/faq/
 - https://anschrift.net/shop/de-sued/
 - https://anschrift.net/agb/
+- https://anschrift.net/datenschutzerklaerung/ (Abschnitte 7 und 8, abgerufen 30.09.2026)
 - https://www.meetinn.de/konferenzzentrum/fellbach/ (abgerufen 30.09.2026)
 - https://www.lfk.de/fileadmin/PDFs/Dokumente_und_Rechtsgrundlagen/Leitfaeden/leitfaden-impressumspflicht-2024.pdf
 
@@ -30,9 +32,9 @@ Die FAQ von Anschrift.net beschreibt ein im Service enthaltenes Workspace-Nutzun
 
 Die Nutzung der Fellbacher Anschrift für die derzeit beschriebene kostenlose Formularhilfe ist vom Vertragspartner konkret bestätigt. Dazu ist keine weitere Supportanfrage vorgesehen.
 
-1. Die FAQ beschreibt Annahme, Digitalisierung, Bereitstellung im Kundenkonto und E-Mail-Hinweis für gerichtliche/behördliche Sendungen. Falls Buchungsunterlagen hierzu abweichende Bedingungen enthalten, den Entwurf daran anpassen; konkrete Fristen werden in der FAQ nicht zugesagt.
+1. Falls individuelle Buchungsunterlagen zur Postbearbeitung von den veröffentlichten Datenschutzhinweisen abweichen, den Entwurf daran anpassen. Die auf der Anbieterwebsite genannten Fristen ersetzen keine Prüfung der eigenen Kopien.
 2. Vor einer endgültigen Umbenennung: Kramurai zusätzlich beim Adressdienst für die Postzuordnung hinterlegen.
-3. Tatsächliche Löschpraxis für Projekt-E-Mails und Briefscans bestätigen; Datenschutzerklärung abschließend abgleichen.
+3. Bestätigen, ob Postscans nur im Anbieter-Konto angesehen oder auch heruntergeladen werden; tatsächliche Ablage- und Löschpraxis für Projekt-E-Mails und eigene Scankopien bestätigen. Die Angaben zur eigenen Speicherdauer danach abschließend abgleichen.
 4. Kramurai bleibt ein vertieft vorgeprüfter Arbeitsname. Die sprachlich ähnlichen Softwarezeichen, insbesondere Office Samurai, brauchen vor der endgültigen öffentlichen Umstellung eine fachliche Ähnlichkeitsbewertung; die IHK ist ein optionaler Weg und keine vorgeschriebene Freigabestelle. Der bisherige detaillierte Suchstand steht in der Namensakte, Abschnitt 48.
 5. Falls die Website künftig journalistisch-redaktionelle Inhalte anbietet, die zusätzlichen Angaben nach § 18 Abs. 2 MStV vor Veröffentlichung dieser Inhalte prüfen.
 

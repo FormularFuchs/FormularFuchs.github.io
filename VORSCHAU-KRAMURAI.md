@@ -38,6 +38,7 @@ Die veröffentlichte Vorschau wurde in Chrome im Cloud-Browser bedient. Ausschli
 | Router: sichern, wieder importieren, neu laden | Bestanden mit Gerätebezeichnung und Kunden-/Vertragsnummer; 2 Vorgänge auswählbar; JSON 719 Bytes |
 | Trade-in: sichern, wieder importieren, neu laden | Bestanden mit Gerätebezeichnung, IMEI-Testkennung und Angebot 123,45; 2 Vorgänge auswählbar; JSON 850 Bytes |
 | Retouren-Sicherung im Router-Helfer öffnen | Korrekt abgewiesen; bestehender Router-Testvorgang erhalten |
+| Beschädigte JSON-Sicherung im Retouren-Helfer öffnen | Am 30.09.2026 in der veröffentlichten Vorschau tatsächlich über den Dateidialog geprüft: „Die Datei ist keine lesbare Vorgangssicherung.“ Der vorher gespeicherte, erfundene Testvorgang blieb auswählbar. |
 | PDF-Ausgabe über Schaltfläche | Auf einem Android-Smartphone als vierseitige PDF-Datei gespeichert; alle sieben Fotos enthalten, keine mitgedruckten Bedienelemente oder abgeschnittenen Texte. Im Cloud-Browser allein war der Druckdialog nicht bedienbar. |
 | Mobilgerät / schmaler Bildschirm | Der Retouren-Helfer wurde auf einem Android-Smartphone bedient; ein vollständiger Layouttest aller drei Helfer auf mehreren schmalen Ansichten steht noch aus. |
 
@@ -54,7 +55,6 @@ Erneute Android-PDF-Probe nach Veröffentlichung dieses Feinschliffs: Der Nutzer
 Offen vor einer Umstellung der Hauptseite:
 - Router- und Trade-in-PDFs auf einem echten Mobilgerät sowie deren Layout und Seitenumbrüche prüfen.
 - Alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen prüfen.
-- Beschädigte Sicherung im Browser abweisen lassen; bisher automatisiert geprüft.
 
 Der Retouren-Praxistest einschließlich der neuen PDF-Kopfgestaltung ist erfolgreich. Die übrigen Helfer sind damit noch nicht vollständig mobil abgenommen.
 

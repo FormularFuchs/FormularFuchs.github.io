@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Retoure dokumentieren – Kramurai Testversion</title>
-  <meta name="description" content="Zustand, Inhalt, Verpackung und Versand einer Retoure strukturiert dokumentieren.">
+  <title>Router / Mietgerät zurückgeben – {{BRAND_NAME}} Testversion</title>
+  <meta name="description" content="Gerät, Seriennummer, Zubehör, Verpackung und Versand eines Routers oder Mietgeräts strukturiert dokumentieren.">
   <meta name="robots" content="noindex,nofollow">
   <link rel="stylesheet" href="/styles.css">
   <style>
@@ -49,13 +49,10 @@
     .preview{display:none;max-width:220px;max-height:180px;border-radius:10px;margin-top:12px;border:1px solid var(--line)}
     .preview.show{display:block}
     .wizard-nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
-    .final-actions{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:10px;margin:0 0 18px}
-    .final-actions .btn{width:100%}
     button{font:inherit;border:0;cursor:pointer}
     .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:12px;font-weight:800}
     .btn-primary{background:var(--brand);color:#fff}
     .btn-secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
-    .btn-tertiary{background:transparent;color:var(--muted);border:1px solid transparent}
     .btn-danger{background:#fff;color:#9b2525;border:1px solid #e8caca}
     .privacy-note{margin-top:18px;padding:16px;border:1px solid #cfe3f5;border-radius:14px;background:var(--soft);font-size:.92rem}
     .summary{display:grid;gap:16px}
@@ -72,69 +69,36 @@
     .summary-photo img{width:100%;max-height:360px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#fafafa}
     .summary-photo strong{display:block;margin-top:6px}
     .warning{background:var(--note);border:1px solid var(--note-line);border-radius:12px;padding:14px;margin-bottom:16px}
-    .print-only{display:none}
+    .btn-tertiary{background:transparent;color:var(--muted);border:1px solid transparent}
+    .final-actions{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:10px;margin:0 0 18px}
+    .final-actions .btn{width:100%}
     .document-head{
-      position:relative;
-      overflow:hidden;
-      margin:0 0 18px;
-      color:#172033;
-      border:1px solid #d7e3ef;
-      border-radius:16px;
-      background:#fff;
-      box-shadow:0 4px 14px rgba(13,55,94,.08)
+      position:relative;overflow:hidden;margin:0 0 18px;color:#172033;border:1px solid #d7e3ef;
+      border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(13,55,94,.08)
     }
     .document-banner{
-      position:relative;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      gap:14px;
-      align-items:center;
-      padding:16px 18px;
-      background:linear-gradient(105deg,#0a2c57 0%,#0d4f86 58%,#1386c9 100%);
-      color:#fff
+      position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
+      padding:16px 18px;background:linear-gradient(105deg,#0a2c57 0%,#0d4f86 58%,#1386c9 100%);color:#fff
     }
     .document-banner::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:100%;
-      height:4px;
+      content:"";position:absolute;left:0;bottom:0;width:100%;height:4px;
       background:linear-gradient(90deg,#ff7a00 0 86px,#1597e5 86px 100%)
     }
     .document-logo{
-      width:70px;
-      height:70px;
-      display:grid;
-      place-items:center;
-      border:2px solid rgba(255,255,255,.92);
-      border-radius:16px;
-      background:#fff;
-      overflow:hidden;
-      box-shadow:0 5px 16px rgba(0,0,0,.18)
-    }
-    .document-brand{font-size:20pt;font-weight:850;line-height:1.05;letter-spacing:-.025em;color:#fff}
-    .document-tagline{font-size:8.2pt;color:rgba(255,255,255,.78);margin-top:5px;letter-spacing:.12em;text-transform:uppercase}
-    .document-meta{text-align:right;font-size:8.4pt;line-height:1.5;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);border-radius:11px;padding:9px 11px;backdrop-filter:blur(2px)}
-    .document-title-area{position:relative;padding:19px 20px 18px;background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%)}
-    .document-title{margin:0;font-size:22pt;line-height:1.08;letter-spacing:-.025em;color:#172033}
-    .document-subtitle{margin:6px 0 0;font-size:9.5pt;color:#5b6577}
-    .document-watermark{
-      position:absolute;
-      right:18px;
-      bottom:-13px;
-      font-size:58px;
-      line-height:1;
-      font-weight:900;
-      color:#1597e5;
-      opacity:.035;
-      pointer-events:none;
-      letter-spacing:-.08em
+      width:70px;height:70px;display:grid;place-items:center;border:2px solid rgba(255,255,255,.92);
+      border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 5px 16px rgba(0,0,0,.18)
     }
     .document-logo img{width:100%;height:100%;object-fit:cover;display:block}
     .document-identity{display:flex;align-items:center;gap:14px;min-width:0}
-    .brand-formular{color:#fff}
-    .brand-fuchs{color:#4bc3ff}
+    .document-brand{font-size:20pt;font-weight:850;line-height:1.05;letter-spacing:-.025em;color:#fff}
+    .brand-formular{color:#fff}.brand-fuchs{color:#4bc3ff}
+    .document-tagline{font-size:8.2pt;color:rgba(255,255,255,.78);margin-top:5px;letter-spacing:.12em;text-transform:uppercase}
+    .document-meta{text-align:right;font-size:8.4pt;line-height:1.5;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);border-radius:11px;padding:9px 11px}
+    .document-title-area{position:relative;padding:19px 20px 18px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+    .document-title{margin:0;font-size:22pt;line-height:1.08;letter-spacing:-.025em;color:#172033}
+    .document-subtitle{margin:6px 0 0;font-size:9.5pt;color:#5b6577}
+    .document-watermark{position:absolute;right:18px;bottom:-13px;font-size:58px;line-height:1;font-weight:900;color:#1597e5;opacity:.035;pointer-events:none;letter-spacing:-.08em}
+    .print-only{display:none}
     @media(max-width:720px){
       .field-grid,.choice-grid,.summary-photos{grid-template-columns:1fr}
       .summary-row{grid-template-columns:1fr;gap:2px}
@@ -144,7 +108,7 @@
       .final-actions .btn{width:100%}
     }
 
-    /* Kramurai – gut erkennbare mobile Eingaben und Aktionen */
+    /* {{BRAND_NAME}} – gut erkennbare mobile Eingaben und Aktionen */
     @media screen{
       .helper-page{
         --brand:#09558f;
@@ -341,6 +305,16 @@
       .helper-page .receipt-help{margin-top:5px;line-height:1.4}
       .helper-page .receipt-print-note{font-weight:750;color:#07365f}
     }
+    .followup-block{
+      padding:17px;
+      margin:18px 0;
+      border:1px solid #c4d7e6;
+      border-radius:14px;
+      background:#edf5fb;
+    }
+    .followup-block h3{color:#07365f;margin:0 0 6px}
+    .followup-block p{margin:0 0 14px}
+    @media(max-width:720px){.followup-block{padding:14px}}
 
     /* Mehrere Vorgänge – kompakt auf Mobilgeräten, nur im Browser sichtbar */
     .helper-page .case-manager{
@@ -425,15 +399,15 @@
 <body class="helper-page">
   <header>
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Kramurai Startseite"><span class="helper-brand-name">Kramurai</span></a>
+      <a class="brand" href="/" aria-label="{{BRAND_NAME}} Startseite">{{BRAND_LOGO}}<span class="helper-brand-name">{{BRAND_NAME}}</span></a>
     </div>
   </header>
 
   <main class="wrap wizard">
     <div class="wizard-head">
       <div class="eyebrow">Testversion · Daten bleiben auf deinem Gerät</div>
-      <h1>Retoure dokumentieren</h1>
-      <p class="lead">Halte Gegenstand, Zustand, Zubehör, Fotos, Verpackung und Versand strukturiert fest.</p>
+      <h1>Router / Mietgerät zurückgeben</h1>
+      <p class="lead">Halte Gerät, Seriennummer, Zubehör, Verpackung und Versand deiner Rückgabe strukturiert fest.</p>
       <div class="case-manager screen-only">
         <div class="case-manager-heading">Meine Vorgänge <span id="caseCount"></span></div>
         <p class="case-manager-hint">Lokal in diesem Browser gespeichert. Mit einer Sicherungsdatei kannst du einen Vorgang samt gespeicherten Fotos und Belegen später wieder öffnen – auch auf einem anderen Gerät.</p>
@@ -458,14 +432,14 @@
     <form id="returnForm" novalidate>
       <section class="step active" id="step-1" data-step="1">
         <h2>1. Gegenstand</h2>
-        <p class="intro">Was schickst du zurück? Nur die Bezeichnung ist für diese Testversion erforderlich.</p>
+        <p class="intro">Welches Mietgerät gibst du zurück? Nur die Gerätebezeichnung ist erforderlich.</p>
         <div class="field-grid">
           <div class="field full">
-            <label for="itemName">Gegenstand *</label>
-            <input id="itemName" data-field="item.name" required placeholder="z. B. Smartphone, Kaffeemaschine, Jacke">
+            <label for="itemName">Gerät *</label>
+            <input id="itemName" data-field="item.name" required placeholder="z. B. Router, Receiver, Repeater">
           </div>
           <div class="field">
-            <label for="manufacturer">Hersteller</label>
+            <label for="manufacturer">Hersteller / Marke</label>
             <input id="manufacturer" data-field="item.manufacturer" placeholder="optional">
           </div>
           <div class="field">
@@ -473,28 +447,40 @@
             <input id="model" data-field="item.model" placeholder="optional">
           </div>
           <div class="field">
-            <label for="serial">Seriennummer / Kennung</label>
+            <label for="provider">Anbieter</label>
+            <input id="provider" data-field="party.provider" placeholder="z. B. Telekom, Vodafone, O2, 1&1, Sky">
+          </div>
+          <div class="field">
+            <label for="customerNo">Kunden-/Vertragsnummer</label>
+            <input id="customerNo" data-field="party.customerNo" placeholder="optional">
+          </div>
+          <div class="field">
+            <label for="mac">MAC-Adresse / Gerätekennung</label>
+            <input id="mac" data-field="item.mac" placeholder="optional">
+          </div>
+          <div class="field">
+            <label for="serial">Seriennummer</label>
             <input id="serial" data-field="item.serial" placeholder="optional">
-            <span class="hint">Bei Geräten besonders hilfreich.</span>
+            <span class="hint">Wenn vorhanden, möglichst exakt vom Typenschild übernehmen.</span>
           </div>
           <div class="field">
             <label for="sender">Absender / Name</label>
             <input id="sender" data-field="party.sender" placeholder="optional">
           </div>
           <div class="field">
-            <label for="seller">Händler / Empfänger</label>
+            <label for="seller">Anbieter / Empfänger</label>
             <input id="seller" data-field="party.recipient" placeholder="optional">
           </div>
           <div class="field full">
             <label for="reason">Grund der Rücksendung</label>
-            <textarea id="reason" data-field="item.reason" placeholder="z. B. Widerruf, falscher Artikel, Defekt"></textarea>
+            <textarea id="reason" data-field="item.reason" placeholder="z. B. Vertragsende, Gerätetausch, Kündigung"></textarea>
           </div>
         </div>
       </section>
 
       <section class="step" id="step-2" data-step="2">
         <h2>2. Zustand</h2>
-        <p class="intro">Wie würdest du den Zustand unmittelbar vor dem Verpacken beschreiben?</p>
+        <p class="intro">Wie ist der Zustand des Mietgeräts unmittelbar vor dem Verpacken?</p>
         <div class="choice-grid">
           <div class="choice"><input type="radio" id="c1" name="condition" value="Ungeöffnet" data-radio="condition.rating"><label for="c1">Ungeöffnet</label></div>
           <div class="choice"><input type="radio" id="c2" name="condition" value="Sehr gut" data-radio="condition.rating"><label for="c2">Sehr gut</label></div>
@@ -511,25 +497,25 @@
 
       <section class="step" id="step-3" data-step="3">
         <h2>3. Zubehör und Inhalt</h2>
-        <p class="intro">Markiere typische Bestandteile und ergänze weitere Dinge, die du mitsendest.</p>
+        <p class="intro">Markiere alles, was du zusammen mit dem Mietgerät zurücksendest.</p>
         <div class="check-list">
-          <label class="check"><input type="checkbox" data-check="accessories.powerSupply"><span><strong>Netzteil / Ladegerät</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
-          <label class="check"><input type="checkbox" data-check="accessories.cable"><span><strong>Kabel / Anschlussleitung</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
-          <label class="check"><input type="checkbox" data-check="accessories.manual"><span><strong>Anleitung / Unterlagen</strong></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.powerSupply"><span><strong>Netzteil</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.cable"><span><strong>LAN-/DSL-/Antennenkabel</strong><br><span class="hint">nur falls tatsächlich mitgesendet</span></span></label>
+          <label class="check"><input type="checkbox" data-check="accessories.manual"><span><strong>Fernbedienung / Zusatzgerät</strong></span></label>
           <label class="check"><input type="checkbox" data-check="accessories.originalBox"><span><strong>Originalverpackung</strong></span></label>
         </div>
         <div class="field" style="margin-top:18px">
           <label for="accessoriesOther">Weiteres Zubehör / Inhalt</label>
-          <textarea id="accessoriesOther" data-field="accessories.other" placeholder="Ein Eintrag pro Zeile, z. B. Fernbedienung&#10;Adapter&#10;Schutzhülle"></textarea>
+          <textarea id="accessoriesOther" data-field="accessories.other" placeholder="Ein Eintrag pro Zeile, z. B. Standfuß&#10;Repeater&#10;Adapter"></textarea>
         </div>
       </section>
 
       <section class="step" id="step-4" data-step="4">
         <h2>4. Fotos und Verpackung</h2>
-        <p class="intro">Die Fotos werden auf deinem Gerät verkleinert und lokal gespeichert. Sie werden nicht an Kramurai übertragen.</p>
+        <p class="intro">Die Fotos werden auf deinem Gerät verkleinert und lokal gespeichert. Sie werden nicht an {{BRAND_NAME}} übertragen.</p>
         <div class="photo-list">
           <div class="photo-task" data-task="overall">
-            <div class="photo-top"><div><div class="photo-title">1. Gesamtansicht des Artikels</div><div class="hint">Gut erkennbar, bevor du ihn verpackst.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">1. Gesamtansicht des Geräts</div><div class="hint">Gerät gut erkennbar, bevor du es verpackst.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="overall" aria-label="Foto für overall aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="overall" aria-label="Bild für overall aus Galerie wählen"></label>
@@ -537,7 +523,7 @@
             <img class="preview" data-preview="overall" alt="Vorschau Gesamtansicht">
           </div>
           <div class="photo-task" data-task="serial">
-            <div class="photo-top"><div><div class="photo-title">2. Seriennummer / Typenschild</div><div class="hint">Falls vorhanden und lesbar.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">2. Typenschild / Seriennummer / MAC</div><div class="hint">Falls vorhanden und lesbar.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="serial" aria-label="Foto für serial aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="serial" aria-label="Bild für serial aus Galerie wählen"></label>
@@ -545,7 +531,7 @@
             <img class="preview" data-preview="serial" alt="Vorschau Seriennummer">
           </div>
           <div class="photo-task" data-task="accessories">
-            <div class="photo-top"><div><div class="photo-title">3. Artikel mit komplettem Zubehör</div><div class="hint">Alles, was mitgesendet wird, zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">3. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="accessories" aria-label="Foto für accessories aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="accessories" aria-label="Bild für accessories aus Galerie wählen"></label>
@@ -561,7 +547,7 @@
             <img class="preview" data-preview="openPackage" alt="Vorschau offenes Paket">
           </div>
           <div class="photo-task" data-task="protected">
-            <div class="photo-top"><div><div class="photo-title">5. Verpackung / Polsterung</div><div class="hint">Zeigt, wie der Artikel geschützt wurde.</div></div><span class="photo-status">noch kein Foto</span></div>
+            <div class="photo-top"><div><div class="photo-title">5. Verpackung / Polsterung</div><div class="hint">Zeigt, wie das Gerät geschützt wurde.</div></div><span class="photo-status">noch kein Foto</span></div>
             <div class="photo-actions">
               <label class="file-label">📷 Fotografieren<input type="file" accept="image/*" capture="environment" data-photo="protected" aria-label="Foto für protected aufnehmen"></label>
               <label class="file-label file-gallery">▧ Galerie wählen<input type="file" accept="image/*" data-photo="protected" aria-label="Bild für protected aus Galerie wählen"></label>
@@ -603,6 +589,28 @@
             <input id="weight" inputmode="decimal" data-field="shipment.weight" placeholder="z. B. 2,4">
           </div>
         </div>
+        <div class="followup-block">
+          <h3>Später ergänzen: Rückmeldung des Anbieters</h3>
+          <p class="hint">Erst nach dem Versand ausfüllen, wenn der Anbieter den Eingang bestätigt oder die Rückgabe beanstandet. Du kannst diese Angaben auch nach dem ersten PDF ergänzen.</p>
+          <div class="field-grid">
+          <div class="field">
+            <label for="returnConfirmed">Rückmeldung des Anbieters</label>
+            <select id="returnConfirmed" data-field="return.confirmed">
+              <option value="">Noch offen / unbekannt</option>
+              <option value="Bestätigt">Rückgabe bestätigt</option>
+              <option value="Nicht anerkannt">Rückgabe nicht anerkannt</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="confirmationDate">Datum der Rückmeldung</label>
+            <input id="confirmationDate" type="date" data-field="return.confirmationDate">
+          </div>
+          <div class="field full">
+            <label for="confirmationRef">Referenz / Ticket</label>
+            <input id="confirmationRef" data-field="return.confirmationRef" placeholder="z. B. E-Mail-Betreff, Ticketnummer oder Vorgangsnummer">
+          </div>
+          </div>
+        </div>
         <div class="photo-task" data-task="receipt">
           <div class="photo-top"><div><div class="photo-title">Einlieferungsbeleg</div><div class="hint">Optional: Ein Foto wird in die Dokumentation eingefügt. Eine hochgeladene PDF-Datei muss separat mitgespeichert und beigefügt werden.</div></div><span class="photo-status">noch keine Datei</span></div>
           <label class="file-label">Beleg auswählen<input type="file" accept="image/*,application/pdf" data-attachment="receipt"></label>
@@ -619,9 +627,9 @@
         <div class="print-only document-head">
           <div class="document-banner">
             <div class="document-identity">
-
+              {{BRAND_DOCUMENT_LOGO}}
               <div>
-                <div class="document-brand">Kramurai</div>
+                <div class="document-brand">{{BRAND_NAME}}</div>
                 <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
               </div>
             </div>
@@ -631,14 +639,14 @@
             </div>
           </div>
           <div class="document-title-area">
-            <div class="document-watermark" aria-hidden="true">Kramurai</div>
-            <h1 class="document-title">Versand- und Zustandsdokumentation</h1>
-            <p class="document-subtitle">Retoure · Zustand, Inhalt, Verpackung und Versand</p>
+            <div class="document-watermark" aria-hidden="true">{{BRAND_NAME}}</div>
+            <h1 class="document-title">Rückgabe- und Versanddokumentation</h1>
+            <p class="document-subtitle">Router / Mietgerät · Gerät, Zubehör, Verpackung und Versand</p>
           </div>
         </div>
         <h2>6. Zusammenfassung</h2>
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
-        <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. Kramurai prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
+        <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. {{BRAND_NAME}} prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
         <div id="summary" class="summary"></div>
         <div class="screen-only local-case-note">
           <strong>Automatisch lokal gespeichert</strong>
@@ -658,12 +666,12 @@
 
     <div class="privacy-note screen-only">
       <strong>🔒 Lokal auf diesem Gerät</strong><br>
-      Deine Eingaben und ausgewählten Dateien werden für diese Testversion im Browser gespeichert. Wenn du Browserdaten löschst, können auch diese Daten verloren gehen. Es findet keine automatische Übertragung an Kramurai statt.<br>
+      Deine Eingaben und ausgewählten Dateien werden für diese Testversion im Browser gespeichert. Wenn du Browserdaten löschst, können auch diese Daten verloren gehen. Es findet keine automatische Übertragung an {{BRAND_NAME}} statt.<br>
       Fragen oder Rückmeldungen? <a href="mailto:FormularFuchs@genial.ms">FormularFuchs@genial.ms</a>
     </div>
   </main>
 
   <script src="/assets/case-backup.js"></script>
-  <script src="/retoure-dokumentieren/app.js"></script>
+  <script src="/router-zurueckgeben/app.js"></script>
 </body>
 </html>

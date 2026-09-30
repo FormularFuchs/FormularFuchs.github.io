@@ -57,7 +57,7 @@ for name in FILES:
         block: "start"
       });
     }'''),
-            ('  showStep(state.currentStep || 1);\\n})();', '  showStep(state.currentStep || 1, false);\\n})();'),
+            ('  showStep(state.currentStep || 1);\n})();', '  showStep(state.currentStep || 1, false);\n})();'),
         )
         for old, new in nav_replacements:
             if text.count(old) != 1:

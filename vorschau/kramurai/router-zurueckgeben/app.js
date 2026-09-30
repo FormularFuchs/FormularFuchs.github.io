@@ -270,7 +270,7 @@
     });
   }
 
-  function showStep(step) {
+  function showStep(step, scroll = true) {
     state.currentStep = Math.max(1, Math.min(TOTAL_STEPS, step));
     document.querySelectorAll(".step").forEach(el => el.classList.toggle("active", Number(el.dataset.step) === state.currentStep));
     progressBar.style.width = ((state.currentStep / TOTAL_STEPS) * 100) + "%";
@@ -299,7 +299,13 @@
       });
 
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (scroll) {
+      const activeStep = document.getElementById("step-" + state.currentStep);
+      activeStep.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    }
   }
 
   function validateCurrentStep() {
@@ -791,5 +797,5 @@
   hydrateForm();
   bindAutosave();
   restorePreviews();
-  showStep(state.currentStep || 1);
+  showStep(state.currentStep || 1, false);
 })();

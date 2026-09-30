@@ -54,13 +54,15 @@ Feinschliff: Die drei PDF-Köpfe lassen das Logofeld bei noch nicht festgelegtem
 Erneute Android-PDF-Probe nach Veröffentlichung dieses Feinschliffs: Der Nutzer speicherte den ursprünglichen Retouren-Vorgang erneut als PDF. Die neue Datei hat drei A4-Seiten statt vier; der Schriftzug steht ohne leeres Logofeld im Kopf. Alle sieben eingebetteten Fotos sind bytegleich zur vorherigen PDF, und alle Angaben einschließlich der unveränderten ursprünglichen Vorgangsbezeichnung sind vorhanden. Die drei gerenderten Seiten wurden visuell auf Abschnittswechsel, Lesbarkeit und abgeschnittene Inhalte geprüft. Der kompaktere Umbruch enthält keine leere Seite.
 
 Weitere Smartphone-PDF-Probe am 30.09.2026: Der Nutzer stellte Router- und Trade-in-PDFs aus den erfundenen Sicherungen bereit. Router: zwei A4-Seiten und drei Testbilder. Trade-in: drei A4-Seiten und drei Testbilder. Textauszug und gerenderte Seiten enthalten die erwarteten Angaben, Fotos und Abschnitte; keine leere Seite oder mitgedruckte Bedienleiste. Die auf die Fotoseite beschränkte dritte Trade-in-Seite ist in diesem Testfall recht leer, aber lesbar.
+Bedienkorrektur am 30.09.2026: Auf schmalen Bildschirmen bleiben „Zurück“ und „Weiter“ am unteren Bildschirmrand erreichbar, auch wenn ein Formularabschnitt lang ist. Beim Schrittwechsel springt die Ansicht zum geöffneten Abschnitt statt zum Seitenanfang mit der Vorgangsverwaltung. Die Druckansicht blendet die Navigation weiter aus. Die veröffentlichte CSS-Regel und der Schrittwechsel wurden im Browser geprüft. Das Erzeugungsskript reproduziert die vier betroffenen Vorschau-Dateien bytegleich.
 
-Bedienkorrektur am 30.09.2026: Auf schmalen Bildschirmen bleiben „Zurück“ und „Weiter“ am unteren Bildschirmrand erreichbar, auch wenn ein Formularabschnitt lang ist. Beim Schrittwechsel springt die Ansicht zum geöffneten Abschnitt statt zum Seitenanfang mit der Vorgangsverwaltung. Die Druckansicht blendet die Navigation weiter aus. Die veröffentlichte CSS-Regel und der Schrittwechsel wurden im Browser geprüft; ein erneuter Praxistest der Änderung auf dem Android-Gerät steht noch aus. Das Erzeugungsskript reproduziert die vier betroffenen Vorschau-Dateien bytegleich.
+Rückmeldung des Nutzers am 30.09.2026: Der Schrittwechsel funktioniert jetzt deutlich besser. Eine vollständige Prüfung aller drei Helfer und ihrer schmalen Ansichten wurde damit noch nicht behauptet.
 
 Offen vor einer Umstellung der Hauptseite:
-- Die neue Navigation auf dem Android-Gerät ausprobieren; alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen prüfen.
+- Alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen prüfen.
+- Beschädigte Sicherung im Browser abweisen lassen; bisher automatisiert geprüft.
 
-Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Die neue mobile Schrittnavigation ist noch nicht auf dem Nutzergerät geprüft.
+Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Der Nutzer meldete nach der Navigationsänderung einen deutlich besseren Schrittwechsel; die einzelnen Helfer sind damit noch nicht vollständig auf schmalen Bildschirmen durchgetestet.
 
 ## Reproduzierbarkeit
 

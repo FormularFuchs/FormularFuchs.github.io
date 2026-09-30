@@ -521,9 +521,6 @@ footer{
 .preview-legal-links{display:flex;flex-wrap:wrap;gap:10px 20px;margin:24px 0;color:#233d54;font-weight:700}
 .preview-legal-links a{color:#09558f}
 @media print{.preview-notice,.preview-legal-links{display:none!important}}
-
-@media print{.preview-notice{display:none!important}}
-
 /* Die Schrittnavigation liegt im Dokument hinter langen Formularabschnitten.
    Auf schmalen Bildschirmen bleibt sie auch vor dem ersten Scrollen erreichbar. */
 @media screen and (max-width:720px){

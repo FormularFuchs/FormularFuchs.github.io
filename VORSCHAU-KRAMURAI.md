@@ -39,6 +39,7 @@ Die veröffentlichte Vorschau wurde in Chrome im Cloud-Browser bedient. Ausschli
 | Trade-in: sichern, wieder importieren, neu laden | Bestanden mit Gerätebezeichnung, IMEI-Testkennung und Angebot 123,45; 2 Vorgänge auswählbar; JSON 850 Bytes |
 | Retouren-Sicherung im Router-Helfer öffnen | Korrekt abgewiesen; bestehender Router-Testvorgang erhalten |
 | Beschädigte JSON-Sicherung im Retouren-Helfer öffnen | Am 30.09.2026 in der veröffentlichten Vorschau tatsächlich über den Dateidialog geprüft: „Die Datei ist keine lesbare Vorgangssicherung.“ Der vorher gespeicherte, erfundene Testvorgang blieb auswählbar. |
+| Fiktive Router- und Trade-in-Testsicherungen öffnen | Am 30.09.2026 beide eigenen JSON-Testdateien mit je drei künstlich erzeugten JPEGs in die veröffentlichte Vorschau importiert. Alle Angaben und alle drei Bildunterschriften erscheinen in der jeweiligen Zusammenfassung; die Schaltfläche „PDF speichern“ ist verfügbar. Die Dateien enthalten keine persönlichen Angaben oder echten Gerätekennungen und stehen für den Android-Praxistest bereit. |
 | PDF-Ausgabe über Schaltfläche | Auf einem Android-Smartphone als vierseitige PDF-Datei gespeichert; alle sieben Fotos enthalten, keine mitgedruckten Bedienelemente oder abgeschnittenen Texte. Im Cloud-Browser allein war der Druckdialog nicht bedienbar. |
 | Mobilgerät / schmaler Bildschirm | Der Retouren-Helfer wurde auf einem Android-Smartphone bedient; ein vollständiger Layouttest aller drei Helfer auf mehreren schmalen Ansichten steht noch aus. |
 

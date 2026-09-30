@@ -37,8 +37,40 @@ for name in FILES:
         text, n = re.subn(r'const DB_NAME = "formularfuchs-local";', 'const DB_NAME = "kramurai-preview-local";', text)
         if n != 1:
             raise SystemExit('Datenbankkennung nicht eindeutig: ' + name)
+        nav_replacements = (
+            ('  function showStep(step) {', '  function showStep(step, scroll = true) {'),
+            ('    window.scrollTo({ top: 0, behavior: "smooth" });', '''    if (scroll) {
+      const activeStep = document.getElementById("step-" + state.currentStep);
+      activeStep.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    }'''),
+            ('  showStep(state.currentStep || 1);\n})();', '  showStep(state.currentStep || 1, false);\n})();'),
+        )
+        for old, new in nav_replacements:
+            if text.count(old) != 1:
+                raise SystemExit('Schrittnavigation nicht eindeutig: ' + name)
+            text = text.replace(old, new)
     elif name == 'styles.css':
-        text += '''\n.preview-notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:12px 20px;background:#fff2cd;color:#312600;border-bottom:1px solid #c6a652;font-size:.9rem}\n.preview-notice span{flex:1 1 260px}\n.preview-notice a{color:#193e66;font-weight:700}\n@media print{.preview-notice{display:none!important}}\n'''
+        text += '''\n.preview-notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:12px 20px;background:#fff2cd;color:#312600;border-bottom:1px solid #c6a652;font-size:.9rem}\n.preview-notice span{flex:1 1 260px}\n.preview-notice a{color:#193e66;font-weight:700}\n@media print{.preview-notice{display:none!important}}
+
+/* Die Schrittnavigation liegt im Dokument hinter langen Formularabschnitten.
+   Auf schmalen Bildschirmen bleibt sie auch vor dem ersten Scrollen erreichbar. */
+@media screen and (max-width:720px){
+  body.helper-page .wizard{padding-bottom:calc(116px + env(safe-area-inset-bottom))}
+  body.helper-page .wizard-nav{
+    position:fixed;
+    inset:auto 0 0;
+    z-index:30;
+    margin:0;
+    padding:10px max(16px, calc((100vw - 1080px)/2)) calc(10px + env(safe-area-inset-bottom));
+    background:rgba(234,241,247,.97);
+    border-top:1px solid #b6ccde;
+    box-shadow:0 -5px 18px rgba(12,49,88,.12);
+  }
+}
+'''
     target = output / name
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(text)

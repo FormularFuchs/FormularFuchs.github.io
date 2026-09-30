@@ -15,7 +15,7 @@ Die aktuellen Vorschau-Dateien und die zuvor separat vorbereiteten Rechtsseiten 
 
 ## Abgleich zur Anschrift
 
-Der vorliegende Dienstleistungsvertrag vom 31.03.2026 sieht in § 1 die Verwendung für Impressen und gerichtliche Ladungen sowie ein Workspace-Nutzungsrecht vor. Er verweist für dessen Bedingungen auf einen gesonderten Nutzungsvertrag. Dieser wurde im vorliegenden Unterlagenbestand nicht gefunden. Der Vertrag begründet nach seinem Wortlaut keinen Geschäftssitz oder eine Niederlassung und überträgt die Prüfung der konkreten gesetzlichen Anforderungen auf den Kunden. Daraus wird keine verbindliche rechtliche Freigabe abgeleitet.
+Zwei Fassungen des allgemeinen Dienstleistungsvertrags wurden verglichen (10.08.2022 und 31.03.2026). Die alte Fassung schließt in § 1 Abs. 1 eine Nutzung der Räumlichkeiten ausdrücklich aus. Die Fassung vom 31.03.2026 sieht in § 1 die Verwendung für Impressen und gerichtliche Ladungen sowie ein Workspace-Nutzungsrecht vor; für dessen Bedingungen verweist sie auf einen gesonderten Nutzungsvertrag in der jeweils gültigen Fassung. Keiner der beiden vorliegenden Verträge ist dieser gesonderte Nutzungsvertrag. Die allgemeine Fassung belegt allein auch nicht, welche Bedingungen für die konkrete Fellbacher Buchung gelten; dafür ist insbesondere die Auftragsbestätigung maßgeblich. Der neuere Vertrag begründet nach seinem Wortlaut keinen Geschäftssitz oder eine Niederlassung und überträgt die Prüfung der konkreten gesetzlichen Anforderungen auf den Kunden. Daraus wird keine verbindliche rechtliche Freigabe abgeleitet.
 
 Aktuell öffentlich abrufbare Anbieterinformationen beschreiben physische Räume und die Annahme gerichtlicher Schreiben. Diese Leistungsbeschreibungen ersetzen weder die bei Buchung geltenden Vereinbarungen noch eine unabhängige Rechtsprüfung.
 
@@ -27,7 +27,7 @@ Quellen, abgerufen am 29.09.2026:
 
 ## Noch konkret zu klären
 
-1. Welcher Workspace-Nutzungsvertrag gilt für die gebuchte Fellbacher Anschrift und wie kann der Kunde die Räume tatsächlich nutzen?
+1. Welche Vertragsfassung gilt laut Auftragsbestätigung für die gebuchte Fellbacher Anschrift, welcher gesonderte Workspace-Nutzungsvertrag gehört dazu und wie kann der Kunde die Räume tatsächlich nutzen?
 2. Wie werden förmliche gerichtliche/behördliche Zustellungen am Standort angenommen und fristgebundene Schreiben bereitgestellt?
 3. Vor einer endgültigen Umbenennung: Kramurai zusätzlich beim Adressdienst für die Postzuordnung hinterlegen.
 4. Tatsächliche Löschpraxis für Projekt-E-Mails und Briefscans bestätigen; Datenschutzerklärung abschließend abgleichen.

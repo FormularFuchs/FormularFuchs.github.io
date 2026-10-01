@@ -38,6 +38,8 @@ Die veröffentlichte Vorschau wurde in Chrome im Cloud-Browser bedient. Ausschli
 | Router: sichern, wieder importieren, neu laden | Bestanden mit Gerätebezeichnung und Kunden-/Vertragsnummer; 2 Vorgänge auswählbar; JSON 719 Bytes |
 | Trade-in: sichern, wieder importieren, neu laden | Bestanden mit Gerätebezeichnung, IMEI-Testkennung und Angebot 123,45; 2 Vorgänge auswählbar; JSON 850 Bytes |
 | Retouren-Sicherung im Router-Helfer öffnen | Korrekt abgewiesen; bestehender Router-Testvorgang erhalten |
+| Beschädigte JSON-Sicherung im Retouren-Helfer öffnen | Am 30.09.2026 in der veröffentlichten Vorschau tatsächlich über den Dateidialog geprüft: „Die Datei ist keine lesbare Vorgangssicherung.“ Der vorher gespeicherte, erfundene Testvorgang blieb auswählbar. |
+| Fiktive Router- und Trade-in-Testsicherungen öffnen | Am 30.09.2026 beide eigenen JSON-Testdateien mit je drei künstlich erzeugten JPEGs in die veröffentlichte Vorschau importiert. Alle Angaben und alle drei Bildunterschriften erscheinen in der jeweiligen Zusammenfassung; die Schaltfläche „PDF speichern“ ist verfügbar. Die Dateien enthalten keine persönlichen Angaben oder echten Gerätekennungen und stehen für den Android-Praxistest bereit. |
 | PDF-Ausgabe über Schaltfläche | Auf einem Android-Smartphone als vierseitige PDF-Datei gespeichert; alle sieben Fotos enthalten, keine mitgedruckten Bedienelemente oder abgeschnittenen Texte. Im Cloud-Browser allein war der Druckdialog nicht bedienbar. |
 | Mobilgerät / schmaler Bildschirm | Der Retouren-Helfer wurde auf einem Android-Smartphone bedient; ein vollständiger Layouttest aller drei Helfer auf mehreren schmalen Ansichten steht noch aus. |
 
@@ -53,13 +55,16 @@ Erneute Android-PDF-Probe nach Veröffentlichung dieses Feinschliffs: Der Nutzer
 
 Weitere Smartphone-PDF-Probe am 30.09.2026: Der Nutzer stellte Router- und Trade-in-PDFs aus den erfundenen Sicherungen bereit. Router: zwei A4-Seiten und drei Testbilder. Trade-in: drei A4-Seiten und drei Testbilder. Textauszug und gerenderte Seiten enthalten die erwarteten Angaben, Fotos und Abschnitte; keine leere Seite oder mitgedruckte Bedienleiste. Die auf die Fotoseite beschränkte dritte Trade-in-Seite ist in diesem Testfall recht leer, aber lesbar.
 
-Bedienkorrektur am 30.09.2026: Auf schmalen Bildschirmen bleiben „Zurück“ und „Weiter“ am unteren Bildschirmrand erreichbar, auch wenn ein Formularabschnitt lang ist. Beim Schrittwechsel springt die Ansicht zum geöffneten Abschnitt statt zum Seitenanfang mit der Vorgangsverwaltung. Die Druckansicht blendet die Navigation weiter aus. Die veröffentlichte CSS-Regel und der Schrittwechsel wurden im Browser geprüft; ein erneuter Praxistest der Änderung auf dem Android-Gerät steht noch aus. Das Erzeugungsskript reproduziert die vier betroffenen Vorschau-Dateien bytegleich.
+Bedienkorrektur am 30.09.2026: Auf schmalen Bildschirmen bleiben „Zurück“ und „Weiter“ am unteren Bildschirmrand erreichbar, auch wenn ein Formularabschnitt lang ist. Beim Schrittwechsel springt die Ansicht zum geöffneten Abschnitt statt zum Seitenanfang mit der Vorgangsverwaltung. Die Druckansicht blendet die Navigation weiter aus. Die veröffentlichte CSS-Regel und der Schrittwechsel wurden im Browser geprüft. Das Erzeugungsskript reproduziert die vier betroffenen Vorschau-Dateien bytegleich.
+
+Rückmeldung des Nutzers am 30.09.2026: Der Schrittwechsel funktioniert jetzt deutlich besser. Eine vollständige Prüfung aller drei Helfer und ihrer schmalen Ansichten wurde damit noch nicht behauptet.
+
+Browserprobe am 01.10.2026 auf der veröffentlichten Vorschau: Eine syntaktisch ungültige JSON-Datei wurde in allen drei Helfern über „Sicherung öffnen“ ausgewählt. Jeder Helfer zeigte „Die Datei ist keine lesbare Vorgangssicherung.“ und behielt genau einen bereits vorhandenen Testvorgang. Geprüft wurde die sichtbare Reaktion im Desktopbrowser (1363 px Breite); das ersetzt keinen vollständigen Smartphone- oder Manipulationstest.
 
 Offen vor einer Umstellung der Hauptseite:
-- Die neue Navigation auf dem Android-Gerät ausprobieren; alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen prüfen.
-- Beschädigte Sicherung im Browser abweisen lassen; bisher automatisiert geprüft.
+- Alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen vollständig prüfen; bisher liegt eine positive Rückmeldung zum Schrittwechsel vor.
 
-Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Die neue mobile Schrittnavigation ist noch nicht auf dem Nutzergerät geprüft.
+Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Der Nutzer meldete nach der Navigationsänderung einen deutlich besseren Schrittwechsel; die einzelnen Helfer sind damit noch nicht vollständig auf schmalen Bildschirmen durchgetestet. Der Import einer nicht lesbaren JSON-Sicherung wurde in allen drei Helfern im Browser ohne Verlust der vorhandenen Testvorgänge abgewiesen.
 
 ## Reproduzierbarkeit
 

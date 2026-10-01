@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PREFIX = '/vorschau/kramurai/'
 HELPERS = ('retoure-dokumentieren', 'router-zurueckgeben', 'handy-trade-in-dokumentieren')
 FILES = ['index.html', 'styles.css', 'assets/case-backup.js'] + [f'{h}/{f}' for h in HELPERS for f in ('index.html', 'app.js')]
+THEME = ROOT / 'scripts/register-theme.css'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('source', type=Path, help='Checked-out Kramurai development repository')
 parser.add_argument('--github-source', help='GitHub commit with an identical source tree')
@@ -41,6 +42,10 @@ for name in FILES:
             if text.count(marker) != 1:
                 raise SystemExit('Vorschau-Helferabschluss nicht eindeutig: ' + name)
             text = text.replace(marker, '    <nav class="preview-legal-links screen-only" aria-label="Rechtliche Informationen">' + legal_links + '</nav>\n' + marker, 1)
+        theme_link = '<link rel="stylesheet" href="' + PREFIX + 'register-theme.css">'
+        if text.count('</head>') != 1:
+            raise SystemExit('Vorschau-Kopf nicht eindeutig: ' + name)
+        text = text.replace('</head>', '  ' + theme_link + '\n</head>', 1)
     elif name.endswith('/app.js'):
         text, n = re.subn(r'const STORAGE_KEY = "([^"]+)";', r'const STORAGE_KEY = "preview-\1";', text)
         if n != 1:
@@ -83,5 +88,6 @@ for name in FILES:
     target = output / name
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(text)
+(output / 'register-theme.css').write_text(THEME.read_text())
 (output / 'QUELLSTAND.txt').write_text('Kramurai-Testvorschau\nQuell-Commit (lokal): ' + sha + '\nQuellbaum: ' + tree + ('\nGitHub-Entwicklungsstand mit identischem Baum: ' + args.github_source + '\n' if args.github_source else '\n'))
 print('Vorschau erzeugt: ' + str(output))

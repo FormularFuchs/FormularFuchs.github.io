@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Statische Kontrollen nur für den isolierten Rechtsseiten-Entwurf.
+// Statische Kontrollen für den unveröffentlichten Integrationszweig.
 // Kein Browser-, Datenschutz- oder rechtlicher Freigabetest.
 import { readFileSync, existsSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -35,9 +35,10 @@ for (const p of ["impressum/index.html", "datenschutz/index.html"]) {
   check(html.includes("Felix Ducksch") && html.includes("c/o Block Services") &&
         html.includes("Stuttgarter Str. 106") && html.includes("70736 Fellbach"),
         p + " confirmed operator and service address");
-  check(html.includes("Arbeitsentwurf – noch unvollständig") &&
-        html.includes('content="noindex,nofollow"'),
-        p + " not marked as published");
+  check(!html.includes("Arbeitsentwurf – noch unvollständig") &&
+        !html.includes('content="noindex,nofollow"') &&
+        !html.includes("(Arbeitsentwurf)"),
+        p + " publication text prepared");
   check(!/\[(?:Vor- und Nachname|Vollständige|Rechtsgrundlage|Betreibername)/i.test(html),
         p + " no unfinished personal-detail placeholders");
 }

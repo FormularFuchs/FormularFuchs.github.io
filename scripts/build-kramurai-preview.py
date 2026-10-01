@@ -42,7 +42,7 @@ for name in FILES:
             if text.count(marker) != 1:
                 raise SystemExit('Vorschau-Helferabschluss nicht eindeutig: ' + name)
             text = text.replace(marker, '    <nav class="preview-legal-links screen-only" aria-label="Rechtliche Informationen">' + legal_links + '</nav>\n' + marker, 1)
-        theme_link = '<link rel="stylesheet" href="' + PREFIX + 'register-theme.css">'
+        theme_link = '<link rel="stylesheet" href="' + PREFIX + 'register-theme.css?v=20261001b">'
         if text.count('</head>') != 1:
             raise SystemExit('Vorschau-Kopf nicht eindeutig: ' + name)
         text = text.replace('</head>', '  ' + theme_link + '\n</head>', 1)

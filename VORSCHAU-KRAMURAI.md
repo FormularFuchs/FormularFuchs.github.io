@@ -60,9 +60,11 @@ Rückmeldung des Nutzers am 30.09.2026: Der Schrittwechsel funktioniert jetzt de
 
 Offen vor einer Umstellung der Hauptseite:
 - Alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen prüfen.
-- Beschädigte Sicherung im Browser abweisen lassen; bisher automatisiert geprüft.
+Browserprobe am 01.10.2026 auf der veröffentlichten Vorschau: Eine syntaktisch ungültige JSON-Datei wurde in allen drei Helfern über „Sicherung öffnen“ ausgewählt. Jeder Helfer zeigte „Die Datei ist keine lesbare Vorgangssicherung.“ und behielt genau einen bereits vorhandenen Testvorgang. Geprüft wurde die sichtbare Reaktion im Desktopbrowser (1363 px Breite); das ersetzt keinen vollständigen Smartphone- oder Manipulationstest.
 
-Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Der Nutzer meldete nach der Navigationsänderung einen deutlich besseren Schrittwechsel; die einzelnen Helfer sind damit noch nicht vollständig auf schmalen Bildschirmen durchgetestet.
+- Schmale Ansichten aller drei Helfer vollständig prüfen; bisher liegt eine positive Rückmeldung zum Schrittwechsel vor.
+
+Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Der Nutzer meldete nach der Navigationsänderung einen deutlich besseren Schrittwechsel; die einzelnen Helfer sind damit noch nicht vollständig auf schmalen Bildschirmen durchgetestet. Der Import einer nicht lesbaren JSON-Sicherung wurde in allen drei Helfern im Browser ohne Verlust der vorhandenen Testvorgänge abgewiesen.
 
 ## Reproduzierbarkeit
 

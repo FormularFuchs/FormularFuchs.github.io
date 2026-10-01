@@ -61,8 +61,9 @@ Rückmeldung des Nutzers am 30.09.2026: Der Schrittwechsel funktioniert jetzt de
 
 Browserprobe am 01.10.2026 auf der veröffentlichten Vorschau: Eine syntaktisch ungültige JSON-Datei wurde in allen drei Helfern über „Sicherung öffnen“ ausgewählt. Jeder Helfer zeigte „Die Datei ist keine lesbare Vorgangssicherung.“ und behielt genau einen bereits vorhandenen Testvorgang. Geprüft wurde die sichtbare Reaktion im Desktopbrowser (1363 px Breite); das ersetzt keinen vollständigen Smartphone- oder Manipulationstest.
 
-Offen vor einer Umstellung der Hauptseite:
-- Alle drei Helfer auf schmalen Ansichten hinsichtlich Überläufen und erreichbaren Schaltflächen vollständig prüfen; bisher liegt eine positive Rückmeldung zum Schrittwechsel vor.
+Vor der erneuten Smartphone-Prüfung war die vollständige Kontrolle aller drei Helfer auf schmalen Ansichten noch offen; bis dahin lag nur eine positive Rückmeldung zum Schrittwechsel vor.
+
+Am 01.10.2026 meldete Felix nach eigener Prüfung aller drei Helfer auf dem Smartphone zurück, dass die Darstellung gut aussieht. Die zuvor offene allgemeine Smartphone-Prüfung gilt damit für den bisherigen Funktionsstand als erledigt. Offen blieb zunächst die Farb- und Formensprache. Felix wählte anschließend **Petrol und Koralle** und stimmte der gestalterischen Richtung **Register** zu. Das kantige K in der neuen Vorschau ist nur ein austauschbarer Platzhalter; Logo und Maskottchen bleiben offen. Die Farb- und Formänderung der Vorschau ist nach dieser Rückmeldung neu und benötigt noch eine Sichtprüfung auf dem Smartphone sowie eine PDF-Probe; die bisherigen Android-Ergebnisse werden nicht als Test des neuen Designs ausgegeben.
 
 Die PDF-Praxistests aller drei Helfer einschließlich der neuen PDF-Kopfgestaltung sind erfolgreich. Der Nutzer meldete nach der Navigationsänderung einen deutlich besseren Schrittwechsel; die einzelnen Helfer sind damit noch nicht vollständig auf schmalen Bildschirmen durchgetestet. Der Import einer nicht lesbaren JSON-Sicherung wurde in allen drei Helfern im Browser ohne Verlust der vorhandenen Testvorgänge abgewiesen.
 
@@ -75,5 +76,7 @@ python3 scripts/build-kramurai-preview.py ../formularfuchs-web --github-source 1
 ```
 
 Das Skript kopiert neun ausdrücklich ausgewählte Dateien, passt nur Vorschaupfade, Suchmaschinenanweisungen, Hinweisleiste und Speicherkennungen an. Die Anwendung und Sicherungslogik stammen aus dem geprüften Quellbaum `4fdf39a9a4aa5e2c56cc48fc3812d4d5e326002b` (GitHub-Commit `15386af0390c4684bff1c41e225e4f0851191764`). Bei späteren Änderungen diese Quellenangaben ebenfalls aktualisieren.
+
+Die Register-Gestaltung liegt in `scripts/register-theme.css` und wird vom Erzeugungsskript als letztes Stylesheet in die vier Vorschauseiten eingebunden und nach `/vorschau/kramurai/register-theme.css` kopiert. Sie ändert die Formulareingaben und JavaScript-Dateien nicht; auch der PDF-Kopf bekommt nur neue Farben. Ein Neuaufbau aus dem sauberen Quellstand erzeugte die gesamte Vorschau einschließlich Theme bytegleich zum geprüften Zweig.
 
 Zusätzliche Prüfung am 29.09.2026: Alle drei erzeugten Vorschau-Helfer wurden in jsdom mit fake-indexeddb gestartet. Vorbelegte Live-Vorgänge blieben unverändert und erschienen nicht in der Vorschau; neue Eingaben wurden ausschließlich unter den Vorschaukennungen und in `kramurai-preview-local` abgelegt. Dies ist ein automatisierter Isolationstest, kein echter Browser-/PDF-Praxistest.

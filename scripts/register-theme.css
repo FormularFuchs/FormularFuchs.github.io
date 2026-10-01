@@ -104,6 +104,7 @@ footer{background:#f4f1e8}
   .helper-page .case-manager-hint,.helper-page .local-case-note p,
   .helper-page .intro,.helper-page .hint,.helper-page .progress-label,
   .helper-page .summary-key{color:#466159}
+  .helper-page .wizard-head .lead{color:#466159}
   .helper-page .wizard-head .eyebrow{
     background:transparent;color:#8c321f;border:0;
     letter-spacing:.12em;padding:0;

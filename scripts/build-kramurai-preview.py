@@ -48,6 +48,11 @@ for name in FILES:
                 raise SystemExit('Vorschau-Fußzeile nicht eindeutig: ' + name)
             text = text.replace(marker, marker + '\n        ' + legal_links, 1)
         else:
+            if name == 'handy-trade-in-dokumentieren/index.html':
+                old = '<h1 class="document-title">Trade-in- und Zustandsdokumentation</h1>'
+                if text.count(old) != 1:
+                    raise SystemExit('Vorschau-PDF-Titel nicht eindeutig: ' + name)
+                text = text.replace(old, '<h1 class="document-title">Handyverkauf und Zustand</h1>', 1)
             marker = '  </main>'
             if text.count(marker) != 1:
                 raise SystemExit('Vorschau-Helferabschluss nicht eindeutig: ' + name)

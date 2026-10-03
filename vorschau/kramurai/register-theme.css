@@ -7,11 +7,11 @@
   --blue-soft:#e4efe7;
   --orange:#b8462e;
   --orange-soft:#f6e7df;
-  --bg:#c8dad2;
+  --bg:#b8cfc3;
   --text:#18372f;
   --muted:#38564c;
   --line:#d3dfd5;
-  --shadow:0 12px 30px rgba(13,58,50,.12);
+  --shadow:0 14px 32px rgba(13,58,50,.19);
   --radius:18px;
 }
 a{color:var(--navy-2)}
@@ -60,10 +60,10 @@ h1 span{color:#f6eee5}
 .quick-links a:hover,.quick-links a:focus-visible{border-color:#1b6258}
 .quick-links a span[aria-hidden="true"]:first-child{display:none}
 .quick-arrow{color:#a13c28}
-.product-card,.classic-card{background:#fff;border:1px solid #8fae9e;box-shadow:var(--shadow)}
+.product-card,.classic-card{background:#fff;border:2px solid #527765;box-shadow:var(--shadow)}
 .product-card.featured{border-top-color:#b8462e}
 .product-card:not(.featured){border-top:4px solid #b8462e;padding-top:23px}
-.product-card:hover,.classic-card:hover{border-color:#7eaa9a;box-shadow:var(--shadow)}
+.product-card:hover,.classic-card:hover{border-color:#1b6258;box-shadow:0 16px 36px rgba(13,58,50,.24)}
 .card-icon,.classic-icon{
   background:#e4efe7;color:#1b504b;font-size:0;border-radius:6px;
   font-weight:900;
@@ -77,8 +77,8 @@ h1 span{color:#f6eee5}
 .card-link{color:#a13c28}
 .trust-panel{background:linear-gradient(125deg,#103b37,#286656)}
 .trust-panel .section-kicker{color:#efc8b9}
-.next-card{background:#fff;border:1px solid #8fae9e;box-shadow:var(--shadow)}
-footer{background:#c8dad2}
+.next-card{background:#fff;border:2px solid #527765;box-shadow:var(--shadow)}
+footer{background:#b8cfc3}
 
 @media screen{
   body.helper-page{

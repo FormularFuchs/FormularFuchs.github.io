@@ -26,22 +26,26 @@
   .trust-panel .trust-item{background:rgba(225,245,232,.15);border:1.5px solid rgba(236,249,239,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
   .trust-panel .trust-item p{color:rgba(255,255,255,.88)}
   .hero-raven{align-self:stretch;display:grid;align-items:end;justify-items:center;min-width:0}
-  .hero-raven img{display:block;width:min(100%,450px);height:auto;max-height:510px;object-fit:contain;object-position:bottom center;filter:drop-shadow(0 15px 17px rgba(18,59,54,.12))}
+  .hero-raven img{display:block;width:min(100%,470px);height:auto;max-height:535px;object-fit:contain;object-position:bottom center;filter:drop-shadow(0 15px 17px rgba(18,59,54,.12))}
   @media(min-width:521px) and (max-width:900px){
     .hero-grid{grid-template-columns:minmax(0,1fr) minmax(205px,.55fr);gap:12px;min-height:0}
     .hero-raven img{max-height:430px}
   }
   @media(max-width:520px){
     .hero{padding:0}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 128px;grid-template-areas:"eyebrow eyebrow" "title title" "lead raven" "actions actions" "trust trust";gap:0 6px;min-height:0}
+     .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 160px;grid-template-areas:"eyebrow eyebrow" "title title" "lead raven" "actions actions" "trust trust";gap:0 6px;min-height:0}
     .hero-copy{display:contents}
     .hero .eyebrow{grid-area:eyebrow;display:block;padding:29px 0 9px;margin:0;font-size:.71rem;letter-spacing:.08em}
     .hero h1{grid-area:title;font-size:clamp(2.02rem,8.4vw,2.65rem);line-height:1.07;margin:0 0 17px}
-    .hero .lead{grid-area:lead;font-size:1rem;line-height:1.44}
-    .hero-raven{grid-area:raven;align-self:center}
-    .hero-raven img{width:124px;max-height:none}
+    .hero .lead{grid-area:lead;align-self:center;font-size:1rem;line-height:1.44}
+    .hero-raven{grid-area:raven;align-self:stretch;align-items:end;justify-items:start;overflow:visible}
+    .hero-raven img{width:176px;max-width:none;max-height:none;transform:translateX(-1px)}
     .hero .actions{grid-area:actions;margin-top:22px}
     .hero .hero-trust{grid-area:trust;display:flex;gap:5px 14px;margin:17px 0 28px;font-size:.78rem}
+  }
+  @media(max-width:350px){
+    .hero-grid{grid-template-columns:minmax(0,1fr) 146px}
+    .hero-raven img{width:162px}
   }
 </style>
 </head>
@@ -70,7 +74,7 @@
         <div class="hero-copy">
           <div class="eyebrow">Kostenlos · ohne Anmeldung · direkt im Browser</div>
           <h1>Wenn du denkst:<br><span>„Dafür müsste es doch ein Formular geben.“</span></h1>
-          <p class="lead">Kramurai entwickelt praktische Helfer für Situationen, in denen eine saubere Dokumentation fehlt oder bestehende Lösungen unnötig kompliziert sind.</p>
+          <p class="lead">Praktische Helfer für Alltagssituationen: einfach festhalten, was später wichtig sein kann.</p>
           <div class="actions">
             <a class="button primary" href="#helfer">Helfer ansehen</a>
             <a class="button secondary" href="#formulare">Formulare ansehen</a>

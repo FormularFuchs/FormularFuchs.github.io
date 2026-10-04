@@ -33,19 +33,19 @@
   }
   @media(max-width:520px){
     .hero{padding:0}
-     .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 160px;grid-template-areas:"eyebrow eyebrow" "title title" "lead raven" "actions actions" "trust trust";gap:0 6px;min-height:0}
+     .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 144px;grid-template-areas:"eyebrow eyebrow" "title title" "lead raven" "actions actions" "trust trust";gap:0 4px;min-height:0}
     .hero-copy{display:contents}
     .hero .eyebrow{grid-area:eyebrow;display:block;padding:29px 0 9px;margin:0;font-size:.71rem;letter-spacing:.08em}
     .hero h1{grid-area:title;font-size:clamp(2.02rem,8.4vw,2.65rem);line-height:1.07;margin:0 0 17px}
     .hero .lead{grid-area:lead;align-self:center;font-size:1rem;line-height:1.44}
     .hero-raven{grid-area:raven;align-self:stretch;align-items:end;justify-items:start;overflow:visible}
-    .hero-raven img{width:176px;max-width:none;max-height:none;transform:translateX(-1px)}
+    .hero-raven img{width:176px;max-width:none;max-height:none;transform:translateX(-24px)}
     .hero .actions{grid-area:actions;margin-top:22px}
     .hero .hero-trust{grid-area:trust;display:flex;gap:5px 14px;margin:17px 0 28px;font-size:.78rem}
   }
   @media(max-width:350px){
-    .hero-grid{grid-template-columns:minmax(0,1fr) 146px}
-    .hero-raven img{width:162px}
+    .hero-grid{grid-template-columns:minmax(0,1fr) 132px}
+    .hero-raven img{width:162px;transform:translateX(-20px)}
   }
 </style>
 </head>

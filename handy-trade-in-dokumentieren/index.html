@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Handy / Elektronik an Ankaufportal schicken – FormularFuchs Testversion</title>
+  <title>Handy / Elektronik an Ankaufportal schicken – Kramurai Testversion</title>
   <meta name="description" content="Zustand, Gerätekennung, Zubehör, Account-Status, Verpackung und Versand an ein Ankaufportal strukturiert dokumentieren.">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://kramurai.github.io/handy-trade-in-dokumentieren/">
   <link rel="stylesheet" href="/styles.css">
   <style>
     .wizard{padding:30px 0 56px}
@@ -77,7 +78,7 @@
       border-radius:16px;background:#fff;box-shadow:0 4px 14px rgba(13,55,94,.08)
     }
     .document-banner{
-      position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+      position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
       padding:16px 18px;background:linear-gradient(105deg,#0a2c57 0%,#0d4f86 58%,#1386c9 100%);color:#fff
     }
     .document-banner::after{
@@ -89,6 +90,7 @@
       border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 5px 16px rgba(0,0,0,.18)
     }
     .document-logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .document-identity{display:flex;align-items:center;gap:14px;min-width:0}
     .document-brand{font-size:20pt;font-weight:850;line-height:1.05;letter-spacing:-.025em;color:#fff}
     .brand-formular{color:#fff}.brand-fuchs{color:#4bc3ff}
     .document-tagline{font-size:8.2pt;color:rgba(255,255,255,.78);margin-top:5px;letter-spacing:.12em;text-transform:uppercase}
@@ -107,7 +109,7 @@
       .final-actions .btn{width:100%}
     }
 
-    /* FormularFuchs – gut erkennbare mobile Eingaben und Aktionen */
+    /* Kramurai – gut erkennbare mobile Eingaben und Aktionen */
     @media screen{
       .helper-page{
         --brand:#09558f;
@@ -384,11 +386,12 @@
       a{color:inherit;text-decoration:none}
     }
   </style>
+  <link rel="stylesheet" href="/register-theme.css?v=20261003b">
 </head>
 <body class="helper-page">
-  <header>
+<header>
     <div class="wrap">
-      <a class="brand" href="/" aria-label="FormularFuchs Startseite"><img class="helper-brand-mark" src="/assets/formularfuchs-logo-mark.jpg" alt=""><span class="helper-brand-name">Formular<span>Fuchs</span></span></a>
+      <a class="brand" href="/" aria-label="Kramurai Startseite"><span class="helper-brand-name">Kramurai</span></a>
     </div>
   </header>
 
@@ -399,13 +402,20 @@
       <p class="lead">Halte Zustand, Gerätekennung, Zubehör, Account-Status, Verpackung und Versand vor dem Ankauf fest.</p>
       <div class="case-manager screen-only">
         <div class="case-manager-heading">Meine Vorgänge <span id="caseCount"></span></div>
-        <p class="case-manager-hint">Nur in diesem Browser gespeichert – bei gelöschten Browserdaten oder Gerätewechsel nicht mehr verfügbar. Fertige PDFs separat sichern.</p>
+        <p class="case-manager-hint">Lokal in diesem Browser gespeichert. Mit einer Sicherungsdatei kannst du einen Vorgang samt gespeicherten Fotos und Belegen später wieder öffnen – auch auf einem anderen Gerät.</p>
         <div class="case-manager-actions">
           <label for="caseSelect">Gespeicherten Vorgang öffnen
             <select id="caseSelect" aria-label="Gespeicherten Vorgang öffnen"></select>
           </label>
           <button class="btn btn-secondary" type="button" id="createCaseTopBtn">+ Neuer Vorgang</button>
         </div>
+        <div class="backup-actions">
+          <button class="btn btn-secondary" type="button" id="backupExportBtn">Vorgang sichern</button>
+          <button class="btn btn-secondary" type="button" id="backupImportBtn">Sicherung öffnen</button>
+          <input type="file" id="backupFile" accept=".json,application/json" hidden aria-label="Vorgangssicherung auswählen">
+        </div>
+        <p class="case-manager-hint">Die Sicherungsdatei enthält deine Angaben und gespeicherten Dateien unverschlüsselt. Bewahre sie sicher auf. Beim Öffnen wird ein zusätzlicher Vorgang angelegt. Das PDF bleibt die lesbare Dokumentation.</p>
+        <p id="backupStatus" class="case-manager-hint" role="status" aria-live="polite"></p>
       </div>
       <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
       <div class="progress-label"><span id="progressText">Schritt 1 von 7</span><span id="saveStatus">lokal gespeichert</span></div>
@@ -544,7 +554,7 @@
 
       <section class="step" id="step-5" data-step="5">
         <h2>5. Zubehör und Verpackung fotografieren</h2>
-        <p class="intro">Nachdem die benötigten Daten gesichert und Konten entfernt sind, dokumentiere das mitgesendete Zubehör und das Verpacken. Die Fotos werden lokal verarbeitet; nichts wird automatisch an FormularFuchs übertragen.</p>
+        <p class="intro">Nachdem die benötigten Daten gesichert und Konten entfernt sind, dokumentiere das mitgesendete Zubehör und das Verpacken. Die Fotos werden lokal verarbeitet; nichts wird automatisch an Kramurai übertragen.</p>
         <div class="photo-list">
           <div class="photo-task" data-task="accessories">
             <div class="photo-top"><div><div class="photo-title">5. Gerät mit komplettem Zubehör</div><div class="hint">Gerät und alles mitgesendete Zubehör zusammen fotografieren.</div></div><span class="photo-status">noch kein Foto</span></div>
@@ -638,10 +648,12 @@
         </div>
         <div class="print-only document-head">
           <div class="document-banner">
-            <div class="document-logo" aria-hidden="true"><img src="/assets/formularfuchs-logo-mark.jpg" alt=""></div>
-            <div>
-              <div class="document-brand"><span class="brand-formular">Formular</span><span class="brand-fuchs">Fuchs</span></div>
-              <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
+            <div class="document-identity">
+
+              <div>
+                <div class="document-brand">Kramurai</div>
+                <div class="document-tagline">Einfach. Nützlich. Kostenlos.</div>
+              </div>
             </div>
             <div class="document-meta">
               <div>Erstellt: <span id="docCreatedDate">–</span></div>
@@ -649,14 +661,14 @@
             </div>
           </div>
           <div class="document-title-area">
-            <div class="document-watermark" aria-hidden="true">FormularFuchs</div>
-            <h1 class="document-title">Trade-in- und Zustandsdokumentation</h1>
+            <div class="document-watermark" aria-hidden="true">Kramurai</div>
+            <h1 class="document-title">Handyverkauf und Zustand</h1>
             <p class="document-subtitle">Ankaufportal · Zustand, Gerätekennung, Account-Check und Versand</p>
           </div>
         </div>
         <h2>7. Zusammenfassung</h2>
         <p class="intro">Kontrolliere deine Angaben. Du kannst jederzeit zurückgehen und etwas ergänzen.</p>
-        <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. FormularFuchs prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
+        <div class="warning">Dieses Dokument gibt deine eigenen Angaben und beigefügten Unterlagen wieder. Kramurai prüft deren Richtigkeit oder rechtliche Beweiskraft nicht.</div>
         <div id="summary" class="summary"></div>
         <div class="screen-only local-case-note">
           <strong>Automatisch lokal gespeichert</strong>
@@ -676,16 +688,13 @@
 
     <div class="privacy-note screen-only">
       <strong>🔒 Lokal auf diesem Gerät</strong><br>
-      Deine Eingaben und ausgewählten Dateien werden für diese Testversion im Browser gespeichert. Wenn du Browserdaten löschst, können auch diese Daten verloren gehen. Es findet keine automatische Übertragung an FormularFuchs statt.<br>
+      Deine Eingaben und ausgewählten Dateien werden für diese Testversion im Browser gespeichert. Wenn du Browserdaten löschst, können auch diese Daten verloren gehen. Es findet keine automatische Übertragung an Kramurai statt.<br>
       Fragen oder Rückmeldungen? <a href="mailto:FormularFuchs@genial.ms">FormularFuchs@genial.ms</a>
     </div>
-    <nav class="screen-only" aria-label="Rechtliche Informationen" style="display:flex;flex-wrap:wrap;gap:16px;margin:18px 0 24px">
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutz/">Datenschutz</a>
-      <a href="/">Zur Startseite</a>
-    </nav>
+    <nav class="legal-links screen-only" aria-label="Rechtliche Informationen"><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></nav>
   </main>
 
+  <script src="/assets/case-backup.js"></script>
   <script src="/handy-trade-in-dokumentieren/app.js"></script>
 </body>
 </html>

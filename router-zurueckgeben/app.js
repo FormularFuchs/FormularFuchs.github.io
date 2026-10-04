@@ -1,8 +1,8 @@
 (() => {
   "use strict";
 
-  const STORAGE_KEY = "formularfuchs-router-return-v1";
-  const DB_NAME = "formularfuchs-local";
+  const STORAGE_KEY = "kramurai-router-return-v1";
+  const DB_NAME = "kramurai-local";
   const STORE_NAME = "files";
   const CASES_KEY = STORAGE_KEY + "-cases-v2";
   const CASE_PREFIX = STORAGE_KEY + ":case:";
@@ -270,7 +270,7 @@
     });
   }
 
-  function showStep(step) {
+  function showStep(step, scroll = true) {
     state.currentStep = Math.max(1, Math.min(TOTAL_STEPS, step));
     document.querySelectorAll(".step").forEach(el => el.classList.toggle("active", Number(el.dataset.step) === state.currentStep));
     progressBar.style.width = ((state.currentStep / TOTAL_STEPS) * 100) + "%";
@@ -299,7 +299,13 @@
       });
 
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (scroll) {
+      const activeStep = document.getElementById("step-" + state.currentStep);
+      activeStep.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    }
   }
 
   function validateCurrentStep() {
@@ -665,7 +671,7 @@
       value.appendChild(printed);
       const help = document.createElement("div");
       help.className = "hint screen-only receipt-help";
-      help.textContent = "Die Original-PDF ist nicht in der FormularFuchs-PDF enthalten. Bitte beide Dateien speichern und gemeinsam weitergeben.";
+      help.textContent = "Die Original-PDF ist nicht in der erstellten Dokumentation enthalten. Bitte beide Dateien speichern und gemeinsam weitergeben.";
       value.appendChild(help);
       const link = document.createElement("a");
       link.className = "btn btn-secondary screen-only receipt-download";
@@ -772,8 +778,24 @@
     showStep(next ? (state.currentStep || 1) : 1);
   });
 
+  CaseBackup.mount({
+    helper: "router", defaultState, types: Object.keys(photoLabels),
+    openDb, storeName: STORE_NAME, prefix: CASE_PREFIX,
+    getState: () => state, isBusy: () => fileBusyCount > 0,
+    begin: beginFileWork, end: endFileWork,
+    onImported: async imported => {
+      resetCaseImages();
+      state = imported;
+      form.reset();
+      hydrateForm();
+      saveState(false);
+      await restorePreviews();
+      showStep(1);
+    }
+  });
+
   hydrateForm();
   bindAutosave();
   restorePreviews();
-  showStep(state.currentStep || 1);
+  showStep(state.currentStep || 1, false);
 })();

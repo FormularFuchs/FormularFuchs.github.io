@@ -505,12 +505,31 @@ footer{
   .next-mark{display:none}
   .footer-inner{align-items:flex-start;flex-direction:column;padding:26px 0}
 }
-/* Rechtsseiten – isolierter Entwurf, keine Änderungen an den Formularhelfern. */
-.legal-page{padding:42px 0 80px}
-.legal-card{max-width:800px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,4vw,42px);box-shadow:var(--shadow)}
-.legal-card h1{line-height:1.2;margin:0 0 22px}
-.legal-card h2{font-size:1.25rem;margin:24px 0 8px}
-.legal-card p,.legal-card a{overflow-wrap:anywhere}
-.draft-warning{border:2px solid #d08319;border-radius:12px;background:#fff5e8;padding:14px;margin:0 0 20px;color:#5c3608;font-weight:700}
-.legal-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.legal-links a{display:inline-block;padding:8px 13px;background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;font-weight:700}
+/* Neutraler Platzhalter, solange Logo und Maskottchen offen sind. */
+.brand-initial{
+  display:grid;place-items:center;width:112px;height:112px;margin:0 auto 20px;
+  border-radius:28px;background:#123f6b;color:#fff;
+  font-size:64px;font-weight:800;line-height:1;
+}
+
+.backup-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+@media(max-width:600px){.backup-actions .btn{width:100%}}
+
+.legal-links{display:flex;flex-wrap:wrap;gap:10px 20px;margin:24px 0;color:#233d54;font-weight:700}
+.legal-links a{color:#09558f}
+@media print{.preview-notice,.legal-links{display:none!important}}
+/* Die Schrittnavigation liegt im Dokument hinter langen Formularabschnitten.
+   Auf schmalen Bildschirmen bleibt sie auch vor dem ersten Scrollen erreichbar. */
+@media screen and (max-width:720px){
+  body.helper-page .wizard{padding-bottom:calc(116px + env(safe-area-inset-bottom))}
+  body.helper-page .wizard-nav{
+    position:fixed;
+    inset:auto 0 0;
+    z-index:30;
+    margin:0;
+    padding:10px max(16px, calc((100vw - 1080px)/2)) calc(10px + env(safe-area-inset-bottom));
+    background:rgba(234,241,247,.97);
+    border-top:1px solid #b6ccde;
+    box-shadow:0 -5px 18px rgba(12,49,88,.12);
+  }
+}

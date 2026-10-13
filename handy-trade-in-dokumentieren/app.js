@@ -796,6 +796,26 @@
     showStep(next ? (state.currentStep || 1) : 1);
   });
 
+  function mountTransitionBackup() {
+    if (document.getElementById("backupExportBtn")) CaseBackup.mount({
+    helper: "tradein", defaultState, types: Object.keys(photoLabels),
+    openDb, storeName: STORE_NAME, prefix: CASE_PREFIX,
+    getState: () => state, isBusy: () => fileBusyCount > 0,
+    begin: beginFileWork, end: endFileWork,
+    onImported: async imported => {
+      resetCaseImages();
+      state = imported;
+      form.reset();
+      hydrateForm();
+      saveState(false);
+      await restorePreviews();
+      showStep(1);
+    }
+  });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mountTransitionBackup, {once:true});
+  else mountTransitionBackup();
+
   hydrateForm();
   bindAutosave();
   restorePreviews();
